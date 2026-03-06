@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:bread"
+    },
+    {
+      "item": "foodies:white_cheese"
+    },
+    {
+      "tag": "minecraft:any_egg"
+    }
+  ],
+  "result": {
+    "item": "foodies:sandwich",
+    "count": 2,
+    "damage": 9
+  }
+}

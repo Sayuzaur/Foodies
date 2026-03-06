@@ -1,0 +1,17 @@
+{
+ "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "minecraft:any_fish"
+    },
+    {
+      "tag": "minecraft:any_veggie"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "item": "foodies:tomato_stew"
+  }
+}

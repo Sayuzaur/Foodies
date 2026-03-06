@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "minecraft:any_fish"
+    },
+    {
+      "tag": "minecraft:any_potato"
+    }
+  ],
+  "result": {
+    "item": "foodies:fish_and_chips"
+  }
+}

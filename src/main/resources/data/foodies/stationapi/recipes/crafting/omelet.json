@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "eee"
+  ],
+  "key": {
+    "e": {
+      "item": "minecraft:egg"
+    }
+  },
+  "result": {
+    "item": "foodies:omelet"
+  }
+}

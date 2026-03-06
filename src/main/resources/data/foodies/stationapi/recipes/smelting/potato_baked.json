@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "foodies:potato"
+  },
+  "result": {
+    "item": "foodies:potato_baked"
+  }
+}

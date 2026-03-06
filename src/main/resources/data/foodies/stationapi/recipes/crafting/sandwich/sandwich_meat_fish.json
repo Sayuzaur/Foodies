@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:bread"
+    },
+    {
+      "tag": "minecraft:any_meat"
+    },
+    {
+      "tag": "minecraft:any_fish"
+    }
+  ],
+  "result": {
+    "item": "foodies:sandwich",
+    "count": 2,
+    "damage": 7
+  }
+}

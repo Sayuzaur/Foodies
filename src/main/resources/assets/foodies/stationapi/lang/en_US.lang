@@ -1,0 +1,42 @@
+item.@.salt.name=Salt
+
+item.@.carrot.name=Carrot
+item.@.carrot_pie.name=Carrot Pie
+
+item.@.potato.name=Potato
+item.@.potato_baked.name=Baked Potato
+
+item.@.tomato.name=Tomato
+item.@.tomato_seeds.name=Tomato Seeds
+
+item.@.beef_raw.name=Raw Beef
+item.@.beef_cooked.name=Steak
+item.@.chicken_raw.name=Raw Chicken
+item.@.chicken_cooked.name=Cooked Chicken
+item.@.mutton_raw.name=Raw Mutton
+item.@.mutton_cooked.name=Cooked Mutton
+
+item.@.omelet.name=Omelet
+item.@.fish_and_chips.name=Fish and Chips
+item.@.white_cheese.name=White Cheese
+
+item.@.carrot_stew.name=Carrot Stew
+item.@.tomato_stew.name=Tomato Soup
+item.@.stew_meat.name=Meat Stew
+item.@.stew_fish.name=Fish Soup
+
+item.@.sandwich.name=Sandwich
+
+item.@.bottle.name=Glass Bottle
+item.@.juice_cactus.name=Cactus Juice
+item.@.juice_apple.name=Apple Juice
+
+tile.@.salt_ore.name=Salt Ore
+tile.@.salt_block.name=Salt Block
+
+tile.@.carrot_crops.name=Carrot Crops
+tile.@.carrot_wild.name=Wild Carrots
+tile.@.potato_crops.name=Potato Crops
+tile.@.potato_wild.name=Wild Potatoes
+tile.@.tomato_crops.name=Tomato Crops
+

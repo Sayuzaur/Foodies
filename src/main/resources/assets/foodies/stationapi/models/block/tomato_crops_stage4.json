@@ -1,0 +1,7 @@
+{
+  "parent": "foodies:block/crop_cross",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "cross": "foodies:block/tomato_crops_stage4"
+  }
+}

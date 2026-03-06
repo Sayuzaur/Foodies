@@ -1,0 +1,6 @@
+{
+  "parent": "foodies:block/crop",
+  "textures": {
+    "crop": "foodies:block/potato_crops_stage_2"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "values": [
+    "minecraft:porkchop",
+    "minecraft:cooked_porkchop",
+    "foodies:beef_raw",
+    "foodies:beef_cooked",
+    "foodies:chicken_cooked",
+    "foodies:mutton_raw",
+    "foodies:mutton_cooked"
+  ]
+}

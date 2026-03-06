@@ -1,25 +1,28 @@
 {
   "schemaVersion": 1,
-  "id": "%s",
+  "id": "foodies",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Foodies",
+  "description": "Mod adding new foods, crops and ingredients",
   "authors": [
-    "Me!"
+    "Sayuzaur"
   ],
   "contact": {
-    "homepage": "https://glass-launcher.net/",
-    "sources": "https://github.com/calmilamsy/stationapi-example-mod"
+    "homepage": "",
+    "sources": ""
   },
 
-  "license": "CC0-1.0",
-  "icon": "assets/%s/icon.png",
+  "license": "LGPL-3.0",
+  "icon": "assets/foodies/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "stationapi:event_bus": [
-      "%s.events.init.InitListener"
+      "io.github.sayuzaur.foodies.events.init.InitListener",
+      "io.github.sayuzaur.foodies.events.init.ItemListener",
+      "io.github.sayuzaur.foodies.events.init.BlockListener",
+      "io.github.sayuzaur.foodies.world.FeatureListener"
     ],
     "stationapi:event_bus_client": [
     ],
@@ -27,7 +30,7 @@
     ]
   },
   "mixins": [
-    "%s.mixins.json"
+    "foodies.mixins.json"
   ],
 
   "depends": {

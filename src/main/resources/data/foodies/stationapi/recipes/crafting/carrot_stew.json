@@ -1,0 +1,20 @@
+{
+ "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "foodies:carrot"
+    },
+    {
+      "item": "foodies:carrot"
+    },
+    {
+      "item": "foodies:carrot"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "item": "foodies:carrot_stew"
+  }
+}
