@@ -2,9 +2,7 @@ package io.github.sayuzaur.foodies.events.init;
 
 import io.github.sayuzaur.foodies.block.SaltBlock;
 import io.github.sayuzaur.foodies.block.SaltOre;
-import io.github.sayuzaur.foodies.block.crops.CarrotCrops;
-import io.github.sayuzaur.foodies.block.crops.PotatoCrops;
-import io.github.sayuzaur.foodies.block.crops.TomatoCrops;
+import io.github.sayuzaur.foodies.block.crops.*;
 import io.github.sayuzaur.foodies.block.plant.CarrotWild;
 import io.github.sayuzaur.foodies.block.plant.PotatoWild;
 import net.mine_diver.unsafeevents.listener.EventListener;
@@ -30,7 +28,10 @@ public class BlockListener {
     public static Block CARROT_WILD;
     public static Block POTATO_CROPS;
     public static Block POTATO_WILD;
+    public static Block ONION_CROPS;
     public static Block TOMATO_CROPS;
+    public static Block CABBAGE_CROPS;
+    public static Block CHILI_CROPS;
 
     @EventListener
     private static void registerBlocks(BlockRegistryEvent event){
@@ -41,6 +42,9 @@ public class BlockListener {
         CARROT_WILD = new CarrotWild(NAMESPACE.id("carrot_wild")).setTranslationKey(NAMESPACE.id("carrot_wild"));
         POTATO_CROPS = new PotatoCrops(NAMESPACE.id("potato_crops")).setTranslationKey(NAMESPACE.id("potato_crops"));
         POTATO_WILD = new PotatoWild(NAMESPACE.id("potato_wild")).setTranslationKey(NAMESPACE.id("potato_wild"));
+        ONION_CROPS = new OnionCrops(NAMESPACE.id("onion_crops")).setTranslationKey(NAMESPACE.id("onion_crops"));
         TOMATO_CROPS = new TomatoCrops(NAMESPACE.id("tomato_crops")).setTranslationKey(NAMESPACE.id("tomato_crops"));
+        CABBAGE_CROPS = new CabbageCrops(NAMESPACE.id("cabbage_crops")).setTranslationKey(NAMESPACE.id("cabbage_crops"));
+        CHILI_CROPS = new ChiliCrops(NAMESPACE.id("chili_crops")).setTranslationKey(NAMESPACE.id("chili_crops"));
     }
 }

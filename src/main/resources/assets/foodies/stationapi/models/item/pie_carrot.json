@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "foodies:item/pie_carrot",
+    "layer1": "foodies:item/pie_cream"
+  }
+}

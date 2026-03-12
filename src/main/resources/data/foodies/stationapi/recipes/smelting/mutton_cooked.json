@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "foodies:mutton_raw"
+  },
+  "result": {
+    "item": "foodies:mutton_cooked"
+  }
+}

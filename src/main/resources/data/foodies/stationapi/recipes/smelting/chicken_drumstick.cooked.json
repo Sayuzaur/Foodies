@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "foodies:chicken_drumstick_raw"
+  },
+  "result": {
+    "item": "foodies:chicken_drumstick_cooked"
+  }
+}

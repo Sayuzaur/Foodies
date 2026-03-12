@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "foodies:block/chili_crops_stage_5"
+  }
+}

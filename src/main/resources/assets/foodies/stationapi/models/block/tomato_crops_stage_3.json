@@ -1,0 +1,6 @@
+{
+  "parent": "foodies:block/crop_cross",
+  "textures": {
+    "cross": "foodies:block/tomato_crops_stage_3"
+  }
+}

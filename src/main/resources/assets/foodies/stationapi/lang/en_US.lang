@@ -1,20 +1,29 @@
 item.@.salt.name=Salt
 
 item.@.carrot.name=Carrot
-item.@.carrot_pie.name=Carrot Pie
-
 item.@.potato.name=Potato
 item.@.potato_baked.name=Baked Potato
+
+item.@.onion.name=Onion
 
 item.@.tomato.name=Tomato
 item.@.tomato_seeds.name=Tomato Seeds
 
+item.@.cabbage.name=Cabbage
+item.@.cabbage_seeds.name=Cabbage Seeds
+
+item.@.chili.name=Hellish Chili
+item.@.chili_seeds.name=Hellish Chili Seeds
+
 item.@.beef_raw.name=Raw Beef
 item.@.beef_cooked.name=Steak
-item.@.chicken_raw.name=Raw Chicken
-item.@.chicken_cooked.name=Cooked Chicken
+item.@.chicken_raw.name=Raw Whole Chicken
+item.@.chicken_cooked.name=Cooked Whole Chicken
+item.@.chicken_drumstick_raw.name=Raw Chicken Drumstick
+item.@.chicken_drumstick_cooked.name=Cooked Chicken Drumstick
 item.@.mutton_raw.name=Raw Mutton
 item.@.mutton_cooked.name=Cooked Mutton
+item.@.egg_cooked.name=Soft Boiled Egg
 
 item.@.omelet.name=Omelet
 item.@.fish_and_chips.name=Fish and Chips
@@ -24,12 +33,18 @@ item.@.carrot_stew.name=Carrot Stew
 item.@.tomato_stew.name=Tomato Soup
 item.@.stew_meat.name=Meat Stew
 item.@.stew_fish.name=Fish Soup
+item.@.stew_onion.name=Onion Soup
 
 item.@.sandwich.name=Sandwich
 
 item.@.bottle.name=Glass Bottle
 item.@.juice_cactus.name=Cactus Juice
 item.@.juice_apple.name=Apple Juice
+
+item.@.pie_carrot.name=Carrot Pie
+item.@.pie_apple.name=Apple Pie
+
+item.@.pico_de_gallo.name=Pico de gallo
 
 tile.@.salt_ore.name=Salt Ore
 tile.@.salt_block.name=Salt Block
@@ -38,5 +53,8 @@ tile.@.carrot_crops.name=Carrot Crops
 tile.@.carrot_wild.name=Wild Carrots
 tile.@.potato_crops.name=Potato Crops
 tile.@.potato_wild.name=Wild Potatoes
+tile.@.onion_crops.name=Onion Crops
 tile.@.tomato_crops.name=Tomato Crops
+tile.@.cabbage_crops.name=Cabbage Crops
+tile.@.chili_crops.name=Hellish Chili Crops
 

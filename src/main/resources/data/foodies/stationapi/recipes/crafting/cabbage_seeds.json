@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "foodies:cabbage"
+    }
+  ],
+  "result": {
+    "item": "foodies:cabbage_seeds",
+    "count": 4
+  }
+}

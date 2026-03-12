@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "foodies:chicken_raw"
+    }
+  ],
+  "result": {
+    "item": "foodies:chicken_drumstick_raw",
+    "count": 2
+  }
+}

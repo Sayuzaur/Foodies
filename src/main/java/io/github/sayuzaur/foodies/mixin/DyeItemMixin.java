@@ -1,8 +1,6 @@
 package io.github.sayuzaur.foodies.mixin;
 
-import io.github.sayuzaur.foodies.block.crops.CarrotCrops;
-import io.github.sayuzaur.foodies.block.crops.PotatoCrops;
-import io.github.sayuzaur.foodies.block.crops.TomatoCrops;
+import io.github.sayuzaur.foodies.block.crops.*;
 import io.github.sayuzaur.foodies.events.init.BlockListener;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.DyeItem;
@@ -43,6 +41,28 @@ public class DyeItemMixin {
 
                     if (age < 7){
                         ((PotatoCrops) BlockListener.POTATO_CROPS).applyFullGrowth(world, x, y, z);
+                        --stack.count;
+                    }
+                }
+                cir.setReturnValue(true);
+            } else if (blockId == BlockListener.ONION_CROPS.id) {
+                if (!world.isRemote){
+                    BlockState state = world.getBlockState(x, y, z);
+                    int age = state.get(AGE);
+
+                    if (age < 7){
+                        ((OnionCrops) BlockListener.ONION_CROPS).applyFullGrowth(world, x, y, z);
+                        --stack.count;
+                    }
+                }
+                cir.setReturnValue(true);
+            } else if (blockId == BlockListener.CABBAGE_CROPS.id) {
+                if (!world.isRemote){
+                    BlockState state = world.getBlockState(x, y, z);
+                    int age = state.get(AGE);
+
+                    if (age < 7){
+                        ((CabbageCrops) BlockListener.CABBAGE_CROPS).applyFullGrowth(world, x, y, z);
                         --stack.count;
                     }
                 }

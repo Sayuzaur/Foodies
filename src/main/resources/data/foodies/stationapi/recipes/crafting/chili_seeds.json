@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "foodies:chili"
+    }
+  ],
+  "result": {
+    "item": "foodies:chili_seeds",
+    "count": 4
+  }
+}

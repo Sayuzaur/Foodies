@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "foodies:block/tomato_crops_stage3"
+    "layer0": "foodies:block/tomato_crops_stage_5"
   }
 }
