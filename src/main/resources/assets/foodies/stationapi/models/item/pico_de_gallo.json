@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "foodies:item/pico_de_gallo"
+    "layer0": "minecraft:item/bowl",
+    "layer1": "foodies:item/pico_de_gallo"
   }
 }

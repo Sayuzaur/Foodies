@@ -146,7 +146,9 @@ public class ChiliCrops extends TemplateBlock implements BlockTemplate {
         if (var16 || var14 && var15) {
             moisture /= 2.0F;
         }
-
+        if (!isLavaNearby(world, x, y - 1, z)) {
+            moisture = 0.0F;
+        }
         return moisture;
     }
 
@@ -160,9 +162,11 @@ public class ChiliCrops extends TemplateBlock implements BlockTemplate {
 
             if (age < 10) {
                 float moisture = this.getAvailableMoisture(world, x, y, z);
-                if (random.nextInt((int)(100.0F / moisture)) == 0) {
-                    ++age;
-                    world.setBlockStateWithNotify(x, y, z, state.with(AGE10, age));
+                if (moisture != 0.0F) {
+                    if (random.nextInt((int)(100.0F / moisture)) == 0) {
+                        ++age;
+                        world.setBlockStateWithNotify(x, y, z, state.with(AGE10, age));
+                    }
                 }
             }
         }

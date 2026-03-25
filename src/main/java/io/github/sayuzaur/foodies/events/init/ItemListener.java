@@ -35,6 +35,8 @@ public class ItemListener {
     public static Item CABBAGE;
     public static Item CABBAGE_SEEDS;
 
+    public static Item MYSTERY_SEEDS;
+
     public static Item CHILI;
     public static Item CHILI_SEEDS;
 
@@ -46,14 +48,16 @@ public class ItemListener {
     public static Item CHICKEN_DRUMSTICK_COOKED;
     public static Item MUTTON_RAW;
     public static Item MUTTON_COOKED;
+    public static Item CALAMARI_RAW;
+    public static Item CALAMARI_COOKED;
     public static Item EGG_COOKED;
 
     public static Item OMELET;
     public static Item FISHANDCHIPS;
     public static Item WHITECHEESE;
 
-    public static Item CARROT_STEW;
-    public static Item TOMATO_STEW;
+    public static Item STEW_CARROT;
+    public static Item STEW_TOMATO;
     public static Item STEW_MEAT;
     public static Item STEW_FISH;
     public static Item STEW_ONION;
@@ -87,6 +91,8 @@ public class ItemListener {
         CABBAGE = new TemplateStackableFoodItem(NAMESPACE.id("cabbage"), 1, false, 64).setTranslationKey(NAMESPACE.id("cabbage"));
         CABBAGE_SEEDS = new CabbageSeeds(NAMESPACE.id("cabbage_seeds")).setTranslationKey(NAMESPACE.id("cabbage_seeds"));
 
+        MYSTERY_SEEDS = new MysterySeeds(NAMESPACE.id("mystery_seeds")).setTranslationKey(NAMESPACE.id("mystery_seeds"));
+
         CHILI = new Chili(NAMESPACE.id("chili")).setTranslationKey(NAMESPACE.id("chili"));
         CHILI_SEEDS = new ChiliSeeds(NAMESPACE.id("chili_seeds")).setTranslationKey(NAMESPACE.id("chili_seeds"));
 
@@ -98,14 +104,16 @@ public class ItemListener {
         CHICKEN_DRUMSTICK_COOKED = new TemplateStackableFoodItem(NAMESPACE.id("chicken_drumstick_cooked"), 3, true, 2).setTranslationKey(NAMESPACE.id("chicken_drumstick_cooked"));
         MUTTON_RAW = new TemplateFoodItem(NAMESPACE.id("mutton_raw"), 2, true).setTranslationKey(NAMESPACE.id("mutton_raw"));
         MUTTON_COOKED = new TemplateFoodItem(NAMESPACE.id("mutton_cooked"), 7, true).setTranslationKey(NAMESPACE.id("mutton_cooked"));
+        CALAMARI_RAW = new TemplateStackableFoodItem(NAMESPACE.id("calamari_raw"), 3, true, 2).setTranslationKey(NAMESPACE.id("calamari_raw"));
+        CALAMARI_COOKED = new TemplateStackableFoodItem(NAMESPACE.id("calamari_cooked"), 6, true, 2).setTranslationKey(NAMESPACE.id("calamari_cooked"));
         EGG_COOKED = new TemplateFoodItem(NAMESPACE.id("egg_cooked"), 3, true).setTranslationKey(NAMESPACE.id("egg_cooked"));
 
         OMELET = new Omelet(NAMESPACE.id("omelet")).setTranslationKey(NAMESPACE.id("omelet"));
         FISHANDCHIPS = new TemplateFoodItem(NAMESPACE.id("fish_and_chips"), 8, false).setTranslationKey(NAMESPACE.id("fish_and_chips"));
         WHITECHEESE = new TemplateFoodItem(NAMESPACE.id("white_cheese"), 6, false).setTranslationKey(NAMESPACE.id("white_cheese"));
 
-        CARROT_STEW = new BaseStew(NAMESPACE.id("carrot_stew"), 8, false).setTranslationKey(NAMESPACE.id("carrot_stew"));
-        TOMATO_STEW = new BaseStew(NAMESPACE.id("tomato_stew"), 7, false).setTranslationKey(NAMESPACE.id("tomato_stew"));
+        STEW_CARROT = new BaseStew(NAMESPACE.id("stew_carrot"), 8, false).setTranslationKey(NAMESPACE.id("stew_carrot"));
+        STEW_TOMATO = new BaseStew(NAMESPACE.id("stew_tomato"), 7, false).setTranslationKey(NAMESPACE.id("stew_tomato"));
         STEW_MEAT = new BaseStew(NAMESPACE.id("stew_meat"), 11, false).setTranslationKey(NAMESPACE.id("stew_meat"));
         STEW_FISH = new BaseStew(NAMESPACE.id("stew_fish"), 8, false).setTranslationKey(NAMESPACE.id("stew_fish"));
         STEW_ONION = new BaseStew(NAMESPACE.id("stew_onion"), 10, false).setTranslationKey(NAMESPACE.id("stew_onion"));

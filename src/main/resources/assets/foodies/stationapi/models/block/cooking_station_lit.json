@@ -1,0 +1,10 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "bottom":"foodies:block/cooking_station_top",
+    "top":"foodies:block/cooking_station_top",
+    "side":"foodies:block/cooking_station_side",
+    "front":"foodies:block/cooking_station_front_lit",
+    "particle":"foodies:block/cooking_station_top"
+  }
+}

@@ -1,10 +1,10 @@
 package io.github.sayuzaur.foodies.events.init;
 
+import io.github.sayuzaur.foodies.block.CookingStation;
 import io.github.sayuzaur.foodies.block.SaltBlock;
 import io.github.sayuzaur.foodies.block.SaltOre;
 import io.github.sayuzaur.foodies.block.crops.*;
-import io.github.sayuzaur.foodies.block.plant.CarrotWild;
-import io.github.sayuzaur.foodies.block.plant.PotatoWild;
+import io.github.sayuzaur.foodies.block.plant.*;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -29,9 +29,14 @@ public class BlockListener {
     public static Block POTATO_CROPS;
     public static Block POTATO_WILD;
     public static Block ONION_CROPS;
+    public static Block ONION_WILD;
     public static Block TOMATO_CROPS;
+    public static Block TOMATO_WILD;
     public static Block CABBAGE_CROPS;
+    public static Block CABBAGE_WILD;
     public static Block CHILI_CROPS;
+
+    public static Block COOKING_STATION;
 
     @EventListener
     private static void registerBlocks(BlockRegistryEvent event){
@@ -43,8 +48,13 @@ public class BlockListener {
         POTATO_CROPS = new PotatoCrops(NAMESPACE.id("potato_crops")).setTranslationKey(NAMESPACE.id("potato_crops"));
         POTATO_WILD = new PotatoWild(NAMESPACE.id("potato_wild")).setTranslationKey(NAMESPACE.id("potato_wild"));
         ONION_CROPS = new OnionCrops(NAMESPACE.id("onion_crops")).setTranslationKey(NAMESPACE.id("onion_crops"));
+        ONION_WILD = new OnionWild(NAMESPACE.id("onion_wild")).setTranslationKey(NAMESPACE.id("onion_wild"));
         TOMATO_CROPS = new TomatoCrops(NAMESPACE.id("tomato_crops")).setTranslationKey(NAMESPACE.id("tomato_crops"));
+        TOMATO_WILD = new TomatoWild(NAMESPACE.id("tomato_wild")).setTranslationKey(NAMESPACE.id("tomato_wild"));
         CABBAGE_CROPS = new CabbageCrops(NAMESPACE.id("cabbage_crops")).setTranslationKey(NAMESPACE.id("cabbage_crops"));
+        CABBAGE_WILD = new CabbageWild(NAMESPACE.id("cabbage_wild")).setTranslationKey(NAMESPACE.id("cabbage_wild"));
         CHILI_CROPS = new ChiliCrops(NAMESPACE.id("chili_crops")).setTranslationKey(NAMESPACE.id("chili_crops"));
+
+        COOKING_STATION = new CookingStation(NAMESPACE.id("cooking_station")).setTranslationKey(NAMESPACE.id("cooking_station"));
     }
 }

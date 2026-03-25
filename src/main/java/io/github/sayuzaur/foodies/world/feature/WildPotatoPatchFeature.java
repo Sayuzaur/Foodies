@@ -7,15 +7,15 @@ import net.minecraft.world.gen.feature.Feature;
 import java.util.List;
 import java.util.Random;
 
-public class WildCarrotPatchFeature extends Feature {
+public class WildPotatoPatchFeature extends Feature {
     public static List<String> targetBiomes = List.of(
-            "Plains",
-            "Forest"
+            "Taiga",
+            "Tundra"
     );
 
     @Override
     public boolean generate(World world, Random random, int x, int y, int z) {
-        if (random.nextInt(64) != 0){
+        if (random.nextInt(64) != 0) {
             return false;
         }
         for (int i = 0; i < 48; i++) {
@@ -27,11 +27,11 @@ public class WildCarrotPatchFeature extends Feature {
                 continue;
             }
 
-            if (!BlockListener.CARROT_WILD.canPlaceAt(world, varX, varY, varZ)) {
+            if (!BlockListener.POTATO_WILD.canPlaceAt(world, varX, varY, varZ)) {
                 continue;
             }
 
-            world.setBlockWithoutNotifyingNeighbors(varX, varY, varZ, BlockListener.CARROT_WILD.id);
+            world.setBlockWithoutNotifyingNeighbors(varX, varY, varZ, BlockListener.POTATO_WILD.id);
         }
 
         return true;

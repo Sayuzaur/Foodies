@@ -1,0 +1,36 @@
+{
+  "variants": {
+    "facing=north,lit=false": {
+      "model": "foodies:block/cooking_station_unlit",
+      "y": 90
+    },
+    "facing=east,lit=false": {
+      "model": "foodies:block/cooking_station_unlit",
+      "y": 180
+    },
+    "facing=south,lit=false": {
+      "model": "foodies:block/cooking_station_unlit",
+      "y": 270
+    },
+    "facing=west,lit=false": {
+      "model": "foodies:block/cooking_station_unlit",
+      "y": 0
+    },
+    "facing=north,lit=true": {
+      "model": "foodies:block/cooking_station_lit",
+      "y": 90
+    },
+    "facing=east,lit=true": {
+      "model": "foodies:block/cooking_station_lit",
+      "y": 180
+    },
+    "facing=south,lit=true": {
+      "model": "foodies:block/cooking_station_lit",
+      "y": 270
+    },
+    "facing=west,lit=true": {
+      "model": "foodies:block/cooking_station_lit",
+      "y": 0
+    }
+  }
+}

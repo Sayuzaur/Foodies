@@ -1,6 +1,7 @@
 {
   "values": [
     "foodies:salt_ore",
-    "foodies:salt_block"
+    "foodies:salt_block",
+    "foodies:cooking_station"
   ]
 }

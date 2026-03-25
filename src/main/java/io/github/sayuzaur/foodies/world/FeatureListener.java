@@ -1,7 +1,6 @@
 package io.github.sayuzaur.foodies.world;
 
-import io.github.sayuzaur.foodies.world.feature.SaltOreVein;
-import io.github.sayuzaur.foodies.world.feature.WildCarrotPatchFeature;
+import io.github.sayuzaur.foodies.world.feature.*;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
@@ -23,6 +22,26 @@ public class FeatureListener {
             WildCarrotPatchFeature carrotFeature = new WildCarrotPatchFeature();
 
             event.biome.addFeature(carrotFeature);
+        }
+        if (WildPotatoPatchFeature.targetBiomes.contains(event.biome.name)){
+            WildPotatoPatchFeature potatoFeature = new WildPotatoPatchFeature();
+
+            event.biome.addFeature(potatoFeature);
+        }
+        if (WildOnionPatchFeature.targetBiomes.contains(event.biome.name)){
+            WildOnionPatchFeature onionFeature = new WildOnionPatchFeature();
+
+            event.biome.addFeature(onionFeature);
+        }
+        if (WildTomatoPatchFeature.targetBiomes.contains(event.biome.name)){
+            WildTomatoPatchFeature tomatoFeature = new WildTomatoPatchFeature();
+
+            event.biome.addFeature(tomatoFeature);
+        }
+        if (WildCabbagePatchFeature.targetBiomes.contains(event.biome.name)){
+            WildCabbagePatchFeature cabbageFeature = new WildCabbagePatchFeature();
+
+            event.biome.addFeature(cabbageFeature);
         }
     }
 

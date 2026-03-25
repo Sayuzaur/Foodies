@@ -7,10 +7,10 @@ import net.minecraft.world.gen.feature.Feature;
 import java.util.List;
 import java.util.Random;
 
-public class WildCarrotPatchFeature extends Feature {
+public class WildCabbagePatchFeature extends Feature {
     public static List<String> targetBiomes = List.of(
-            "Plains",
-            "Forest"
+            "Seasonal Forest",
+            "Rainforest"
     );
 
     @Override
@@ -27,11 +27,11 @@ public class WildCarrotPatchFeature extends Feature {
                 continue;
             }
 
-            if (!BlockListener.CARROT_WILD.canPlaceAt(world, varX, varY, varZ)) {
+            if (!BlockListener.CABBAGE_WILD.canPlaceAt(world, varX, varY, varZ)) {
                 continue;
             }
 
-            world.setBlockWithoutNotifyingNeighbors(varX, varY, varZ, BlockListener.CARROT_WILD.id);
+            world.setBlockWithoutNotifyingNeighbors(varX, varY, varZ, BlockListener.CABBAGE_WILD.id);
         }
 
         return true;

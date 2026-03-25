@@ -2,19 +2,19 @@
  "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "foodies:tomato"
+      "item": "foodies:carrot"
     },
     {
-      "item": "foodies:tomato"
+      "item": "foodies:carrot"
     },
     {
-      "item": "foodies:tomato"
+      "item": "foodies:carrot"
     },
     {
       "item": "minecraft:bowl"
     }
   ],
   "result": {
-    "item": "foodies:tomato_stew"
+    "item": "foodies:stew_carrot"
   }
 }

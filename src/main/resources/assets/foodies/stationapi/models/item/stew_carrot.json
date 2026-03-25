@@ -2,6 +2,6 @@
   "parent": "minecraft:item/generated",
   "textures": {
     "layer0": "minecraft:item/bowl",
-    "layer1": "foodies:item/stew_meat"
+    "layer1": "foodies:item/stew_carrot"
   }
 }

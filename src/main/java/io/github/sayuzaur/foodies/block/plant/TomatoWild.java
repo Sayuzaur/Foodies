@@ -6,18 +6,18 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.modificationstation.stationapi.api.util.Identifier;
 
-public class PotatoWild extends BaseWildCrop {
-    public PotatoWild(Identifier identifier) {
+public class TomatoWild extends BaseWildCrop {
+    public TomatoWild(Identifier identifier) {
         super(identifier);
     }
 
     @Override
     protected Item getDrop() {
-        return ItemListener.POTATO;
+        return ItemListener.TOMATO_SEEDS;
     }
 
     @Override
     protected Block getShearsDrop() {
-        return BlockListener.POTATO_WILD;
+        return BlockListener.TOMATO_WILD;
     }
 }

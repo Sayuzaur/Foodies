@@ -7,31 +7,31 @@ import net.minecraft.world.gen.feature.Feature;
 import java.util.List;
 import java.util.Random;
 
-public class WildCarrotPatchFeature extends Feature {
+public class WildTomatoPatchFeature extends Feature {
     public static List<String> targetBiomes = List.of(
-            "Plains",
-            "Forest"
+            "Shrubland",
+            "Savanna"
     );
 
     @Override
     public boolean generate(World world, Random random, int x, int y, int z) {
-        if (random.nextInt(64) != 0){
+        if (random.nextInt(128) != 0){
             return false;
         }
-        for (int i = 0; i < 48; i++) {
-            int varX = x + random.nextInt(6) - random.nextInt(6);
+        for (int i = 0; i < 32; i++) {
+            int varX = x + random.nextInt(6) - random.nextInt(8);
             int varY = y + random.nextInt(4) - random.nextInt(4);
-            int varZ = z + random.nextInt(6) - random.nextInt(6);
+            int varZ = z + random.nextInt(6) - random.nextInt(8);
 
             if (!world.isAir(varX, varY, varZ)) {
                 continue;
             }
 
-            if (!BlockListener.CARROT_WILD.canPlaceAt(world, varX, varY, varZ)) {
+            if (!BlockListener.TOMATO_WILD.canPlaceAt(world, varX, varY, varZ)) {
                 continue;
             }
 
-            world.setBlockWithoutNotifyingNeighbors(varX, varY, varZ, BlockListener.CARROT_WILD.id);
+            world.setBlockWithoutNotifyingNeighbors(varX, varY, varZ, BlockListener.TOMATO_WILD.id);
         }
 
         return true;
