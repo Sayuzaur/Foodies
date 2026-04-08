@@ -31,20 +31,26 @@ item.@.egg_cooked.name=Soft Boiled Egg
 
 item.@.omelet.name=Omelet
 item.@.fish_and_chips.name=Fish and Chips
-item.@.white_cheese.name=White Cheese
+item.@.white_cheese.name=Cheese
+item.@.stuffed_cabbage.name=Stuffed Cabbage
+item.@.stuffed_chili.name=Pepper Poppers
+item.@.bruschetta.name=Bruschetta
 
 item.@.stew_carrot.name=Carrot Stew
 item.@.stew_tomato.name=Tomato Soup
 item.@.stew_meat.name=Meat Stew
 item.@.stew_fish.name=Fish Soup
 item.@.stew_onion.name=Onion Soup
+
 item.@.pico_de_gallo.name=Pico de gallo
+item.@.shakshouka.name=Shakshouka
 
 item.@.sandwich.name=Sandwich
 
 item.@.bottle.name=Glass Bottle
 item.@.juice_cactus.name=Cactus Juice
 item.@.juice_apple.name=Apple Juice
+item.@.juice_tomato.name=Tomato Juice
 
 item.@.pie_carrot.name=Carrot Pie
 item.@.pie_apple.name=Apple Pie
@@ -65,3 +71,5 @@ tile.@.cabbage_wild.name=Wild Cabbage
 tile.@.chili_crops.name=Hellish Chili Crops
 
 tile.@.cooking_station.name=Cooking Station
+
+tab.foodies.foodies_creative.name=Foodies

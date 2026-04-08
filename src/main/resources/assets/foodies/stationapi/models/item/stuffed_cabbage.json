@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "foodies:item/cheese"
+    "layer0": "foodies:item/stuffed_cabbage"
   }
 }

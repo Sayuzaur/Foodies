@@ -55,6 +55,9 @@ public class ItemListener {
     public static Item OMELET;
     public static Item FISHANDCHIPS;
     public static Item WHITECHEESE;
+    public static Item STUFFED_CABBAGE;
+    public static Item STUFFED_CHILI;
+    public static Item BRUSCHETTA;
 
     public static Item STEW_CARROT;
     public static Item STEW_TOMATO;
@@ -63,12 +66,14 @@ public class ItemListener {
     public static Item STEW_ONION;
 
     public static Item PICO_DE_GALLO;
+    public static Item SHAKSHOUKA;
 
     public static Item SANDWICH;
 
     public static Item BOTTLE;
     public static Item JUICE_CACTUS;
     public static Item JUICE_APPLE;
+    public static Item JUICE_TOMATO;
 
     public static Item CARROT_PIE;
     public static Item PIE_APPLE;
@@ -111,6 +116,9 @@ public class ItemListener {
         OMELET = new Omelet(NAMESPACE.id("omelet")).setTranslationKey(NAMESPACE.id("omelet"));
         FISHANDCHIPS = new TemplateFoodItem(NAMESPACE.id("fish_and_chips"), 8, false).setTranslationKey(NAMESPACE.id("fish_and_chips"));
         WHITECHEESE = new TemplateFoodItem(NAMESPACE.id("white_cheese"), 6, false).setTranslationKey(NAMESPACE.id("white_cheese"));
+        STUFFED_CABBAGE = new TemplateStackableFoodItem(NAMESPACE.id("stuffed_cabbage"), 5, false, 2).setTranslationKey(NAMESPACE.id("stuffed_cabbage"));
+        STUFFED_CHILI = new TemplateStackableFoodItem(NAMESPACE.id("stuffed_chili"), 4, false, 2).setTranslationKey(NAMESPACE.id("stuffed_chili"));
+        BRUSCHETTA = new TemplateStackableFoodItem(NAMESPACE.id("bruschetta"), 6, false, 2).setTranslationKey(NAMESPACE.id("bruschetta"));
 
         STEW_CARROT = new BaseStew(NAMESPACE.id("stew_carrot"), 8, false).setTranslationKey(NAMESPACE.id("stew_carrot"));
         STEW_TOMATO = new BaseStew(NAMESPACE.id("stew_tomato"), 7, false).setTranslationKey(NAMESPACE.id("stew_tomato"));
@@ -119,12 +127,14 @@ public class ItemListener {
         STEW_ONION = new BaseStew(NAMESPACE.id("stew_onion"), 10, false).setTranslationKey(NAMESPACE.id("stew_onion"));
 
         PICO_DE_GALLO = new BaseStew(NAMESPACE.id("pico_de_gallo"), 8, false).setTranslationKey(NAMESPACE.id("pico_de_gallo"));
+        SHAKSHOUKA = new BaseStew(NAMESPACE.id("shakshouka"), 8, false).setTranslationKey(NAMESPACE.id("shakshouka"));
 
         SANDWICH = new Sandwich(NAMESPACE.id("sandwich")).setTranslationKey(NAMESPACE.id("sandwich"));
 
         BOTTLE = new Bottle(NAMESPACE.id("bottle")).setTranslationKey(NAMESPACE.id("bottle"));
         JUICE_CACTUS = new BaseJuice(NAMESPACE.id("juice_cactus"), 3).setTranslationKey(NAMESPACE.id("juice_cactus"));
         JUICE_APPLE = new BaseJuice(NAMESPACE.id("juice_apple"), 3).setTranslationKey(NAMESPACE.id("juice_apple"));
+        JUICE_TOMATO = new BaseJuice(NAMESPACE.id("juice_tomato"), 3).setTranslationKey(NAMESPACE.id("juice_tomato"));
 
         CARROT_PIE = new CarrotPie(NAMESPACE.id("pie_carrot")).setTranslationKey(NAMESPACE.id("pie_carrot"));
         PIE_APPLE = new TemplateFoodItem(NAMESPACE.id("pie_apple"), 10, false).setTranslationKey(NAMESPACE.id("pie_apple"));

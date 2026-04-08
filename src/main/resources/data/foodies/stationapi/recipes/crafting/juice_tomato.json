@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "foodies:bottle"
+    },
+    {
+      "item": "foodies:tomato"
+    }
+  ],
+  "result": {
+    "item": "foodies:juice_tomato"
+  }
+}

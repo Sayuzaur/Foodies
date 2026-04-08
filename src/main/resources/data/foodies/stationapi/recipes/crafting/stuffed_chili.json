@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "foodies:chili"
+    },
+    {
+      "item": "foodies:white_cheese"
+    }
+  ],
+  "result": {
+    "item": "foodies:stuffed_chili",
+    "count": 2
+  }
+}

@@ -1,20 +1,20 @@
 {
-  "type": "minecraft:crafting_shapeless",
+ "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
       "item": "foodies:tomato"
     },
     {
-      "item": "foodies:onion"
+      "item": "foodies:tomato"
     },
     {
-      "item": "foodies:chili"
+      "tag": "minecraft:any_egg"
     },
     {
       "item": "minecraft:bowl"
     }
   ],
   "result": {
-    "item": "foodies:pico_de_gallo"
+    "item": "foodies:shakshouka"
   }
 }

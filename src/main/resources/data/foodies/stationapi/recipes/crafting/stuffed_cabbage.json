@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "foodies:cabbage"
+    },
+    {
+      "tag": "minecraft:any_meat"
+    }
+  ],
+  "result": {
+    "item": "foodies:stuffed_cabbage",
+    "count": 2
+  }
+}

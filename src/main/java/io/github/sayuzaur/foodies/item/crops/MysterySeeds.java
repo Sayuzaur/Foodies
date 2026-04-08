@@ -5,10 +5,12 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import net.modificationstation.stationapi.api.client.item.CustomTooltipProvider;
 import net.modificationstation.stationapi.api.template.item.TemplateItem;
+import net.modificationstation.stationapi.api.util.Formatting;
 import net.modificationstation.stationapi.api.util.Identifier;
 
-public class MysterySeeds extends TemplateItem {
+public class MysterySeeds extends TemplateItem implements CustomTooltipProvider {
     public MysterySeeds(Identifier identifier){
         super(identifier);
     }
@@ -31,5 +33,11 @@ public class MysterySeeds extends TemplateItem {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public String[] getTooltip(ItemStack stack, String originalTooltip) {
+        return new String[]{originalTooltip,
+                Formatting.GRAY + "Can grow into any overworld vegetable"};
     }
 }

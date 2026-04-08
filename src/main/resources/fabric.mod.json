@@ -4,7 +4,7 @@
   "version": "${version}",
 
   "name": "Foodies",
-  "description": "Mod adding new foods, crops and ingredients",
+  "description": "More crops, meat, ingredients and crafted food.",
   "authors": [
     "Sayuzaur"
   ],
@@ -27,12 +27,18 @@
     "stationapi:event_bus_client": [
     ],
     "stationapi:event_bus_server": [
+    ],
+    "bhcreative:event_bus": [
+      "io.github.sayuzaur.foodies.events.init.CreativeListener"
     ]
   },
   "mixins": [
     "foodies.mixins.json"
   ],
 
+  "suggests": {
+    "bhcreative": "*"
+  },
   "depends": {
     "minecraft": "1.0.0-beta.7.3"
   }

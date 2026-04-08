@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "foodies:item/bottle_liquid_tomato",
+    "layer1": "foodies:item/bottle"
+  }
+}

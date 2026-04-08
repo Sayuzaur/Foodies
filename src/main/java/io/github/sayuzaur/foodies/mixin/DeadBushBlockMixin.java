@@ -18,6 +18,6 @@ public class DeadBushBlockMixin {
 
     @Inject(method = "getDroppedItemId", at = @At("HEAD"), cancellable = true)
     void getDroppedItemId(int blockMeta, Random random, CallbackInfoReturnable<Integer> cir) {
-        cir.setReturnValue(random.nextInt(2) == 0 ? ItemListener.MYSTERY_SEEDS.id : -1);
+        cir.setReturnValue(random.nextInt(4) == 0 ? ItemListener.MYSTERY_SEEDS.id : -1);
     }
 }

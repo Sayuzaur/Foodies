@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "foodies:calamari_raw"
+  },
+  "result": {
+    "item": "foodies:calamari_cooked"
+  }
+}

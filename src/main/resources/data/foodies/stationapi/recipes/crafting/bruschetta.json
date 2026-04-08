@@ -5,16 +5,14 @@
       "item": "foodies:tomato"
     },
     {
-      "item": "foodies:onion"
+      "item": "foodies:tomato"
     },
     {
-      "item": "foodies:chili"
-    },
-    {
-      "item": "minecraft:bowl"
+      "item": "minecraft:bread"
     }
   ],
   "result": {
-    "item": "foodies:pico_de_gallo"
+    "item": "foodies:bruschetta",
+    "count": 2
   }
 }
