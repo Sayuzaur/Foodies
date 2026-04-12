@@ -69,7 +69,7 @@ public class CreativeListener {
         tabFood.addItem(new ItemStack(ItemListener.JUICE_APPLE));
         tabFood.addItem(new ItemStack(ItemListener.JUICE_TOMATO));
 
-        tabFood.addItem(new ItemStack(ItemListener.CARROT_PIE));
+        tabFood.addItem(new ItemStack(ItemListener.PIE_CARROT));
         tabFood.addItem(new ItemStack(ItemListener.PIE_APPLE));
 
         tabFood.addItem(new ItemStack(ItemListener.SALT));
