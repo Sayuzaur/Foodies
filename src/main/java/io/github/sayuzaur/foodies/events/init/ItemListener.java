@@ -75,7 +75,7 @@ public class ItemListener {
     public static Item JUICE_APPLE;
     public static Item JUICE_TOMATO;
 
-    public static Item CARROT_PIE;
+    public static Item PIE_CARROT;
     public static Item PIE_APPLE;
 
 
@@ -86,11 +86,11 @@ public class ItemListener {
         CARROT = new Carrot(NAMESPACE.id("carrot")).setTranslationKey(NAMESPACE.id("carrot"));
 
         POTATO = new Potato(NAMESPACE.id("potato")).setTranslationKey(NAMESPACE.id("potato"));
-        POTATO_BAKED = new PotatoBaked(NAMESPACE.id("potato_baked")).setTranslationKey(NAMESPACE.id("potato_baked"));
+        POTATO_BAKED = new TemplateFoodItem(NAMESPACE.id("potato_baked"), 4, false ).setTranslationKey(NAMESPACE.id("potato_baked"));
 
         ONION = new Onion(NAMESPACE.id("onion")).setTranslationKey(NAMESPACE.id("onion"));
 
-        TOMATO = new Tomato(NAMESPACE.id("tomato")).setTranslationKey(NAMESPACE.id("tomato"));
+        TOMATO = new TemplateStackableFoodItem(NAMESPACE.id("tomato"), 1, false, 64).setTranslationKey(NAMESPACE.id("tomato"));
         TOMATO_SEEDS = new TomatoSeeds(NAMESPACE.id("tomato_seeds")).setTranslationKey(NAMESPACE.id("tomato_seeds"));
 
         CABBAGE = new TemplateStackableFoodItem(NAMESPACE.id("cabbage"), 1, false, 64).setTranslationKey(NAMESPACE.id("cabbage"));
@@ -113,7 +113,7 @@ public class ItemListener {
         CALAMARI_COOKED = new TemplateStackableFoodItem(NAMESPACE.id("calamari_cooked"), 6, true, 2).setTranslationKey(NAMESPACE.id("calamari_cooked"));
         EGG_COOKED = new TemplateFoodItem(NAMESPACE.id("egg_cooked"), 3, true).setTranslationKey(NAMESPACE.id("egg_cooked"));
 
-        OMELET = new Omelet(NAMESPACE.id("omelet")).setTranslationKey(NAMESPACE.id("omelet"));
+        OMELET = new TemplateFoodItem(NAMESPACE.id("omelet"), 6, false).setTranslationKey(NAMESPACE.id("omelet"));
         FISHANDCHIPS = new TemplateFoodItem(NAMESPACE.id("fish_and_chips"), 8, false).setTranslationKey(NAMESPACE.id("fish_and_chips"));
         WHITECHEESE = new TemplateFoodItem(NAMESPACE.id("white_cheese"), 6, false).setTranslationKey(NAMESPACE.id("white_cheese"));
         STUFFED_CABBAGE = new TemplateStackableFoodItem(NAMESPACE.id("stuffed_cabbage"), 5, false, 2).setTranslationKey(NAMESPACE.id("stuffed_cabbage"));
@@ -136,7 +136,7 @@ public class ItemListener {
         JUICE_APPLE = new BaseJuice(NAMESPACE.id("juice_apple"), 3).setTranslationKey(NAMESPACE.id("juice_apple"));
         JUICE_TOMATO = new BaseJuice(NAMESPACE.id("juice_tomato"), 3).setTranslationKey(NAMESPACE.id("juice_tomato"));
 
-        CARROT_PIE = new CarrotPie(NAMESPACE.id("pie_carrot")).setTranslationKey(NAMESPACE.id("pie_carrot"));
+        PIE_CARROT = new TemplateFoodItem(NAMESPACE.id("pie_carrot"), 10, false).setTranslationKey(NAMESPACE.id("pie_carrot"));
         PIE_APPLE = new TemplateFoodItem(NAMESPACE.id("pie_apple"), 10, false).setTranslationKey(NAMESPACE.id("pie_apple"));
     }
 }
