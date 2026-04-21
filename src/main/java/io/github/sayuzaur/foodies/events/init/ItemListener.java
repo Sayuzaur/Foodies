@@ -1,3 +1,19 @@
+/*
+ * Copyright (C) 2026 Sayuzaur
+ *
+ * This file is part of Foodies.
+ * Foodies is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as published by the Free Software Foundation,
+ * either version 3 of the License, or (at your option) any later version.
+ *
+ * Foodies is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License along with Foodies.
+ * If not, see <https://www.gnu.org/licenses/>.
+ */
+
 package io.github.sayuzaur.foodies.events.init;
 
 import io.github.sayuzaur.foodies.item.Bottle;
@@ -14,6 +30,7 @@ import net.modificationstation.stationapi.api.template.item.TemplateStackableFoo
 import java.lang.invoke.MethodHandles;
 
 import static io.github.sayuzaur.foodies.FoodiesMod.NAMESPACE;
+import static io.github.sayuzaur.foodies.FoodiesMod.FOOD_CONFIG;
 
 public class ItemListener {
     static {
@@ -90,10 +107,10 @@ public class ItemListener {
 
         ONION = new Onion(NAMESPACE.id("onion")).setTranslationKey(NAMESPACE.id("onion"));
 
-        TOMATO = new TemplateStackableFoodItem(NAMESPACE.id("tomato"), 1, false, 64).setTranslationKey(NAMESPACE.id("tomato"));
+        TOMATO = new TemplateStackableFoodItem(NAMESPACE.id("tomato"), FOOD_CONFIG.rawHeal, false, FOOD_CONFIG.rawStackSize).setTranslationKey(NAMESPACE.id("tomato"));
         TOMATO_SEEDS = new TomatoSeeds(NAMESPACE.id("tomato_seeds")).setTranslationKey(NAMESPACE.id("tomato_seeds"));
 
-        CABBAGE = new TemplateStackableFoodItem(NAMESPACE.id("cabbage"), 1, false, 64).setTranslationKey(NAMESPACE.id("cabbage"));
+        CABBAGE = new TemplateStackableFoodItem(NAMESPACE.id("cabbage"), FOOD_CONFIG.rawHeal, false, FOOD_CONFIG.rawStackSize).setTranslationKey(NAMESPACE.id("cabbage"));
         CABBAGE_SEEDS = new CabbageSeeds(NAMESPACE.id("cabbage_seeds")).setTranslationKey(NAMESPACE.id("cabbage_seeds"));
 
         MYSTERY_SEEDS = new MysterySeeds(NAMESPACE.id("mystery_seeds")).setTranslationKey(NAMESPACE.id("mystery_seeds"));

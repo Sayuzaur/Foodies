@@ -13,7 +13,7 @@
     "sources": ""
   },
 
-  "license": "LGPL-3.0",
+  "license": "LGPL-3.0-or-later",
   "icon": "assets/foodies/icon.png",
 
   "environment": "*",
@@ -30,6 +30,9 @@
     ],
     "bhcreative:event_bus": [
       "io.github.sayuzaur.foodies.events.init.CreativeListener"
+    ],
+    "gcapi3": [
+      "io.github.sayuzaur.foodies.FoodiesMod"
     ]
   },
   "mixins": [

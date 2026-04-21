@@ -1,3 +1,19 @@
+/*
+ * Copyright (C) 2026 Sayuzaur
+ *
+ * This file is part of Foodies.
+ * Foodies is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as published by the Free Software Foundation,
+ * either version 3 of the License, or (at your option) any later version.
+ *
+ * Foodies is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License along with Foodies.
+ * If not, see <https://www.gnu.org/licenses/>.
+ */
+
 package io.github.sayuzaur.foodies.item;
 
 import io.github.sayuzaur.foodies.events.init.ItemListener;
@@ -8,6 +24,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.template.item.TemplateItem;
 import net.modificationstation.stationapi.api.util.Identifier;
+
+import static io.github.sayuzaur.foodies.FoodiesMod.FOOD_CONFIG;
 
 public class Bottle extends TemplateItem {
     public Bottle(Identifier identifier){
@@ -24,6 +42,10 @@ public class Bottle extends TemplateItem {
                 world.spawnEntity(bottleItemEntity);
 
                 --stack.count;
+                if (FOOD_CONFIG.breakCactus) {
+                    world.setBlock(x, y, z, 0);
+                    world.playSound(x, y, z, "step.cloth", 1.0F, 1.0F);
+                }
             }
             return true;
         }

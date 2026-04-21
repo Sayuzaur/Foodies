@@ -16,13 +16,18 @@
 
 package io.github.sayuzaur.foodies;
 
-import net.glasslauncher.mods.gcapi3.api.ConfigRoot;
-import net.modificationstation.stationapi.api.util.Namespace;
+import net.glasslauncher.mods.gcapi3.api.ConfigEntry;
 
-public class FoodiesMod {
-    @SuppressWarnings("UnstableApiUsage")
-    public static final Namespace NAMESPACE = Namespace.resolve();
+public class Config {
+    public static class FoodConfig {
 
-    @ConfigRoot(value = "foodconfig", visibleName = "Foodies Config")
-    public static final Config.FoodConfig FOOD_CONFIG = new Config.FoodConfig();
+        @ConfigEntry(name = "Raw crops stack size (1-64)", minValue = 1, maxValue = 64, description = "Raw crops being carrots, potatoes, tomatoes, onions, cabbage and chili.", requiresRestart = true)
+        public Integer rawStackSize = 64;
+
+        @ConfigEntry(name = "Raw crops heal value (0-2)", minValue = 0, maxValue = 2, description = "How much raw crops heal you when eaten.", requiresRestart = true)
+        public Integer rawHeal = 1;
+
+        @ConfigEntry(name = "Juicing cactus breaks block", description = "If right-clicking with bottle on cactus breaks this block.")
+        public Boolean breakCactus = true;
+    }
 }
