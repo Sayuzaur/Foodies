@@ -4,7 +4,7 @@
   "version": "${version}",
 
   "name": "Foodies",
-  "description": "More crops, meat, ingredients and crafted food. Now with BEES!",
+  "description": "More crops, meat, ingredients and crafted food. Now with\\u00A76 BEES!",
   "authors": [
     "Sayuzaur"
   ],
@@ -19,7 +19,6 @@
   "environment": "*",
   "entrypoints": {
     "stationapi:event_bus": [
-      "io.github.sayuzaur.foodies.events.init.InitListener",
       "io.github.sayuzaur.foodies.events.init.ItemListener",
       "io.github.sayuzaur.foodies.events.init.BlockListener",
       "io.github.sayuzaur.foodies.events.init.FeatureListener"

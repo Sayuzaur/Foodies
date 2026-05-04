@@ -16,6 +16,7 @@
 
 package io.github.sayuzaur.foodies.events.init;
 
+import io.github.sayuzaur.foodies.block.BeeHive;
 import io.github.sayuzaur.foodies.block.CookingStation;
 import io.github.sayuzaur.foodies.block.SaltBlock;
 import io.github.sayuzaur.foodies.block.SaltOre;
@@ -54,6 +55,11 @@ public class BlockListener {
 
     public static Block COOKING_STATION;
 
+    public static Block BEEHIVE_OAK;
+    public static Block BEENEST_OAK;
+    public static Block BEENEST_BIRCH;
+    public static Block HONEYCOMB;
+
     @EventListener
     private static void registerBlocks(BlockRegistryEvent event){
         SALT_ORE = new SaltOre(NAMESPACE.id("salt_ore")).setTranslationKey(NAMESPACE.id("salt_ore"));
@@ -72,5 +78,10 @@ public class BlockListener {
         CHILI_CROPS = new ChiliCrops(NAMESPACE.id("chili_crops")).setTranslationKey(NAMESPACE.id("chili_crops"));
 
         COOKING_STATION = new CookingStation(NAMESPACE.id("cooking_station")).setTranslationKey(NAMESPACE.id("cooking_station"));
+
+        BEEHIVE_OAK = new BeeHive(NAMESPACE.id("beehive_oak")).setTranslationKey(NAMESPACE.id("beehive_oak"));
+        BEENEST_OAK = new BeeHive(NAMESPACE.id("beenest_oak")).setTranslationKey(NAMESPACE.id("beenest_oak"));
+        BEENEST_BIRCH = new BeeHive(NAMESPACE.id("beenest_birch")).setTranslationKey(NAMESPACE.id("beenest_birch"));
+        HONEYCOMB = new TemplateBlock(NAMESPACE.id("honeycomb"), Material.SOIL).setHardness(0.8F).setTranslationKey(NAMESPACE.id("honeycomb"));
     }
 }

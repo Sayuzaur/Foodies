@@ -95,6 +95,9 @@ public class ItemListener {
     public static Item PIE_CARROT;
     public static Item PIE_APPLE;
 
+    public static Item HONEY;
+    public static Item JAR;
+    public static Item JAR_BEES;
 
     @EventListener
     public static void registerItems(ItemRegistryEvent event){
@@ -155,5 +158,9 @@ public class ItemListener {
 
         PIE_CARROT = new TemplateFoodItem(NAMESPACE.id("pie_carrot"), 10, false).setTranslationKey(NAMESPACE.id("pie_carrot"));
         PIE_APPLE = new TemplateFoodItem(NAMESPACE.id("pie_apple"), 10, false).setTranslationKey(NAMESPACE.id("pie_apple"));
+
+        HONEY = new TemplateItem(NAMESPACE.id("honey")).setTranslationKey(NAMESPACE.id("honey"));
+        JAR = new TemplateItem(NAMESPACE.id("jar")).setTranslationKey(NAMESPACE.id("jar"));
+        JAR_BEES = new TemplateItem(NAMESPACE.id("jar_bees")).setTranslationKey(NAMESPACE.id("jar_bees")).setMaxCount(1).setCraftingReturnItem(ItemListener.JAR);
     }
 }

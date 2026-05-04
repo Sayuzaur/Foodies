@@ -55,6 +55,12 @@ item.@.juice_tomato.name=Tomato Juice
 item.@.pie_carrot.name=Carrot Pie
 item.@.pie_apple.name=Apple Pie
 
+item.@.honey.name=Honey
+item.@.jar.name=Glass Jar
+item.@.jar_bees.name=Jar full of Bees
+
+
+
 tile.@.salt_ore.name=Salt Ore
 tile.@.salt_block.name=Salt Block
 
@@ -71,3 +77,8 @@ tile.@.cabbage_wild.name=Wild Cabbage
 tile.@.chili_crops.name=Hellish Chili Crops
 
 tile.@.cooking_station.name=Cooking Station
+
+tile.@.beehive_oak.name=Wooden Beehive
+tile.@.beenest_oak.name=Oak Log Bee Nest
+tile.@.beenest_birch.name=Birch Log Bee Nest
+tile.@.honeycomb.name=Honeycomb Block

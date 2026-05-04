@@ -1,0 +1,10 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "bottom":"minecraft:block/oak_log_top",
+    "top":"minecraft:block/oak_log_top",
+    "side":"minecraft:block/oak_log",
+    "front":"foodies:block/beenest_oak",
+    "particle":"minecraft:block/oak_log"
+  }
+}

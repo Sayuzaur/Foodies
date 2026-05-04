@@ -16,5 +16,44 @@
 
 package io.github.sayuzaur.foodies.block;
 
-public class BeeHive {
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.modificationstation.stationapi.api.block.BlockState;
+import net.modificationstation.stationapi.api.item.ItemPlacementContext;
+import net.modificationstation.stationapi.api.state.StateManager;
+import net.modificationstation.stationapi.api.state.property.DirectionProperty;
+import net.modificationstation.stationapi.api.state.property.IntProperty;
+import net.modificationstation.stationapi.api.state.property.Properties;
+import net.modificationstation.stationapi.api.template.block.TemplateBlock;
+import net.modificationstation.stationapi.api.util.Identifier;
+import net.modificationstation.stationapi.api.util.math.Direction;
+
+public class BeeHive extends TemplateBlock {
+    public static final DirectionProperty HORIZONTAL_FACING;
+    public static final IntProperty HONEY_LEVEL;
+    public static final IntProperty POPULATION_LEVEL;
+
+    static {
+        HORIZONTAL_FACING = Properties.FACING;
+        HONEY_LEVEL = Properties.HONEY_LEVEL;
+        POPULATION_LEVEL = IntProperty.of("population_level", 0, 7);
+    }
+
+    public BeeHive(Identifier identifier) {
+        super(identifier, Material.WOOD);
+        this.setSoundGroup(WOOD_SOUND_GROUP);
+        this.setTickRandomly(true);
+        this.setHardness(2.0F);
+        setDefaultState(getStateManager().getDefaultState().with(HORIZONTAL_FACING, Direction.NORTH).with(HONEY_LEVEL, 0).with(POPULATION_LEVEL, 0));
+    }
+
+    @Override
+    public void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+        builder.add(HORIZONTAL_FACING, HONEY_LEVEL, POPULATION_LEVEL);
+    }
+
+    @Override
+    public BlockState getPlacementState(ItemPlacementContext context) {
+        return getStateManager().getDefaultState().with(HORIZONTAL_FACING,context.getHorizontalPlayerFacing()).with(HONEY_LEVEL, 0).with(POPULATION_LEVEL, 0);
+    }
 }
