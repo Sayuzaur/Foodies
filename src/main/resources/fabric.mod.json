@@ -4,13 +4,13 @@
   "version": "${version}",
 
   "name": "Foodies",
-  "description": "More crops, meat, ingredients and crafted food.",
+  "description": "More crops, meat, ingredients and crafted food. Now with BEES!",
   "authors": [
     "Sayuzaur"
   ],
   "contact": {
-    "homepage": "",
-    "sources": ""
+    "homepage": "https://modrinth.com/mod/foodies",
+    "sources": "https://github.com/Sayuzaur/Foodies"
   },
 
   "license": "LGPL-3.0-or-later",
@@ -22,7 +22,7 @@
       "io.github.sayuzaur.foodies.events.init.InitListener",
       "io.github.sayuzaur.foodies.events.init.ItemListener",
       "io.github.sayuzaur.foodies.events.init.BlockListener",
-      "io.github.sayuzaur.foodies.world.FeatureListener"
+      "io.github.sayuzaur.foodies.events.init.FeatureListener"
     ],
     "stationapi:event_bus_client": [
     ],
