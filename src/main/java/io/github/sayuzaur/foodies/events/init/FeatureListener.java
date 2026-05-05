@@ -56,6 +56,16 @@ public class FeatureListener {
 
             event.biome.addFeature(cabbageFeature);
         }
+        if (BirchTreeBeeFeature.targetBiomes.contains(event.biome.name)) {
+            BirchTreeBeeFeature birchTreeBee = new BirchTreeBeeFeature();
+
+            event.biome.addFeature(birchTreeBee);
+        }
+        if (OakTreeBeeFeature.targetBiomes.contains(event.biome.name)) {
+            OakTreeBeeFeature oakTreeBee = new OakTreeBeeFeature();
+
+            event.biome.addFeature(oakTreeBee);
+        }
     }
 
     @EventListener
