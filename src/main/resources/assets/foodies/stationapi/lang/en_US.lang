@@ -17,16 +17,22 @@ item.@.mystery_seeds.name=Mystery Seeds
 item.@.chili.name=Hellish Chili
 item.@.chili_seeds.name=Hellish Chili Seeds
 
+item.@.pork_glazed.name=Honey Glazed Ham
 item.@.beef_raw.name=Raw Beef
 item.@.beef_cooked.name=Steak
+item.@.beef_glazed.name=Honey Glazed Beef
 item.@.chicken_raw.name=Raw Whole Chicken
 item.@.chicken_cooked.name=Cooked Whole Chicken
+item.@.chicken_glazed.name=Honey Glazed Whole Chicken
 item.@.chicken_drumstick_raw.name=Raw Chicken Drumstick
 item.@.chicken_drumstick_cooked.name=Cooked Chicken Drumstick
+item.@.chicken_drumstick_glazed.name=Honey Glazed Drumstick
 item.@.mutton_raw.name=Raw Mutton
 item.@.mutton_cooked.name=Cooked Mutton
+item.@.mutton_glazed.name=Honey Glazed Mutton
 item.@.calamari_raw.name=Raw Calamari
 item.@.calamari_cooked.name=Crispy Fried Calamari
+item.@.calamari_glazed.name=Honey Glazed Calamari
 item.@.egg_cooked.name=Soft Boiled Egg
 
 item.@.omelet.name=Omelet
@@ -58,6 +64,7 @@ item.@.pie_apple.name=Apple Pie
 item.@.honey.name=Honey
 item.@.jar.name=Glass Jar
 item.@.jar_bees.name=Jar full of Bees
+item.@.apple_glazed.name=Honeyed Apple
 
 
 

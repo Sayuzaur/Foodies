@@ -59,15 +59,21 @@ public class ItemListener {
 
     public static Item BEEF_RAW;
     public static Item BEEF_COOKED;
+    public static Item BEEF_GLAZED;
     public static Item CHICKEN_RAW;
     public static Item CHICKEN_COOKED;
+    public static Item CHICKEN_GLAZED;
     public static Item CHICKEN_DRUMSTICK_RAW;
     public static Item CHICKEN_DRUMSTICK_COOKED;
+    public static Item CHICKEN_DRUMSTICK_GLAZED;
     public static Item MUTTON_RAW;
     public static Item MUTTON_COOKED;
+    public static Item MUTTON_GLAZED;
     public static Item CALAMARI_RAW;
     public static Item CALAMARI_COOKED;
+    public static Item CALAMARI_GLAZED;
     public static Item EGG_COOKED;
+    public static Item PORK_GLAZED;
 
     public static Item OMELET;
     public static Item FISHANDCHIPS;
@@ -98,6 +104,9 @@ public class ItemListener {
     public static Item HONEY;
     public static Item JAR;
     public static Item JAR_BEES;
+    public static Item APPLE_GLAZED;
+
+    static int honeyGlazedBonus = 1;
 
     @EventListener
     public static void registerItems(ItemRegistryEvent event){
@@ -121,16 +130,22 @@ public class ItemListener {
         CHILI = new Chili(NAMESPACE.id("chili")).setTranslationKey(NAMESPACE.id("chili"));
         CHILI_SEEDS = new ChiliSeeds(NAMESPACE.id("chili_seeds")).setTranslationKey(NAMESPACE.id("chili_seeds"));
 
+        PORK_GLAZED = new TemplateFoodItem(NAMESPACE.id("pork_glazed"), 8 + honeyGlazedBonus, true).setTranslationKey(NAMESPACE.id("pork_glazed"));
         BEEF_RAW = new TemplateFoodItem(NAMESPACE.id("beef_raw"), 3, true).setTranslationKey(NAMESPACE.id("beef_raw"));
         BEEF_COOKED = new TemplateFoodItem(NAMESPACE.id("beef_cooked"), 8, true).setTranslationKey(NAMESPACE.id("beef_cooked"));
+        BEEF_GLAZED = new TemplateFoodItem(NAMESPACE.id("beef_glazed"), 8 + honeyGlazedBonus, true).setTranslationKey(NAMESPACE.id("beef_glazed"));
         CHICKEN_RAW = new TemplateFoodItem(NAMESPACE.id("chicken_raw"), 2, true).setTranslationKey(NAMESPACE.id("chicken_raw"));
         CHICKEN_COOKED = new TemplateFoodItem(NAMESPACE.id("chicken_cooked"), 6, true).setTranslationKey(NAMESPACE.id("chicken_cooked"));
+        CHICKEN_GLAZED = new TemplateFoodItem(NAMESPACE.id("chicken_glazed"), 6 + honeyGlazedBonus, true).setTranslationKey(NAMESPACE.id("chicken_glazed"));
         CHICKEN_DRUMSTICK_RAW = new TemplateStackableFoodItem(NAMESPACE.id("chicken_drumstick_raw"), 1, true, 2).setTranslationKey(NAMESPACE.id("chicken_drumstick_raw"));
         CHICKEN_DRUMSTICK_COOKED = new TemplateStackableFoodItem(NAMESPACE.id("chicken_drumstick_cooked"), 3, true, 2).setTranslationKey(NAMESPACE.id("chicken_drumstick_cooked"));
+        CHICKEN_DRUMSTICK_GLAZED = new TemplateStackableFoodItem(NAMESPACE.id("chicken_drumstick_glazed"), 3 + honeyGlazedBonus, true, 2).setTranslationKey(NAMESPACE.id("chicken_drumstick_glazed"));
         MUTTON_RAW = new TemplateFoodItem(NAMESPACE.id("mutton_raw"), 2, true).setTranslationKey(NAMESPACE.id("mutton_raw"));
         MUTTON_COOKED = new TemplateFoodItem(NAMESPACE.id("mutton_cooked"), 7, true).setTranslationKey(NAMESPACE.id("mutton_cooked"));
+        MUTTON_GLAZED = new TemplateFoodItem(NAMESPACE.id("mutton_glazed"), 7 + honeyGlazedBonus, true).setTranslationKey(NAMESPACE.id("mutton_glazed"));
         CALAMARI_RAW = new TemplateStackableFoodItem(NAMESPACE.id("calamari_raw"), 3, true, 2).setTranslationKey(NAMESPACE.id("calamari_raw"));
         CALAMARI_COOKED = new TemplateStackableFoodItem(NAMESPACE.id("calamari_cooked"), 6, true, 2).setTranslationKey(NAMESPACE.id("calamari_cooked"));
+        CALAMARI_GLAZED = new TemplateStackableFoodItem(NAMESPACE.id("calamari_glazed"), 6 + honeyGlazedBonus, true, 2).setTranslationKey(NAMESPACE.id("calamari_glazed"));
         EGG_COOKED = new TemplateFoodItem(NAMESPACE.id("egg_cooked"), 3, true).setTranslationKey(NAMESPACE.id("egg_cooked"));
 
         OMELET = new TemplateFoodItem(NAMESPACE.id("omelet"), 6, false).setTranslationKey(NAMESPACE.id("omelet"));
@@ -162,5 +177,6 @@ public class ItemListener {
         HONEY = new TemplateItem(NAMESPACE.id("honey")).setTranslationKey(NAMESPACE.id("honey"));
         JAR = new TemplateItem(NAMESPACE.id("jar")).setTranslationKey(NAMESPACE.id("jar"));
         JAR_BEES = new TemplateItem(NAMESPACE.id("jar_bees")).setTranslationKey(NAMESPACE.id("jar_bees")).setMaxCount(1).setCraftingReturnItem(ItemListener.JAR);
+        APPLE_GLAZED = new TemplateFoodItem(NAMESPACE.id("apple_glazed"), 5, false).setTranslationKey(NAMESPACE.id("apple_glazed"));
     }
 }
