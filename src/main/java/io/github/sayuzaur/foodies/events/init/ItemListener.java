@@ -177,6 +177,6 @@ public class ItemListener {
         HONEY = new TemplateItem(NAMESPACE.id("honey")).setTranslationKey(NAMESPACE.id("honey"));
         JAR = new TemplateItem(NAMESPACE.id("jar")).setTranslationKey(NAMESPACE.id("jar"));
         JAR_BEES = new TemplateItem(NAMESPACE.id("jar_bees")).setTranslationKey(NAMESPACE.id("jar_bees")).setMaxCount(1).setCraftingReturnItem(ItemListener.JAR);
-        APPLE_GLAZED = new TemplateFoodItem(NAMESPACE.id("apple_glazed"), 5, false).setTranslationKey(NAMESPACE.id("apple_glazed"));
+        APPLE_GLAZED = new TemplateFoodItem(NAMESPACE.id("apple_glazed"), 4 + honeyGlazedBonus, false).setTranslationKey(NAMESPACE.id("apple_glazed"));
     }
 }

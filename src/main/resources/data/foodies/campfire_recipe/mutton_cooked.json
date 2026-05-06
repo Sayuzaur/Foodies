@@ -1,0 +1,8 @@
+{
+  "input": {
+    "item":"foodies:mutton_raw"
+  },
+  "output": {
+    "item":"foodies:mutton_cooked"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "input": {
+    "item":"foodies:chicken_drumstick_raw"
+  },
+  "output": {
+    "item":"foodies:chicken_drumstick_cooked"
+  }
+}

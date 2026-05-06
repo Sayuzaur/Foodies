@@ -1,0 +1,8 @@
+{
+  "input": {
+    "item":"foodies:calamari_raw"
+  },
+  "output": {
+    "item":"foodies:calamari_cooked"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "input": {
+    "item":"foodies:potato"
+  },
+  "output": {
+    "item":"foodies:potato_baked"
+  }
+}

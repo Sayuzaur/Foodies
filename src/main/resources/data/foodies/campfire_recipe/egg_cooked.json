@@ -1,0 +1,8 @@
+{
+  "input": {
+    "item":"minecraft:egg"
+  },
+  "output": {
+    "item":"foodies:egg_cooked"
+  }
+}

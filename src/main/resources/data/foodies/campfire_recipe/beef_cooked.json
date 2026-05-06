@@ -1,0 +1,8 @@
+{
+  "input": {
+    "item":"foodies:beef_raw"
+  },
+  "output": {
+    "item":"foodies:beef_cooked"
+  }
+}
