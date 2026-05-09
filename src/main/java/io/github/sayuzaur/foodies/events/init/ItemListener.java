@@ -74,6 +74,7 @@ public class ItemListener {
     public static Item CALAMARI_GLAZED;
     public static Item EGG_COOKED;
     public static Item PORK_GLAZED;
+    public static Item COD_GLAZED;
 
     public static Item OMELET;
     public static Item FISHANDCHIPS;
@@ -106,6 +107,7 @@ public class ItemListener {
     public static Item JAR_BEES;
     public static Item APPLE_GLAZED;
     public static Item COOKIE_HONEY;
+    public static Item CANDY_HONEY;
 
     static int honeyGlazedBonus = 1;
 
@@ -131,7 +133,6 @@ public class ItemListener {
         CHILI = new Chili(NAMESPACE.id("chili")).setTranslationKey(NAMESPACE.id("chili"));
         CHILI_SEEDS = new ChiliSeeds(NAMESPACE.id("chili_seeds")).setTranslationKey(NAMESPACE.id("chili_seeds"));
 
-        PORK_GLAZED = new TemplateFoodItem(NAMESPACE.id("pork_glazed"), 8 + honeyGlazedBonus, true).setTranslationKey(NAMESPACE.id("pork_glazed"));
         BEEF_RAW = new TemplateFoodItem(NAMESPACE.id("beef_raw"), 3, true).setTranslationKey(NAMESPACE.id("beef_raw"));
         BEEF_COOKED = new TemplateFoodItem(NAMESPACE.id("beef_cooked"), 8, true).setTranslationKey(NAMESPACE.id("beef_cooked"));
         BEEF_GLAZED = new TemplateFoodItem(NAMESPACE.id("beef_glazed"), 8 + honeyGlazedBonus, true).setTranslationKey(NAMESPACE.id("beef_glazed"));
@@ -148,6 +149,8 @@ public class ItemListener {
         CALAMARI_COOKED = new TemplateStackableFoodItem(NAMESPACE.id("calamari_cooked"), 6, true, 2).setTranslationKey(NAMESPACE.id("calamari_cooked"));
         CALAMARI_GLAZED = new TemplateStackableFoodItem(NAMESPACE.id("calamari_glazed"), 6 + honeyGlazedBonus, true, 2).setTranslationKey(NAMESPACE.id("calamari_glazed"));
         EGG_COOKED = new TemplateFoodItem(NAMESPACE.id("egg_cooked"), 3, true).setTranslationKey(NAMESPACE.id("egg_cooked"));
+        PORK_GLAZED = new TemplateFoodItem(NAMESPACE.id("pork_glazed"), 8 + honeyGlazedBonus, true).setTranslationKey(NAMESPACE.id("pork_glazed"));
+        COD_GLAZED = new TemplateFoodItem(NAMESPACE.id("cod_glazed"), 5 + honeyGlazedBonus, true).setTranslationKey(NAMESPACE.id("cod_glazed"));
 
         OMELET = new TemplateFoodItem(NAMESPACE.id("omelet"), 6, false).setTranslationKey(NAMESPACE.id("omelet"));
         FISHANDCHIPS = new TemplateFoodItem(NAMESPACE.id("fish_and_chips"), 8, false).setTranslationKey(NAMESPACE.id("fish_and_chips"));
@@ -180,5 +183,6 @@ public class ItemListener {
         JAR_BEES = new TemplateItem(NAMESPACE.id("jar_bees")).setTranslationKey(NAMESPACE.id("jar_bees")).setMaxCount(1).setCraftingReturnItem(ItemListener.JAR);
         APPLE_GLAZED = new TemplateFoodItem(NAMESPACE.id("apple_glazed"), 4 + honeyGlazedBonus, false).setTranslationKey(NAMESPACE.id("apple_glazed"));
         COOKIE_HONEY = new TemplateStackableFoodItem(NAMESPACE.id("cookie_honey"), 1, false, 8).setTranslationKey(NAMESPACE.id("cookie_honey"));
+        CANDY_HONEY = new TemplateStackableFoodItem(NAMESPACE.id("candy_honey"), 1, false, 8).setTranslationKey(NAMESPACE.id("candy_honey"));
     }
 }
