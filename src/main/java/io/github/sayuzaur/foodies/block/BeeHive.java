@@ -275,6 +275,8 @@ public class BeeHive extends TemplateBlock {
             float varZ3 = z;
             float velocityX = 0.0F;
             float velocityZ = 0.0F;
+            boolean canSpawnBee = true;
+
             int rand;
             if (population == 7) {
                 rand = random.nextInt(5 + BEEHIVE_CLIENT_CONFIG.beeParticlesNum);
@@ -336,8 +338,9 @@ public class BeeHive extends TemplateBlock {
                             for(int flowerZ = z - 4; flowerZ <= z + 4; ++flowerZ) {
                                 BlockState state = world.getBlockState(flowerX, flowerY, flowerZ);
                                 if (state.isIn(FoodiesMod.FLOWERS)) {
-                                    if (random.nextInt(8) == 0) {
+                                    if (random.nextInt(16) == 0 && canSpawnBee) {
                                         ParticleAPI.addParticle(new BeeOnFlower(world, flowerX, flowerY, flowerZ, 0, 0, 0));
+                                        canSpawnBee = false;
                                     }
                                 }
                             }

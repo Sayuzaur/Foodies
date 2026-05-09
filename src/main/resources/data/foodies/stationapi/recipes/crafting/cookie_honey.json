@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "whw"
+  ],
+  "key": {
+    "w": {
+      "item": "minecraft:wheat"
+    },
+    "h":{
+      "item": "foodies:honey"
+    }
+  },
+  "result": {
+    "item": "foodies:cookie_honey",
+    "count": "8"
+  }
+}

@@ -105,6 +105,7 @@ public class ItemListener {
     public static Item JAR;
     public static Item JAR_BEES;
     public static Item APPLE_GLAZED;
+    public static Item COOKIE_HONEY;
 
     static int honeyGlazedBonus = 1;
 
@@ -178,5 +179,6 @@ public class ItemListener {
         JAR = new TemplateItem(NAMESPACE.id("jar")).setTranslationKey(NAMESPACE.id("jar"));
         JAR_BEES = new TemplateItem(NAMESPACE.id("jar_bees")).setTranslationKey(NAMESPACE.id("jar_bees")).setMaxCount(1).setCraftingReturnItem(ItemListener.JAR);
         APPLE_GLAZED = new TemplateFoodItem(NAMESPACE.id("apple_glazed"), 4 + honeyGlazedBonus, false).setTranslationKey(NAMESPACE.id("apple_glazed"));
+        COOKIE_HONEY = new TemplateStackableFoodItem(NAMESPACE.id("cookie_honey"), 1, false, 8).setTranslationKey(NAMESPACE.id("cookie_honey"));
     }
 }

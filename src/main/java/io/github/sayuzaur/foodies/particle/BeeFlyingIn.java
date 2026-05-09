@@ -16,37 +16,18 @@
 
 package io.github.sayuzaur.foodies.particle;
 
-import farn.farn_util.api.particle.ParticleDisableQuadDraw;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.particle.Particle;
-import net.minecraft.client.render.Tessellator;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.world.World;
-import org.lwjgl.opengl.GL11;
 
 @Environment(EnvType.CLIENT)
-public class BeeFlyingIn extends Particle implements ParticleDisableQuadDraw {
-    public static final int TEXTURE_COUNT = 6;
-    public static final String[] TEXTURES = new String[TEXTURE_COUNT];
-    static
-    {
-        for (int i = 0; i < TEXTURE_COUNT; i++)
-            TEXTURES[i] = "/assets/foodies/stationapi/textures/particle/bee_" + i + ".png";
-    }
-
-    protected final int texIndex;
-
+public class BeeFlyingIn extends BeeBase {
     public BeeFlyingIn(World world, double x, double y, double z, double velocityX, double velocityY, double velocityZ) {
         super(world, x, y, z, velocityX, velocityY, velocityZ);
         float randX = this.random.nextFloat() + this.random.nextFloat() - 1;
         float randZ = this.random.nextFloat() + this.random.nextFloat() - 1;
-        this.setPosition(x + 0.5 + (randX * 2),
-                y,
-                z + 0.5 + (randZ * 2));
+        this.setPosition(x + 0.5 + (randX * 2), y, z + 0.5 + (randZ * 2));
         this.scale = (random.nextFloat() * 0.5F);
-        this.setBoundingBoxSpacing(0.25F, 0.25F);
         this.velocityY = (this.random.nextFloat() + this.random.nextFloat() - 1) / 200.0F;
         this.velocityX = Math.round((this.velocityX * 0.6F) * -10);
         this.velocityZ = Math.round((this.velocityZ * 0.6F) * -10);
@@ -59,36 +40,6 @@ public class BeeFlyingIn extends Particle implements ParticleDisableQuadDraw {
 
             this.maxParticleAge = random.nextInt(10) + 50;
         }
-
-        this.noClip = false;
-        this.texIndex = random.nextInt(TEXTURE_COUNT);
-    }
-
-    @Override
-    public void render(Tessellator tess, float partialTicks, float rotX, float rotXZ, float rotZ, float rotYZ, float rotXY) {
-        LivingEntity view = Minecraft.INSTANCE.camera;
-        double interpX = view.lastTickX + (view.x - view.lastTickX) * partialTicks;
-        double interpY = view.lastTickY + (view.y - view.lastTickY) * partialTicks;
-        double interpZ = view.lastTickZ + (view.z - view.lastTickZ) * partialTicks;
-        float partialPosX = (float) (prevX + (x - prevX) * partialTicks - interpX);
-        float partialPosY = (float) (prevY + (y - prevY) * partialTicks - interpY);
-        float partialPosZ = (float) (prevZ + (z - prevZ) * partialTicks - interpZ);
-        float scalePar = 0.1F * scale;
-        float light = this.getBrightnessAtEyes(1.0F);
-        GL11.glBindTexture(GL11.GL_TEXTURE_2D, Minecraft.INSTANCE.textureManager.getTextureId(TEXTURES[this.texIndex % TEXTURES.length]));
-        tess.startQuads();
-        tess.color(red * light, green * light, blue * light);
-        tess.vertex(partialPosX - rotX * scalePar - rotYZ * scalePar, partialPosY - rotXZ * scalePar, partialPosZ - rotZ * scalePar - rotXY * scalePar, 1, 1);
-        tess.vertex(partialPosX - rotX * scalePar + rotYZ * scalePar, partialPosY + rotXZ * scalePar, partialPosZ - rotZ * scalePar + rotXY * scalePar, 1, 0);
-        tess.vertex(partialPosX + rotX * scalePar + rotYZ * scalePar, partialPosY + rotXZ * scalePar, partialPosZ + rotZ * scalePar + rotXY * scalePar, 0, 0);
-        tess.vertex(partialPosX + rotX * scalePar - rotYZ * scalePar, partialPosY - rotXZ * scalePar, partialPosZ + rotZ * scalePar - rotXY * scalePar, 0, 1);
-        tess.draw();
-    }
-
-    @Override
-    public int getGroup()
-    {
-        return 3;
     }
 
     @Override
