@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "foodies:honey"
+    },
+    {
+      "item": "foodies:beef_cooked"
+    }
+  ],
+  "result": {
+    "item": "foodies:beef_glazed"
+  }
+}

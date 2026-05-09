@@ -61,7 +61,7 @@ public class BlockListener {
     public static Block HONEYCOMB;
 
     @EventListener
-    private static void registerBlocks(BlockRegistryEvent event){
+    private static void registerBlocks(BlockRegistryEvent event) {
         SALT_ORE = new SaltOre(NAMESPACE.id("salt_ore")).setTranslationKey(NAMESPACE.id("salt_ore"));
         SALT_BLOCK = new SaltBlock(NAMESPACE.id("salt_block")).setTranslationKey(NAMESPACE.id("salt_block"));
 

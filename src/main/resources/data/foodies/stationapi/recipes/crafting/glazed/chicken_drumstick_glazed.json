@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "foodies:honey"
+    },
+    {
+      "item": "foodies:chicken_drumstick_cooked"
+    }
+  ],
+  "result": {
+    "item": "foodies:chicken_drumstick_glazed"
+  }
+}

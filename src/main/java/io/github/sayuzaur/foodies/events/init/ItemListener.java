@@ -112,7 +112,7 @@ public class ItemListener {
     static int honeyGlazedBonus = 1;
 
     @EventListener
-    public static void registerItems(ItemRegistryEvent event){
+    public static void registerItems(ItemRegistryEvent event) {
         SALT = new TemplateItem(NAMESPACE.id("salt")).setTranslationKey(NAMESPACE.id("salt"));
 
         CARROT = new Carrot(NAMESPACE.id("carrot")).setTranslationKey(NAMESPACE.id("carrot"));
