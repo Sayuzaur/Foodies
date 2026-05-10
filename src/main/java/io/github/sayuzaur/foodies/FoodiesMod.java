@@ -16,6 +16,7 @@
 
 package io.github.sayuzaur.foodies;
 
+import net.fabricmc.loader.api.FabricLoader;
 import net.glasslauncher.mods.gcapi3.api.ConfigRoot;
 import net.minecraft.block.Block;
 import net.modificationstation.stationapi.api.registry.BlockRegistry;
@@ -36,6 +37,6 @@ public class FoodiesMod {
     @ConfigRoot(value = "beehiveclientconfig", visibleName = "Beehive Client-Side", index = 1)
     public static final FoodiesConfig.BeeHiveClientConfig BEEHIVE_CLIENT_CONFIG = new FoodiesConfig.BeeHiveClientConfig();
 
-    //BLOCK TAG
+    //BLOCKS TAG
     public static final TagKey<Block> FLOWERS = TagKey.of(BlockRegistry.KEY, NAMESPACE.id("flowers"));
 }

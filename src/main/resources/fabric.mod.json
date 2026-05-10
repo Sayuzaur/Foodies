@@ -4,7 +4,7 @@
   "version": "${version}",
 
   "name": "Foodies",
-  "description": "More crops, meat, ingredients and crafted food. Now with BEES!",
+  "description": "More crops, meat, ingredients and crafted food. Now with real size BEES!",
   "authors": [
     "Sayuzaur"
   ],
@@ -39,9 +39,15 @@
   ],
 
   "suggests": {
-    "bhcreative": "*"
+    "bhcreative": "*",
+    "alwaysmoreitems": "*"
   },
   "depends": {
-    "minecraft": "1.0.0-beta.7.3"
+    "minecraft": "1.0.0-beta.7.3",
+    "farn_util": ">=3.3.2-babric",
+    "stationapi": "*"
+  },
+  "breaks": {
+    "honeybees": "*"
   }
 }
