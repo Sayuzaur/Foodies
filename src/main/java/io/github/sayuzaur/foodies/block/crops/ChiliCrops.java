@@ -17,6 +17,8 @@
 package io.github.sayuzaur.foodies.block.crops;
 
 import io.github.sayuzaur.foodies.events.init.ItemListener;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.ItemEntity;
@@ -34,6 +36,8 @@ import net.modificationstation.stationapi.api.template.block.TemplateBlock;
 import net.modificationstation.stationapi.api.util.Identifier;
 
 import java.util.Random;
+
+//FIXME Get rid of all this shit, extend RegrowingCrops
 
 public class ChiliCrops extends TemplateBlock implements BlockTemplate {
 
@@ -264,10 +268,10 @@ public class ChiliCrops extends TemplateBlock implements BlockTemplate {
                 }
             }
         }
-        return false;
+        return true;
     }
 
-    @Override
+    @Environment(EnvType.CLIENT)
     public void randomDisplayTick(World world, int x, int y, int z, Random random) {
         BlockState state = world.getBlockState(x, y, z);
         int age = state.get(AGE10);

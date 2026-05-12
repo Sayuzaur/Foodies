@@ -17,6 +17,7 @@
 package io.github.sayuzaur.foodies.events.init;
 
 import io.github.sayuzaur.foodies.item.Bottle;
+import io.github.sayuzaur.foodies.item.Jar;
 import io.github.sayuzaur.foodies.item.crops.*;
 import io.github.sayuzaur.foodies.item.food.*;
 import net.mine_diver.unsafeevents.listener.EventListener;
@@ -170,17 +171,17 @@ public class ItemListener {
 
         SANDWICH = new Sandwich(NAMESPACE.id("sandwich")).setTranslationKey(NAMESPACE.id("sandwich"));
 
+        PIE_CARROT = new TemplateFoodItem(NAMESPACE.id("pie_carrot"), 10, false).setTranslationKey(NAMESPACE.id("pie_carrot"));
+        PIE_APPLE = new TemplateFoodItem(NAMESPACE.id("pie_apple"), 10, false).setTranslationKey(NAMESPACE.id("pie_apple"));
+
         BOTTLE = new Bottle(NAMESPACE.id("bottle")).setTranslationKey(NAMESPACE.id("bottle"));
+        JAR = new Jar(NAMESPACE.id("jar")).setTranslationKey(NAMESPACE.id("jar"));
         JUICE_CACTUS = new BaseJuice(NAMESPACE.id("juice_cactus"), 3).setTranslationKey(NAMESPACE.id("juice_cactus"));
         JUICE_APPLE = new BaseJuice(NAMESPACE.id("juice_apple"), 3).setTranslationKey(NAMESPACE.id("juice_apple"));
         JUICE_TOMATO = new BaseJuice(NAMESPACE.id("juice_tomato"), 3).setTranslationKey(NAMESPACE.id("juice_tomato"));
 
-        PIE_CARROT = new TemplateFoodItem(NAMESPACE.id("pie_carrot"), 10, false).setTranslationKey(NAMESPACE.id("pie_carrot"));
-        PIE_APPLE = new TemplateFoodItem(NAMESPACE.id("pie_apple"), 10, false).setTranslationKey(NAMESPACE.id("pie_apple"));
-
-        HONEY = new TemplateItem(NAMESPACE.id("honey")).setTranslationKey(NAMESPACE.id("honey"));
-        JAR = new TemplateItem(NAMESPACE.id("jar")).setTranslationKey(NAMESPACE.id("jar"));
         JAR_BEES = new TemplateItem(NAMESPACE.id("jar_bees")).setTranslationKey(NAMESPACE.id("jar_bees")).setMaxCount(1).setCraftingReturnItem(ItemListener.JAR);
+        HONEY = new TemplateItem(NAMESPACE.id("honey")).setTranslationKey(NAMESPACE.id("honey"));
         APPLE_GLAZED = new TemplateFoodItem(NAMESPACE.id("apple_glazed"), 4 + honeyGlazedBonus, false).setTranslationKey(NAMESPACE.id("apple_glazed"));
         COOKIE_HONEY = new TemplateStackableFoodItem(NAMESPACE.id("cookie_honey"), 1, false, 8).setTranslationKey(NAMESPACE.id("cookie_honey"));
         CANDY_HONEY = new TemplateStackableFoodItem(NAMESPACE.id("candy_honey"), 1, false, 8).setTranslationKey(NAMESPACE.id("candy_honey"));

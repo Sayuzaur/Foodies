@@ -16,7 +16,6 @@
 
 package io.github.sayuzaur.foodies.block.crops;
 
-import io.github.sayuzaur.foodies.events.init.ItemListener;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.ItemEntity;
@@ -123,38 +122,38 @@ public abstract class BaseCrops
 
     private float getAvailableMoisture(World world, int x, int y, int z) {
         float moisture = 1.0F;
-        int var6 = world.getBlockId(x, y, z - 1);
-        int var7 = world.getBlockId(x, y, z + 1);
-        int var8 = world.getBlockId(x - 1, y, z);
-        int var9 = world.getBlockId(x + 1, y, z);
-        int var10 = world.getBlockId(x - 1, y, z - 1);
-        int var11 = world.getBlockId(x + 1, y, z - 1);
-        int var12 = world.getBlockId(x + 1, y, z + 1);
-        int var13 = world.getBlockId(x - 1, y, z + 1);
-        boolean var14 = var8 == this.id || var9 == this.id;
-        boolean var15 = var6 == this.id || var7 == this.id;
-        boolean var16 = var10 == this.id || var11 == this.id || var12 == this.id || var13 == this.id;
+        int sideZ1 = world.getBlockId(x, y, z - 1);
+        int sideZ2 = world.getBlockId(x, y, z + 1);
+        int sideX1 = world.getBlockId(x - 1, y, z);
+        int sideX2 = world.getBlockId(x + 1, y, z);
+        int sideXZ1 = world.getBlockId(x - 1, y, z - 1);
+        int sideXZ2 = world.getBlockId(x + 1, y, z - 1);
+        int sideXZ3 = world.getBlockId(x + 1, y, z + 1);
+        int sideXZ4 = world.getBlockId(x - 1, y, z + 1);
+        boolean checkSidesX = sideX1 == this.id || sideX2 == this.id;
+        boolean checkSidesZ = sideZ1 == this.id || sideZ2 == this.id;
+        boolean checkSidesXZ = sideXZ1 == this.id || sideXZ2 == this.id || sideXZ3 == this.id || sideXZ4 == this.id;
 
-        for(int var17 = x - 1; var17 <= x + 1; ++var17) {
-            for(int var18 = z - 1; var18 <= z + 1; ++var18) {
-                int var19 = world.getBlockId(var17, y - 1, var18);
-                float var20 = 0.0F;
-                if (var19 == Block.FARMLAND.id) {
-                    var20 = 1.0F;
-                    if (world.getBlockMeta(var17, y - 1, var18) > 0) {
-                        var20 = 3.0F;
+        for(int checkX = x - 1; checkX <= x + 1; ++checkX) {
+            for(int checkZ = z - 1; checkZ <= z + 1; ++checkZ) {
+                int checkY = world.getBlockId(checkX, y - 1, checkZ);
+                float addMoisture = 0.0F;
+                if (checkY == Block.FARMLAND.id) {
+                    addMoisture = 1.0F;
+                    if (world.getBlockMeta(checkX, y - 1, checkZ) > 0) {
+                        addMoisture = 3.0F;
                     }
                 }
 
-                if (var17 != x || var18 != z) {
-                    var20 /= 4.0F;
+                if (checkX != x || checkZ != z) {
+                    addMoisture /= 4.0F;
                 }
 
-                moisture += var20;
+                moisture += addMoisture;
             }
         }
 
-        if (var16 || var14 && var15) {
+        if (checkSidesXZ || checkSidesX && checkSidesZ) {
             moisture /= 2.0F;
         }
 

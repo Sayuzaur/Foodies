@@ -16,39 +16,21 @@
 
 package io.github.sayuzaur.foodies.item;
 
-import io.github.sayuzaur.foodies.events.init.ItemListener;
-import net.minecraft.block.Block;
-import net.minecraft.entity.ItemEntity;
-import net.minecraft.entity.player.PlayerEntity;
+import net.modificationstation.stationapi.api.client.item.CustomTooltipProvider;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.template.item.TemplateItem;
+import net.modificationstation.stationapi.api.util.Formatting;
 import net.modificationstation.stationapi.api.util.Identifier;
 
-import static io.github.sayuzaur.foodies.FoodiesMod.FOOD_CONFIG;
-
-public class Bottle extends TemplateItem {
-    public Bottle(Identifier identifier){
+public class Bottle extends TemplateItem implements CustomTooltipProvider {
+    public Bottle(Identifier identifier) {
         super(identifier);
     }
 
     @Override
-    public boolean useOnBlock(ItemStack stack, PlayerEntity user, World world, int x, int y, int z, int side) {
-        int blockId = world.getBlockId(x, y, z);
-        if (blockId == Block.CACTUS.id) {
-            if (!world.isRemote) {
-                ItemStack bottleStack = new ItemStack(ItemListener.JUICE_CACTUS);
-                ItemEntity bottleItemEntity = new ItemEntity(world, user.x, user.y - 1.7F, user.z, bottleStack);
-                world.spawnEntity(bottleItemEntity);
-
-                --stack.count;
-                if (FOOD_CONFIG.breakCactus) {
-                    world.setBlock(x, y, z, 0);
-                    world.playSound(x, y, z, "step.cloth", 1.0F, 1.0F);
-                }
-            }
-            return true;
-        }
-        return false;
+    public String[] getTooltip(ItemStack stack, String originalTooltip) {
+        return new String[]{originalTooltip,
+                Formatting.GRAY + "Unused, left for compatibility.",
+                Formatting.GRAY + "Can be converted into jars."};
     }
 }

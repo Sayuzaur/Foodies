@@ -81,17 +81,16 @@ public class CreativeListener {
 
         tabFoodies.addItem(new ItemStack(ItemListener.SANDWICH, 1, 1));
 
-        tabFoodies.addItem(new ItemStack(ItemListener.BOTTLE));
+        tabFoodies.addItem(new ItemStack(ItemListener.PIE_CARROT));
+        tabFoodies.addItem(new ItemStack(ItemListener.PIE_APPLE));
+
+        tabFoodies.addItem(new ItemStack(ItemListener.JAR));
         tabFoodies.addItem(new ItemStack(ItemListener.JUICE_CACTUS));
         tabFoodies.addItem(new ItemStack(ItemListener.JUICE_APPLE));
         tabFoodies.addItem(new ItemStack(ItemListener.JUICE_TOMATO));
 
-        tabFoodies.addItem(new ItemStack(ItemListener.PIE_CARROT));
-        tabFoodies.addItem(new ItemStack(ItemListener.PIE_APPLE));
-
-        tabFoodies.addItem(new ItemStack(ItemListener.HONEY));
-        tabFoodies.addItem(new ItemStack(ItemListener.JAR));
         tabFoodies.addItem(new ItemStack(ItemListener.JAR_BEES));
+        tabFoodies.addItem(new ItemStack(ItemListener.HONEY));
         tabFoodies.addItem(new ItemStack(ItemListener.APPLE_GLAZED));
         tabFoodies.addItem(new ItemStack(ItemListener.COOKIE_HONEY));
         tabFoodies.addItem(new ItemStack(ItemListener.CANDY_HONEY));

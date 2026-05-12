@@ -24,6 +24,11 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
 
+/*
+ * Most of the code below is reused from github.com/FarnGitHub/Campfire-StationAPI/
+ * made by Farn
+ */
+
 public class BeeBase extends Particle implements ParticleDisableQuadDraw {
     public static final int TEXTURE_COUNT = 6;
     public static final String[] TEXTURES = new String[TEXTURE_COUNT];

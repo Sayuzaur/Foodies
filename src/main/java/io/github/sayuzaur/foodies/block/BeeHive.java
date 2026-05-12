@@ -168,7 +168,7 @@ public class BeeHive extends TemplateBlock {
                     honey = 0;
 
                     ItemStack stack = new ItemStack(ItemListener.HONEY);
-                    ItemEntity itemEntity = new ItemEntity(world, x + 0.5f, y + 1.5f, z + 0.5f, stack);
+                    ItemEntity itemEntity = new ItemEntity(world, player.x, player.y, player.z, stack);
                     world.spawnEntity(itemEntity);
                     world.playSound(x, y, z, "mob.chickenplop", 0.5F, 0.6F);
 
@@ -178,7 +178,7 @@ public class BeeHive extends TemplateBlock {
                 } else {
                     return false;
                 }
-                //DEBUG: FILL WITH HONEY
+                //FILL WITH HONEY
             } else if (userHand.itemId == Item.SLIMEBALL.id) {
                 if (honey < 5) {
                     honey++;
@@ -196,7 +196,7 @@ public class BeeHive extends TemplateBlock {
                     userHand.count--;
 
                     ItemStack stack = new ItemStack(ItemListener.JAR_BEES);
-                    ItemEntity itemEntity = new ItemEntity(world, x + 0.5f, y + 1.5f, z + 0.5f, stack);
+                    ItemEntity itemEntity = new ItemEntity(world, player.x, player.y, player.z, stack);
                     world.spawnEntity(itemEntity);
                     world.playSound(x, y, z, "mob.chickenplop", 0.5F, 1.6F);
 

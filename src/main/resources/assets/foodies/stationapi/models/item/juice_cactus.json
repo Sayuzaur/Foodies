@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "foodies:item/bottle_liquid_cactus",
-    "layer1": "foodies:item/bottle"
+    "layer0": "foodies:item/jar_juice_cactus",
+    "layer1": "foodies:item/jar"
   }
 }
