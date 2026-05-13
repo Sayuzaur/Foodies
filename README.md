@@ -1,7 +1,7 @@
 
 **Minecraft mod for beta 1.7.3 and STAPI**!
 
-**[Also on Modrinth](https://modrinth.com/mod/foodies/settings)**
+**[Also on Modrinth](https://modrinth.com/mod/foodies)**
 
 **Foodies** adds new crops, meats, ingredients and crafted food. All that using existing vanilla mechanics, not complicating game itself. Use it to add more roleplay to your world, build cosy farm, or simply get more sources of food.
 
