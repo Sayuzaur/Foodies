@@ -98,10 +98,10 @@ dependencies {
     modImplementation ("maven.modrinth:freecam-stationapi:${project.properties["freecam-stapi_version"]}")
 
     modImplementation("maven.modrinth:farnutil:3.5.2-babric-b1.7.3")
-
     modImplementation("maven.modrinth:keyf3:1.0.2")
     modImplementation("maven.modrinth:campfire-stationapi:2.0-babric")
     modImplementation("maven.modrinth:3d-dropped-item-stationapi:1.4")
+    //modImplementation("maven.modrinth:fishinfoodtweaks-stationapi:3.2.1")
 
     if (project.hasProperty("modmenu_version")) {
         modImplementation("net.danygames2014:modmenu:${project.modmenu_version}") {
