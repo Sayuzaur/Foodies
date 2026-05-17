@@ -30,6 +30,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Random;
 
+import static io.github.sayuzaur.foodies.FoodiesMod.MOB_DROPS_CONFIG;
+
 @Mixin(LivingEntity.class)
 public class LivingEntityMixin {
     @Unique
@@ -45,7 +47,7 @@ public class LivingEntityMixin {
                 }
             }
 
-            if (random.nextInt(3) <= 1) {
+            if (random.nextInt(100) + 1 <= MOB_DROPS_CONFIG.beefDropChance) {
                 if (self.fireTicks > 0) {
                     self.dropItem(ItemListener.BEEF_COOKED.id, 1);
                 } else {
@@ -61,32 +63,35 @@ public class LivingEntityMixin {
                     self.dropItem(Item.FEATHER.id, 1);
                 }
             }
-            //0 = whole chicken, 1 = drumstick(s), 2 = nothin
-            int randMeatDrop = this.random.nextInt(3);
-            if (randMeatDrop == 0) {
-                if (self.fireTicks > 0) {
-                    self.dropItem(ItemListener.CHICKEN_COOKED.id, 1);
-                } else {
-                    self.dropItem(ItemListener.CHICKEN_RAW.id, 1);
-                }
-            } else if (randMeatDrop == 1) {
-                int drumstickCount = this.random.nextInt(2) + 1;
-                for (int i = 0; i < drumstickCount; ++i) {
+
+            if (random.nextInt(100) + 1 <= MOB_DROPS_CONFIG.chickenDropChance) {
+                //0 = whole chicken, 1 = drumstick(s)
+                int randMeatDrop = this.random.nextInt(2);
+                if (randMeatDrop == 0) {
                     if (self.fireTicks > 0) {
-                        self.dropItem(ItemListener.CHICKEN_DRUMSTICK_COOKED.id, 1);
+                        self.dropItem(ItemListener.CHICKEN_COOKED.id, 1);
                     } else {
-                        self.dropItem(ItemListener.CHICKEN_DRUMSTICK_RAW.id, 1);
+                        self.dropItem(ItemListener.CHICKEN_RAW.id, 1);
+                    }
+                } else if (randMeatDrop == 1) {
+                    int drumstickCount = this.random.nextInt(2) + 1;
+                    for (int i = 0; i < drumstickCount; ++i) {
+                        if (self.fireTicks > 0) {
+                            self.dropItem(ItemListener.CHICKEN_DRUMSTICK_COOKED.id, 1);
+                        } else {
+                            self.dropItem(ItemListener.CHICKEN_DRUMSTICK_RAW.id, 1);
+                        }
                     }
                 }
             }
             cir.cancel();
         }
         if ((Object) this instanceof PigZombieEntity self) {
-            if (random.nextInt(3) <= 1) {
+            if (random.nextInt(100) + 1 <= MOB_DROPS_CONFIG.chiliZombiePigDropChance) {
                 self.dropItem(ItemListener.CHILI.id, 1);
             }
 
-            if (random.nextInt(3) <= 1) {
+            if (random.nextInt(100) + 1 <= MOB_DROPS_CONFIG.porkchopZombiePigDropChance) {
                 self.dropItem(Item.COOKED_PORKCHOP.id, 1);
             }
             cir.cancel();

@@ -37,6 +37,9 @@ public class FoodiesMod {
     @ConfigRoot(value = "beehiveclientconfig", visibleName = "Beehive Client-Side", index = 1)
     public static final FoodiesConfig.BeeHiveClientConfig BEEHIVE_CLIENT_CONFIG = new FoodiesConfig.BeeHiveClientConfig();
 
+    @ConfigRoot(value = "mobdropsconfig", visibleName = "Mob Drops", index = 4)
+    public static final FoodiesConfig.MobDropsConfig MOB_DROPS_CONFIG = new FoodiesConfig.MobDropsConfig();
+
     //BLOCKS TAG
     public static final TagKey<Block> FLOWERS = TagKey.of(BlockRegistry.KEY, NAMESPACE.id("flowers"));
 }

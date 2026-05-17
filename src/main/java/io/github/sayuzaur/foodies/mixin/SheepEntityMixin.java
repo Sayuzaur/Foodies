@@ -31,6 +31,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Random;
 
+import static io.github.sayuzaur.foodies.FoodiesMod.MOB_DROPS_CONFIG;
+
 @Mixin(SheepEntity.class)
 public class SheepEntityMixin {
     @Unique
@@ -54,7 +56,7 @@ public class SheepEntityMixin {
             self.dropItem(new ItemStack(Block.WOOL.id, 1, this.getColor()), 0.0F);
         }
 
-        if (random.nextInt(3) <= 1) {
+        if (random.nextInt(100) + 1 <= MOB_DROPS_CONFIG.muttonDropChance) {
             if (self.fireTicks > 0) {
                 self.dropItem(ItemListener.MUTTON_COOKED.id, 1);
             } else {

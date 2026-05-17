@@ -27,6 +27,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Random;
+import static io.github.sayuzaur.foodies.FoodiesMod.MOB_DROPS_CONFIG;
 
 @Mixin(SquidEntity.class)
 public class SquidEntityMixin {
@@ -42,7 +43,7 @@ public class SquidEntityMixin {
             self.dropItem(new ItemStack(Item.DYE, 1, 0), 0.0F);
         }
 
-        if (random.nextInt(3) <= 1) {
+        if (random.nextInt(100) + 1 <= MOB_DROPS_CONFIG.calamariDropChance) {
             int calamariCount = this.random.nextInt(2) + 1;
             for (int i = 0; i < calamariCount; ++i) {
                 if (self.fireTicks > 0) {

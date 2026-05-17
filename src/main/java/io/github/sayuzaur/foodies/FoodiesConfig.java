@@ -30,6 +30,9 @@ public class FoodiesConfig {
     @ConfigCategory(name = "Beehive Visuals")
     public BeeHiveClientConfig beehiveclient = new BeeHiveClientConfig();
 
+    @ConfigCategory(name = "Mob Drops")
+    public MobDropsConfig mobdrops = new MobDropsConfig();
+
     public static class FoodConfig {
         @ConfigEntry(name = "Raw crops stack size (1-64)", minValue = 1, maxValue = 64, description = "Raw crops being carrots, potatoes, tomatoes, onions, cabbage and chili.", requiresRestart = true)
         public Integer rawStackSize = 64;
@@ -58,6 +61,26 @@ public class FoodiesConfig {
 
         @ConfigEntry(name = "Bees Sound Volume multiplier", minValue = 0, maxValue = 5, description = "0.0F -> Mute")
         public Float beesSoundVolume = 1.0F;
+    }
+
+    public static class MobDropsConfig {
+        @ConfigEntry(name = "Beef drop chance %", minValue = 0,  maxValue = 100, description = "0%-100%")
+        public Integer beefDropChance = 33;
+
+        @ConfigEntry(name = "Calamari drop chance %", minValue = 0,  maxValue = 100, description = "0%-100%")
+        public Integer calamariDropChance = 33;
+
+        @ConfigEntry(name = "Chicken meat drop chance %", minValue = 0,  maxValue = 100, description = "0%-100%")
+        public Integer chickenDropChance = 33;
+
+        @ConfigEntry(name = "Mutton drop chance %", minValue = 0,  maxValue = 100, description = "0%-100%")
+        public Integer muttonDropChance = 33;
+
+        @ConfigEntry(name = "Cooked Porkchop drop chance %", minValue = 0,  maxValue = 100, description = "Cooked Porkchop dropped from ZombiePigman")
+        public Integer porkchopZombiePigDropChance = 33;
+
+        @ConfigEntry(name = "Chili drop chance %", minValue = 0,  maxValue = 100, description = "Chili dropped from ZombiePigman")
+        public Integer chiliZombiePigDropChance = 33;
     }
 }
 

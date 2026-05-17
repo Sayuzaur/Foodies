@@ -38,12 +38,14 @@ Mod introduces real size bees producing honey. Find wild bee nest, catch bees, b
 - Amount of bee particle generation
 - If bees are rendered on flowers
 - Bee buzzing sound volume 
+- Drop chance of new meat from every mob
 </details>
 
 
 ## Compatibility
 
-- **[Campfire-StationAPI](https://modrinth.com/mod/campfire-stationapi)** - Every oven recipe also works with Campfire mod, allowing you to cook meat on it. 
+- **[Campfire-StationAPI](https://modrinth.com/mod/campfire-stationapi)** - Every oven recipe also works with Campfire mod, allowing you to cook meat on it.
+- **[BH Creative](https://modrinth.com/mod/bh-creative)** - Foodies has own creative tab with every new item.
 - **[Always More Items](https://modrinth.com/mod/always-more-items)** - Recomended to use to see all the recipes added by Foodies. 
 - Foodies overwrites drops for sheep, cow, chicken, squid, zombiepig, deadbush and changes itemdye (bonemeal) behaviour. Mods that do the same thing will create conflicts.
 
