@@ -117,7 +117,7 @@ public abstract class BaseCrops
 
     public void applyFullGrowth(World world, int x, int y, int z) {
         BlockState current = world.getBlockState(x, y, z);
-        world.setBlockStateWithNotify(x, y, z, current.with(AGE, 7));
+        world.setBlockState(x, y, z, current.with(AGE, 7));
     }
 
     private float getAvailableMoisture(World world, int x, int y, int z) {
@@ -172,11 +172,12 @@ public abstract class BaseCrops
                 float moisture = this.getAvailableMoisture(world, x, y, z);
                 if (random.nextInt((int)(100.0F / moisture)) == 0) {
                     ++age;
-                    world.setBlockStateWithNotify(x, y, z, state.with(AGE, age));
+                    world.setBlockState(x, y, z, state.with(AGE, age));
                 }
             }
         }
     }
+
     @Override
     public void dropStacks(World world, int x, int y, int z, int meta, float luck) {
     }

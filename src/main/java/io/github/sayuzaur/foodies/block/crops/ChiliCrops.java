@@ -113,7 +113,7 @@ public class ChiliCrops extends TemplateBlock implements BlockTemplate {
 
     public void applyFullGrowth(World world, int x, int y, int z) {
         BlockState state = world.getBlockState(x, y, z);
-        world.setBlockStateWithNotify(x, y, z, state.with(AGE10, 10));
+        world.setBlockState(x, y, z, state.with(AGE10, 10));
     }
 
     private boolean isLavaNearby(World world, int x, int y, int z) {
@@ -185,7 +185,7 @@ public class ChiliCrops extends TemplateBlock implements BlockTemplate {
                 if (moisture != 0.0F) {
                     if (random.nextInt((int)(100.0F / moisture)) == 0) {
                         ++age;
-                        world.setBlockStateWithNotify(x, y, z, state.with(AGE10, age));
+                        world.setBlockState(x, y, z, state.with(AGE10, age));
                     }
                 }
             }
@@ -238,7 +238,7 @@ public class ChiliCrops extends TemplateBlock implements BlockTemplate {
 
             if (age == 10) {
                 age = 7;
-                world.setBlockStateWithNotify(x, y, z, state.with(AGE10, age));
+                world.setBlockState(x, y, z, state.with(AGE10, age));
 
                 world.playSound(x, y, z, "mob.chickenplop", 0.5F, 0.4F);
 

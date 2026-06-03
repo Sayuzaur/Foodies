@@ -62,26 +62,26 @@ public class BlockListener {
 
     @EventListener
     private static void registerBlocks(BlockRegistryEvent event) {
-        SALT_ORE = new SaltOre(NAMESPACE.id("salt_ore")).setTranslationKey(NAMESPACE.id("salt_ore"));
-        SALT_BLOCK = new SaltBlock(NAMESPACE.id("salt_block")).setTranslationKey(NAMESPACE.id("salt_block"));
+        SALT_ORE = new SaltOre(NAMESPACE.id("salt_ore"));
+        SALT_BLOCK = new SaltBlock(NAMESPACE.id("salt_block"));
 
-        CARROT_CROPS = new CarrotCrops(NAMESPACE.id("carrot_crops")).setTranslationKey(NAMESPACE.id("carrot_crops"));
-        CARROT_WILD = new CarrotWild(NAMESPACE.id("carrot_wild")).setTranslationKey(NAMESPACE.id("carrot_wild"));
-        POTATO_CROPS = new PotatoCrops(NAMESPACE.id("potato_crops")).setTranslationKey(NAMESPACE.id("potato_crops"));
-        POTATO_WILD = new PotatoWild(NAMESPACE.id("potato_wild")).setTranslationKey(NAMESPACE.id("potato_wild"));
-        ONION_CROPS = new OnionCrops(NAMESPACE.id("onion_crops")).setTranslationKey(NAMESPACE.id("onion_crops"));
-        ONION_WILD = new OnionWild(NAMESPACE.id("onion_wild")).setTranslationKey(NAMESPACE.id("onion_wild"));
-        TOMATO_CROPS = new TomatoCrops(NAMESPACE.id("tomato_crops")).setTranslationKey(NAMESPACE.id("tomato_crops"));
-        TOMATO_WILD = new TomatoWild(NAMESPACE.id("tomato_wild")).setTranslationKey(NAMESPACE.id("tomato_wild"));
-        CABBAGE_CROPS = new CabbageCrops(NAMESPACE.id("cabbage_crops")).setTranslationKey(NAMESPACE.id("cabbage_crops"));
-        CABBAGE_WILD = new CabbageWild(NAMESPACE.id("cabbage_wild")).setTranslationKey(NAMESPACE.id("cabbage_wild"));
-        CHILI_CROPS = new ChiliCrops(NAMESPACE.id("chili_crops")).setTranslationKey(NAMESPACE.id("chili_crops"));
+        CARROT_CROPS = new CarrotCrops(NAMESPACE.id("carrot_crops"));
+        CARROT_WILD = new CarrotWild(NAMESPACE.id("carrot_wild"));
+        POTATO_CROPS = new PotatoCrops(NAMESPACE.id("potato_crops"));
+        POTATO_WILD = new PotatoWild(NAMESPACE.id("potato_wild"));
+        ONION_CROPS = new OnionCrops(NAMESPACE.id("onion_crops"));
+        ONION_WILD = new OnionWild(NAMESPACE.id("onion_wild"));
+        TOMATO_CROPS = new TomatoCrops(NAMESPACE.id("tomato_crops"));
+        TOMATO_WILD = new TomatoWild(NAMESPACE.id("tomato_wild"));
+        CABBAGE_CROPS = new CabbageCrops(NAMESPACE.id("cabbage_crops"));
+        CABBAGE_WILD = new CabbageWild(NAMESPACE.id("cabbage_wild"));
+        CHILI_CROPS = new ChiliCrops(NAMESPACE.id("chili_crops"));
 
-        COOKING_STATION = new CookingStation(NAMESPACE.id("cooking_station")).setTranslationKey(NAMESPACE.id("cooking_station"));
+        COOKING_STATION = new CookingStation(NAMESPACE.id("cooking_station"));
 
-        BEEHIVE_OAK = new BeeHive(NAMESPACE.id("beehive_oak")).setTranslationKey(NAMESPACE.id("beehive_oak"));
-        BEENEST_OAK = new BeeHive(NAMESPACE.id("beenest_oak")).setTranslationKey(NAMESPACE.id("beenest_oak"));
-        BEENEST_BIRCH = new BeeHive(NAMESPACE.id("beenest_birch")).setTranslationKey(NAMESPACE.id("beenest_birch"));
-        HONEYCOMB = new TemplateBlock(NAMESPACE.id("honeycomb"), Material.SOIL).setHardness(0.8F).setTranslationKey(NAMESPACE.id("honeycomb"));
+        BEEHIVE_OAK = new BeeHive(NAMESPACE.id("beehive_oak"));
+        BEENEST_OAK = new BeeHive(NAMESPACE.id("beenest_oak"));
+        BEENEST_BIRCH = new BeeHive(NAMESPACE.id("beenest_birch"));
+        HONEYCOMB = new TemplateBlock(NAMESPACE.id("honeycomb"), Material.SOIL).setHardness(0.8F);
     }
 }

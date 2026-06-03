@@ -69,9 +69,9 @@ public class CookingStation extends TemplateBlock {
             BlockState current = world.getBlockState(x, y, z);
             boolean lit = current.get(IS_LIT);
             if (lit) {
-                world.setBlockStateWithNotify(x, y, z, current.with(IS_LIT, false));
+                world.setBlockState(x, y, z, current.with(IS_LIT, false));
             } else {
-                world.setBlockStateWithNotify(x, y, z, current.with(IS_LIT, true));
+                world.setBlockState(x, y, z, current.with(IS_LIT, true));
             }
             return true;
         }
@@ -93,19 +93,19 @@ public class CookingStation extends TemplateBlock {
             float var11 = random.nextFloat() * 0.6F - 0.3F;
 
             switch (face) {
-                case "south" -> {
+                case "east" -> {
                     world.addParticle("smoke", (double) (var7 - var10), (double) var8, (double) (var9 + var11), (double) 0.0F, (double) 0.0F, (double) 0.0F);
                     world.addParticle("flame", (double) (var7 - var10), (double) var8, (double) (var9 + var11), (double) 0.0F, (double) 0.0F, (double) 0.0F);
                 }
-                case "north" -> {
+                case "west" -> {
                     world.addParticle("smoke", (double) (var7 + var10), (double) var8, (double) (var9 + var11), (double) 0.0F, (double) 0.0F, (double) 0.0F);
                     world.addParticle("flame", (double) (var7 + var10), (double) var8, (double) (var9 + var11), (double) 0.0F, (double) 0.0F, (double) 0.0F);
                 }
-                case "west" -> {
+                case "south" -> {
                     world.addParticle("smoke", (double) (var7 + var11), (double) var8, (double) (var9 - var10), (double) 0.0F, (double) 0.0F, (double) 0.0F);
                     world.addParticle("flame", (double) (var7 + var11), (double) var8, (double) (var9 - var10), (double) 0.0F, (double) 0.0F, (double) 0.0F);
                 }
-                case "east" -> {
+                case "north" -> {
                     world.addParticle("smoke", (double) (var7 + var11), (double) var8, (double) (var9 + var10), (double) 0.0F, (double) 0.0F, (double) 0.0F);
                     world.addParticle("flame", (double) (var7 + var11), (double) var8, (double) (var9 + var10), (double) 0.0F, (double) 0.0F, (double) 0.0F);
                 }

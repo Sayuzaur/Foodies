@@ -144,10 +144,10 @@ public class BeeHive extends TemplateBlock {
                         int population = state.get(POPULATION_LEVEL);
                         if (population < 7) {
                             population++;
-                            world.setBlockStateWithNotify(x, y, z, state.with(POPULATION_LEVEL, population));
+                            world.setBlockState(x, y, z, state.with(POPULATION_LEVEL, population));
                         } else if (honey < 5) {
                             honey++;
-                            world.setBlockStateWithNotify(x, y, z, state.with(HONEY_LEVEL, honey));
+                            world.setBlockState(x, y, z, state.with(HONEY_LEVEL, honey));
                         }
                     }
                 }
@@ -172,7 +172,7 @@ public class BeeHive extends TemplateBlock {
                     world.spawnEntity(itemEntity);
                     world.playSound(x, y, z, "mob.chickenplop", 0.5F, 0.6F);
 
-                    world.setBlockStateWithNotify(x, y, z, state.with(HONEY_LEVEL, honey));
+                    world.setBlockState(x, y, z, state.with(HONEY_LEVEL, honey));
 
                     return true;
                 } else {
@@ -183,7 +183,7 @@ public class BeeHive extends TemplateBlock {
                 if (honey < 5) {
                     honey++;
                     userHand.count--;
-                    world.setBlockStateWithNotify(x, y, z, state.with(HONEY_LEVEL, honey));
+                    world.setBlockState(x, y, z, state.with(HONEY_LEVEL, honey));
 
                     return true;
                 } else {
@@ -200,7 +200,7 @@ public class BeeHive extends TemplateBlock {
                     world.spawnEntity(itemEntity);
                     world.playSound(x, y, z, "mob.chickenplop", 0.5F, 1.6F);
 
-                    world.setBlockStateWithNotify(x, y, z, state.with(POPULATION_LEVEL, population));
+                    world.setBlockState(x, y, z, state.with(POPULATION_LEVEL, population));
 
                     return true;
                 } else {
@@ -212,7 +212,7 @@ public class BeeHive extends TemplateBlock {
                     population++;
                     userHand.count--;
 
-                    world.setBlockStateWithNotify(x, y, z, state.with(POPULATION_LEVEL, population));
+                    world.setBlockState(x, y, z, state.with(POPULATION_LEVEL, population));
                 } else {
                     return false;
                 }
@@ -287,25 +287,25 @@ public class BeeHive extends TemplateBlock {
             }
 
             switch (face) {
-                case "south" -> {
+                case "east" -> {
                     varX = varX - 0.5F;
                     varX2 = varX2 - 1;
                     varX3 = varX3 - 3;
                     velocityX = velocityX - 1;
                 }
-                case "north" -> {
+                case "west" -> {
                     varX = varX + 0.5F;
                     varX2 = varX2 + 1;
                     varX3 = varX3 + 3;
                     velocityX = velocityX + 1;
                 }
-                case "west" -> {
+                case "south" -> {
                     varZ = varZ - 0.5F;
                     varZ2 = varZ2 - 1;
                     varZ3 = varZ3 - 3;
                     velocityZ = velocityZ - 1;
                 }
-                case "east" -> {
+                case "north" -> {
                     varZ = varZ + 0.5F;
                     varZ2 = varZ2 + 1;
                     varZ3 = varZ3 + 3;

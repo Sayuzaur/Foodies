@@ -111,10 +111,10 @@ public class OakTreeBeeFeature extends Feature {
                             world.setBlockWithoutNotifyingNeighbors(x, y + logY, z, BlockListener.BEENEST_OAK.id);
                             BlockState state = world.getBlockState(x, y + logY, z);
                             switch (facingRand) {
-                                case 0 -> world.setBlockStateWithNotify(x, y + logY, z, state.with(POPULATION_LEVEL, 7).with(HORIZONTAL_FACING, Direction.SOUTH));
-                                case 1 -> world.setBlockStateWithNotify(x, y + logY, z, state.with(POPULATION_LEVEL, 7).with(HORIZONTAL_FACING, Direction.NORTH));
-                                case 2 -> world.setBlockStateWithNotify(x, y + logY, z, state.with(POPULATION_LEVEL, 7).with(HORIZONTAL_FACING, Direction.WEST));
-                                case 3 -> world.setBlockStateWithNotify(x, y + logY, z, state.with(POPULATION_LEVEL, 7).with(HORIZONTAL_FACING, Direction.EAST));
+                                case 0 -> world.setBlockState(x, y + logY, z, state.with(POPULATION_LEVEL, 7).with(HORIZONTAL_FACING, Direction.SOUTH));
+                                case 1 -> world.setBlockState(x, y + logY, z, state.with(POPULATION_LEVEL, 7).with(HORIZONTAL_FACING, Direction.NORTH));
+                                case 2 -> world.setBlockState(x, y + logY, z, state.with(POPULATION_LEVEL, 7).with(HORIZONTAL_FACING, Direction.WEST));
+                                case 3 -> world.setBlockState(x, y + logY, z, state.with(POPULATION_LEVEL, 7).with(HORIZONTAL_FACING, Direction.EAST));
                             }
                         } else {
                             int logTargetBlockId = world.getBlockId(x, y + logY, z);

@@ -16,7 +16,6 @@
 
 package io.github.sayuzaur.foodies;
 
-import net.fabricmc.loader.api.FabricLoader;
 import net.glasslauncher.mods.gcapi3.api.ConfigRoot;
 import net.minecraft.block.Block;
 import net.modificationstation.stationapi.api.registry.BlockRegistry;

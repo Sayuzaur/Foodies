@@ -118,7 +118,7 @@ public abstract class RegrowingCrops
 
     public void applyFullGrowth(World world, int x, int y, int z) {
         BlockState state = world.getBlockState(x, y, z);
-        world.setBlockStateWithNotify(x, y, z, state.with(AGE10, 10));
+        world.setBlockState(x, y, z, state.with(AGE10, 10));
     }
 
     private float getAvailableMoisture(World world, int x, int y, int z) {
@@ -173,7 +173,7 @@ public abstract class RegrowingCrops
                 float moisture = this.getAvailableMoisture(world, x, y, z);
                 if (random.nextInt((int)(100.0F / moisture)) == 0) {
                     ++age;
-                    world.setBlockStateWithNotify(x, y, z, state.with(AGE10, age));
+                    world.setBlockState(x, y, z, state.with(AGE10, age));
                 }
             }
         }
@@ -225,7 +225,7 @@ public abstract class RegrowingCrops
 
             if (age == 10) {
                 age = 7;
-                world.setBlockStateWithNotify(x, y, z, state.with(AGE10, age));
+                world.setBlockState(x, y, z, state.with(AGE10, age));
 
                 world.playSound(x, y, z, "mob.chickenplop", 0.5F, 0.4F);
 

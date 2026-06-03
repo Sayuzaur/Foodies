@@ -114,76 +114,76 @@ public class ItemListener {
 
     @EventListener
     public static void registerItems(ItemRegistryEvent event) {
-        SALT = new TemplateItem(NAMESPACE.id("salt")).setTranslationKey(NAMESPACE.id("salt"));
+        SALT = new TemplateItem(NAMESPACE.id("salt"));
 
-        CARROT = new Carrot(NAMESPACE.id("carrot")).setTranslationKey(NAMESPACE.id("carrot"));
+        CARROT = new Carrot(NAMESPACE.id("carrot"));
 
-        POTATO = new Potato(NAMESPACE.id("potato")).setTranslationKey(NAMESPACE.id("potato"));
-        POTATO_BAKED = new TemplateFoodItem(NAMESPACE.id("potato_baked"), 4, false ).setTranslationKey(NAMESPACE.id("potato_baked"));
+        POTATO = new Potato(NAMESPACE.id("potato"));
+        POTATO_BAKED = new TemplateFoodItem(NAMESPACE.id("potato_baked"), 4, false );
 
-        ONION = new Onion(NAMESPACE.id("onion")).setTranslationKey(NAMESPACE.id("onion"));
+        ONION = new Onion(NAMESPACE.id("onion"));
 
-        TOMATO = new TemplateStackableFoodItem(NAMESPACE.id("tomato"), FOOD_CONFIG.rawHeal, false, FOOD_CONFIG.rawStackSize).setTranslationKey(NAMESPACE.id("tomato"));
-        TOMATO_SEEDS = new TomatoSeeds(NAMESPACE.id("tomato_seeds")).setTranslationKey(NAMESPACE.id("tomato_seeds"));
+        TOMATO = new TemplateStackableFoodItem(NAMESPACE.id("tomato"), FOOD_CONFIG.rawHeal, false, FOOD_CONFIG.rawStackSize);
+        TOMATO_SEEDS = new TomatoSeeds(NAMESPACE.id("tomato_seeds"));
 
-        CABBAGE = new TemplateStackableFoodItem(NAMESPACE.id("cabbage"), FOOD_CONFIG.rawHeal, false, FOOD_CONFIG.rawStackSize).setTranslationKey(NAMESPACE.id("cabbage"));
-        CABBAGE_SEEDS = new CabbageSeeds(NAMESPACE.id("cabbage_seeds")).setTranslationKey(NAMESPACE.id("cabbage_seeds"));
+        CABBAGE = new TemplateStackableFoodItem(NAMESPACE.id("cabbage"), FOOD_CONFIG.rawHeal, false, FOOD_CONFIG.rawStackSize);
+        CABBAGE_SEEDS = new CabbageSeeds(NAMESPACE.id("cabbage_seeds"));
 
-        MYSTERY_SEEDS = new MysterySeeds(NAMESPACE.id("mystery_seeds")).setTranslationKey(NAMESPACE.id("mystery_seeds"));
+        MYSTERY_SEEDS = new MysterySeeds(NAMESPACE.id("mystery_seeds"));
 
-        CHILI = new Chili(NAMESPACE.id("chili")).setTranslationKey(NAMESPACE.id("chili"));
-        CHILI_SEEDS = new ChiliSeeds(NAMESPACE.id("chili_seeds")).setTranslationKey(NAMESPACE.id("chili_seeds"));
+        CHILI = new Chili(NAMESPACE.id("chili"));
+        CHILI_SEEDS = new ChiliSeeds(NAMESPACE.id("chili_seeds"));
 
-        BEEF_RAW = new TemplateFoodItem(NAMESPACE.id("beef_raw"), 3, true).setTranslationKey(NAMESPACE.id("beef_raw"));
-        BEEF_COOKED = new TemplateFoodItem(NAMESPACE.id("beef_cooked"), 8, true).setTranslationKey(NAMESPACE.id("beef_cooked"));
-        BEEF_GLAZED = new TemplateFoodItem(NAMESPACE.id("beef_glazed"), 8 + honeyGlazedBonus, true).setTranslationKey(NAMESPACE.id("beef_glazed"));
-        CHICKEN_RAW = new TemplateFoodItem(NAMESPACE.id("chicken_raw"), 2, true).setTranslationKey(NAMESPACE.id("chicken_raw"));
-        CHICKEN_COOKED = new TemplateFoodItem(NAMESPACE.id("chicken_cooked"), 6, true).setTranslationKey(NAMESPACE.id("chicken_cooked"));
-        CHICKEN_GLAZED = new TemplateFoodItem(NAMESPACE.id("chicken_glazed"), 6 + honeyGlazedBonus, true).setTranslationKey(NAMESPACE.id("chicken_glazed"));
-        CHICKEN_DRUMSTICK_RAW = new TemplateStackableFoodItem(NAMESPACE.id("chicken_drumstick_raw"), 1, true, 2).setTranslationKey(NAMESPACE.id("chicken_drumstick_raw"));
-        CHICKEN_DRUMSTICK_COOKED = new TemplateStackableFoodItem(NAMESPACE.id("chicken_drumstick_cooked"), 3, true, 2).setTranslationKey(NAMESPACE.id("chicken_drumstick_cooked"));
-        CHICKEN_DRUMSTICK_GLAZED = new TemplateStackableFoodItem(NAMESPACE.id("chicken_drumstick_glazed"), 3 + honeyGlazedBonus, true, 2).setTranslationKey(NAMESPACE.id("chicken_drumstick_glazed"));
-        MUTTON_RAW = new TemplateFoodItem(NAMESPACE.id("mutton_raw"), 2, true).setTranslationKey(NAMESPACE.id("mutton_raw"));
-        MUTTON_COOKED = new TemplateFoodItem(NAMESPACE.id("mutton_cooked"), 7, true).setTranslationKey(NAMESPACE.id("mutton_cooked"));
-        MUTTON_GLAZED = new TemplateFoodItem(NAMESPACE.id("mutton_glazed"), 7 + honeyGlazedBonus, true).setTranslationKey(NAMESPACE.id("mutton_glazed"));
-        CALAMARI_RAW = new TemplateStackableFoodItem(NAMESPACE.id("calamari_raw"), 3, true, 2).setTranslationKey(NAMESPACE.id("calamari_raw"));
-        CALAMARI_COOKED = new TemplateStackableFoodItem(NAMESPACE.id("calamari_cooked"), 6, true, 2).setTranslationKey(NAMESPACE.id("calamari_cooked"));
-        CALAMARI_GLAZED = new TemplateStackableFoodItem(NAMESPACE.id("calamari_glazed"), 6 + honeyGlazedBonus, true, 2).setTranslationKey(NAMESPACE.id("calamari_glazed"));
-        EGG_COOKED = new TemplateFoodItem(NAMESPACE.id("egg_cooked"), 3, true).setTranslationKey(NAMESPACE.id("egg_cooked"));
-        PORK_GLAZED = new TemplateFoodItem(NAMESPACE.id("pork_glazed"), 8 + honeyGlazedBonus, true).setTranslationKey(NAMESPACE.id("pork_glazed"));
-        COD_GLAZED = new TemplateFoodItem(NAMESPACE.id("cod_glazed"), 5 + honeyGlazedBonus, true).setTranslationKey(NAMESPACE.id("cod_glazed"));
+        BEEF_RAW = new TemplateFoodItem(NAMESPACE.id("beef_raw"), 3, true);
+        BEEF_COOKED = new TemplateFoodItem(NAMESPACE.id("beef_cooked"), 8, true);
+        BEEF_GLAZED = new TemplateFoodItem(NAMESPACE.id("beef_glazed"), 8 + honeyGlazedBonus, true);
+        CHICKEN_RAW = new TemplateFoodItem(NAMESPACE.id("chicken_raw"), 2, true);
+        CHICKEN_COOKED = new TemplateFoodItem(NAMESPACE.id("chicken_cooked"), 6, true);
+        CHICKEN_GLAZED = new TemplateFoodItem(NAMESPACE.id("chicken_glazed"), 6 + honeyGlazedBonus, true);
+        CHICKEN_DRUMSTICK_RAW = new TemplateStackableFoodItem(NAMESPACE.id("chicken_drumstick_raw"), 1, true, 2);
+        CHICKEN_DRUMSTICK_COOKED = new TemplateStackableFoodItem(NAMESPACE.id("chicken_drumstick_cooked"), 3, true, 2);
+        CHICKEN_DRUMSTICK_GLAZED = new TemplateStackableFoodItem(NAMESPACE.id("chicken_drumstick_glazed"), 3 + honeyGlazedBonus, true, 2);
+        MUTTON_RAW = new TemplateFoodItem(NAMESPACE.id("mutton_raw"), 2, true);
+        MUTTON_COOKED = new TemplateFoodItem(NAMESPACE.id("mutton_cooked"), 7, true);
+        MUTTON_GLAZED = new TemplateFoodItem(NAMESPACE.id("mutton_glazed"), 7 + honeyGlazedBonus, true);
+        CALAMARI_RAW = new TemplateStackableFoodItem(NAMESPACE.id("calamari_raw"), 3, true, 2);
+        CALAMARI_COOKED = new TemplateStackableFoodItem(NAMESPACE.id("calamari_cooked"), 6, true, 2);
+        CALAMARI_GLAZED = new TemplateStackableFoodItem(NAMESPACE.id("calamari_glazed"), 6 + honeyGlazedBonus, true, 2);
+        EGG_COOKED = new TemplateFoodItem(NAMESPACE.id("egg_cooked"), 3, true);
+        PORK_GLAZED = new TemplateFoodItem(NAMESPACE.id("pork_glazed"), 8 + honeyGlazedBonus, true);
+        COD_GLAZED = new TemplateFoodItem(NAMESPACE.id("cod_glazed"), 5 + honeyGlazedBonus, true);
 
-        OMELET = new TemplateFoodItem(NAMESPACE.id("omelet"), 6, false).setTranslationKey(NAMESPACE.id("omelet"));
-        FISHANDCHIPS = new TemplateFoodItem(NAMESPACE.id("fish_and_chips"), 8, false).setTranslationKey(NAMESPACE.id("fish_and_chips"));
-        WHITECHEESE = new TemplateFoodItem(NAMESPACE.id("white_cheese"), 6, false).setTranslationKey(NAMESPACE.id("white_cheese"));
-        STUFFED_CABBAGE = new TemplateStackableFoodItem(NAMESPACE.id("stuffed_cabbage"), 5, false, 2).setTranslationKey(NAMESPACE.id("stuffed_cabbage"));
-        STUFFED_CHILI = new TemplateStackableFoodItem(NAMESPACE.id("stuffed_chili"), 4, false, 2).setTranslationKey(NAMESPACE.id("stuffed_chili"));
-        BRUSCHETTA = new TemplateStackableFoodItem(NAMESPACE.id("bruschetta"), 6, false, 2).setTranslationKey(NAMESPACE.id("bruschetta"));
+        OMELET = new TemplateFoodItem(NAMESPACE.id("omelet"), 6, false);
+        FISHANDCHIPS = new TemplateFoodItem(NAMESPACE.id("fish_and_chips"), 8, false);
+        WHITECHEESE = new TemplateFoodItem(NAMESPACE.id("white_cheese"), 6, false);
+        STUFFED_CABBAGE = new TemplateStackableFoodItem(NAMESPACE.id("stuffed_cabbage"), 5, false, 2);
+        STUFFED_CHILI = new TemplateStackableFoodItem(NAMESPACE.id("stuffed_chili"), 4, false, 2);
+        BRUSCHETTA = new TemplateStackableFoodItem(NAMESPACE.id("bruschetta"), 6, false, 2);
 
-        STEW_CARROT = new BaseStew(NAMESPACE.id("stew_carrot"), 8, false).setTranslationKey(NAMESPACE.id("stew_carrot"));
-        STEW_TOMATO = new BaseStew(NAMESPACE.id("stew_tomato"), 7, false).setTranslationKey(NAMESPACE.id("stew_tomato"));
-        STEW_MEAT = new BaseStew(NAMESPACE.id("stew_meat"), 11, false).setTranslationKey(NAMESPACE.id("stew_meat"));
-        STEW_FISH = new BaseStew(NAMESPACE.id("stew_fish"), 8, false).setTranslationKey(NAMESPACE.id("stew_fish"));
-        STEW_ONION = new BaseStew(NAMESPACE.id("stew_onion"), 10, false).setTranslationKey(NAMESPACE.id("stew_onion"));
+        STEW_CARROT = new BaseStew(NAMESPACE.id("stew_carrot"), 8, false);
+        STEW_TOMATO = new BaseStew(NAMESPACE.id("stew_tomato"), 7, false);
+        STEW_MEAT = new BaseStew(NAMESPACE.id("stew_meat"), 11, false);
+        STEW_FISH = new BaseStew(NAMESPACE.id("stew_fish"), 8, false);
+        STEW_ONION = new BaseStew(NAMESPACE.id("stew_onion"), 10, false);
 
-        PICO_DE_GALLO = new BaseStew(NAMESPACE.id("pico_de_gallo"), 8, false).setTranslationKey(NAMESPACE.id("pico_de_gallo"));
-        SHAKSHOUKA = new BaseStew(NAMESPACE.id("shakshouka"), 8, false).setTranslationKey(NAMESPACE.id("shakshouka"));
+        PICO_DE_GALLO = new BaseStew(NAMESPACE.id("pico_de_gallo"), 8, false);
+        SHAKSHOUKA = new BaseStew(NAMESPACE.id("shakshouka"), 8, false);
 
-        SANDWICH = new Sandwich(NAMESPACE.id("sandwich")).setTranslationKey(NAMESPACE.id("sandwich"));
+        SANDWICH = new Sandwich(NAMESPACE.id("sandwich"));
 
-        PIE_CARROT = new TemplateFoodItem(NAMESPACE.id("pie_carrot"), 10, false).setTranslationKey(NAMESPACE.id("pie_carrot"));
-        PIE_APPLE = new TemplateFoodItem(NAMESPACE.id("pie_apple"), 10, false).setTranslationKey(NAMESPACE.id("pie_apple"));
+        PIE_CARROT = new TemplateFoodItem(NAMESPACE.id("pie_carrot"), 10, false);
+        PIE_APPLE = new TemplateFoodItem(NAMESPACE.id("pie_apple"), 10, false);
 
-        BOTTLE = new Bottle(NAMESPACE.id("bottle")).setTranslationKey(NAMESPACE.id("bottle"));
-        JAR = new Jar(NAMESPACE.id("jar")).setTranslationKey(NAMESPACE.id("jar"));
-        JUICE_CACTUS = new BaseJuice(NAMESPACE.id("juice_cactus"), 3).setTranslationKey(NAMESPACE.id("juice_cactus"));
-        JUICE_APPLE = new BaseJuice(NAMESPACE.id("juice_apple"), 3).setTranslationKey(NAMESPACE.id("juice_apple"));
-        JUICE_TOMATO = new BaseJuice(NAMESPACE.id("juice_tomato"), 3).setTranslationKey(NAMESPACE.id("juice_tomato"));
+        BOTTLE = new Bottle(NAMESPACE.id("bottle"));
+        JAR = new Jar(NAMESPACE.id("jar"));
+        JUICE_CACTUS = new BaseJuice(NAMESPACE.id("juice_cactus"), 3);
+        JUICE_APPLE = new BaseJuice(NAMESPACE.id("juice_apple"), 3);
+        JUICE_TOMATO = new BaseJuice(NAMESPACE.id("juice_tomato"), 3);
 
-        JAR_BEES = new TemplateItem(NAMESPACE.id("jar_bees")).setTranslationKey(NAMESPACE.id("jar_bees")).setMaxCount(1).setCraftingReturnItem(ItemListener.JAR);
-        HONEY = new TemplateItem(NAMESPACE.id("honey")).setTranslationKey(NAMESPACE.id("honey"));
-        APPLE_GLAZED = new TemplateFoodItem(NAMESPACE.id("apple_glazed"), 4 + honeyGlazedBonus, false).setTranslationKey(NAMESPACE.id("apple_glazed"));
-        COOKIE_HONEY = new TemplateStackableFoodItem(NAMESPACE.id("cookie_honey"), 1, false, 8).setTranslationKey(NAMESPACE.id("cookie_honey"));
-        CANDY_HONEY = new TemplateStackableFoodItem(NAMESPACE.id("candy_honey"), 1, false, 8).setTranslationKey(NAMESPACE.id("candy_honey"));
+        JAR_BEES = new TemplateItem(NAMESPACE.id("jar_bees")).setMaxCount(1).setCraftingReturnItem(ItemListener.JAR);
+        HONEY = new TemplateItem(NAMESPACE.id("honey"));
+        APPLE_GLAZED = new TemplateFoodItem(NAMESPACE.id("apple_glazed"), 4 + honeyGlazedBonus, false);
+        COOKIE_HONEY = new TemplateStackableFoodItem(NAMESPACE.id("cookie_honey"), 1, false, 8);
+        CANDY_HONEY = new TemplateStackableFoodItem(NAMESPACE.id("candy_honey"), 1, false, 8);
     }
 }
