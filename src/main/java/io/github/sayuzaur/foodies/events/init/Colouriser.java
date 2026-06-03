@@ -18,6 +18,9 @@ package io.github.sayuzaur.foodies.events.init;
 
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.client.color.world.GrassColors;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.BlockView;
+import net.modificationstation.stationapi.api.block.BlockState;
 import net.modificationstation.stationapi.api.client.event.color.block.BlockColorsRegisterEvent;
 import net.modificationstation.stationapi.api.mod.entrypoint.EntrypointManager;
 
@@ -28,13 +31,40 @@ public class Colouriser {
         EntrypointManager.registerLookup(MethodHandles.lookup());
     }
 
+    protected int getTint(BlockState ignoredState, BlockView world, BlockPos pos, int ignoredTintIndex) {
+        world.method_1781().getBiomesInArea(pos.x, pos.z, 1, 1);
+        double temp = world.method_1781().temperatureMap[0];
+        double rain = world.method_1781().downfallMap[0];
+        return GrassColors.getColor(temp, rain);
+    }
+
     @EventListener
     public void registerBlockColours(BlockColorsRegisterEvent event) {
         event.blockColors.registerColorProvider((state, world, pos, tintIndex) -> {
-            world.method_1781().getBiomesInArea(pos.x, pos.z, 1, 1);
-            double temp = world.method_1781().temperatureMap[0];
-            double rain = world.method_1781().downfallMap[0];
-            return GrassColors.getColor(temp, rain);
+            //I have no idea if 'assert' here is required, but IntelliJ shows warnings and it annoys me
+            assert world != null;
+            assert pos != null;
+            return getTint(state, world, pos, tintIndex);
         }, BlockListener.CARROT_WILD);
+        event.blockColors.registerColorProvider((state, world, pos, tintIndex) -> {
+            assert world != null;
+            assert pos != null;
+            return getTint(state, world, pos, tintIndex);
+        }, BlockListener.CABBAGE_WILD);
+        event.blockColors.registerColorProvider((state, world, pos, tintIndex) -> {
+            assert world != null;
+            assert pos != null;
+            return getTint(state, world, pos, tintIndex);
+        }, BlockListener.ONION_WILD);
+        event.blockColors.registerColorProvider((state, world, pos, tintIndex) -> {
+            assert world != null;
+            assert pos != null;
+            return getTint(state, world, pos, tintIndex);
+        }, BlockListener.POTATO_WILD);
+        event.blockColors.registerColorProvider((state, world, pos, tintIndex) -> {
+            assert world != null;
+            assert pos != null;
+            return getTint(state, world, pos, tintIndex);
+        }, BlockListener.TOMATO_WILD);
     }
 }

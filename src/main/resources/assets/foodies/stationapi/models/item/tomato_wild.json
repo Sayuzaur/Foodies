@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "foodies:block/tomato_wild"
+    "layer0": "foodies:block/tomato_wild_tinted"
   }
 }

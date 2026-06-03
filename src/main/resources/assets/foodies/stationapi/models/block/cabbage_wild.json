@@ -1,6 +1,8 @@
 {
-  "parent": "minecraft:block/cross",
+  "parent": "foodies:block/base/cross_tinted_colour",
   "textures": {
-    "cross": "foodies:block/cabbage_wild"
+    "cross": "foodies:block/cabbage_wild",
+    "cross_precoloured": "foodies:block/cabbage_wild_precoloured",
+    "particle": "foodies:block/cabbage_wild_tinted"
   }
 }

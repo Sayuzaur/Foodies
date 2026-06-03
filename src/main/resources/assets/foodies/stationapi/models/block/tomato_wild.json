@@ -1,6 +1,8 @@
 {
-  "parent": "minecraft:block/cross",
+  "parent": "foodies:block/base/cross_tinted_colour",
   "textures": {
-    "cross": "foodies:block/tomato_wild"
+    "cross": "foodies:block/tomato_wild",
+    "cross_precoloured": "foodies:block/tomato_wild_precoloured",
+    "particle": "foodies:block/tomato_wild_tinted"
   }
 }
