@@ -24,6 +24,7 @@
       "io.github.sayuzaur.foodies.events.init.FeatureListener"
     ],
     "stationapi:event_bus_client": [
+      "io.github.sayuzaur.foodies.events.init.Colouriser"
     ],
     "stationapi:event_bus_server": [
     ],
