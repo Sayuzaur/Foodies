@@ -31,11 +31,11 @@ public class BaseJuice extends TemplateStackableFoodItem {
 
     public ItemStack use(ItemStack stack, World world, PlayerEntity user) {
         super.use(stack, world, user);
-
-        ItemStack bottleStack = new ItemStack(ItemListener.JAR);
-        ItemEntity bottleItemEntity = new ItemEntity(world, user.x, user.y - 1.7F, user.z, bottleStack);
-        world.spawnEntity(bottleItemEntity);
-
+        if (!world.isRemote) {
+            ItemStack bottleStack = new ItemStack(ItemListener.JAR);
+            ItemEntity bottleItemEntity = new ItemEntity(world, user.x, user.y, user.z, bottleStack);
+            world.spawnEntity(bottleItemEntity);
+        }
         return stack;
     }
 }

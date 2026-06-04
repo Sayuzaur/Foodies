@@ -39,7 +39,7 @@ public class Jar extends TemplateItem {
         if (blockId == Block.CACTUS.id) {
             if (!world.isRemote) {
                 ItemStack bottleStack = new ItemStack(ItemListener.JUICE_CACTUS);
-                ItemEntity bottleItemEntity = new ItemEntity(world, user.x, user.y - 1.7F, user.z, bottleStack);
+                ItemEntity bottleItemEntity = new ItemEntity(world, user.x, user.y, user.z, bottleStack);
                 world.spawnEntity(bottleItemEntity);
 
                 --stack.count;
