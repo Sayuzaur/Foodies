@@ -1,3 +1,9 @@
+## [1.1.4] - 2026-06-07
+### Added
+- UniTweaks compat. If noFoodWastage in UniTweaks is enabled, stews and juices reacts properly when player health is full.
+### Fixed
+- Beehive and Bee Nest wrong direction check.
+
 ## [1.1.3] - 2026-06-04
 ### Changed
 - Wild crops now use foliage tint like grass instead of static colour.

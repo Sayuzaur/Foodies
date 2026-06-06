@@ -23,12 +23,18 @@ import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.template.item.TemplateFoodItem;
 import net.modificationstation.stationapi.api.util.Identifier;
 
+import static io.github.sayuzaur.foodies.compat.UniTweaksCompat.noFoodWastageEnabled;
+
 public class BaseStew extends TemplateFoodItem {
     public BaseStew(Identifier identifier, int healAmount, boolean isWolfFood) {
         super(identifier, healAmount, isWolfFood);
     }
     public ItemStack use(ItemStack stack, World world, PlayerEntity user) {
-        super.use(stack, world, user);
-        return new ItemStack(Item.BOWL);
+        if (noFoodWastageEnabled() && user.health >= 20) {
+            return stack;
+        } else {
+            super.use(stack, world, user);
+            return new ItemStack(Item.BOWL);
+        }
     }
 }
