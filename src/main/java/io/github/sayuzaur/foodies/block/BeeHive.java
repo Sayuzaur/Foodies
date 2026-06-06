@@ -117,16 +117,16 @@ public class BeeHive extends TemplateBlock {
             int varX = x;
             int varZ = z;
             switch (face) {
-                case "south" -> varX = x - 1;
-                case "north" -> varX = x + 1;
-                case "west" -> varZ = z - 1;
-                case "east" -> varZ = z + 1;
+                case "east" -> varX = x - 1;
+                case "west" -> varX = x + 1;
+                case "south" -> varZ = z - 1;
+                case "north" -> varZ = z + 1;
             }
 
             if (isBright(world, varX, y, varZ) && isEntranceOpen(world, varX, y, varZ)) {
                 int flowersNearby = 0;
                 for (int flowerX = x - 4; flowerX <= x + 4; ++flowerX) {
-                    for (int flowerY = y - 2; flowerY <= y + 1; ++flowerY) {
+                    for (int flowerY = y - 3; flowerY <= y + 2; ++flowerY) {
                         for (int flowerZ = z - 4; flowerZ <= z + 4; ++flowerZ) {
                             BlockState maybeFlower = world.getBlockState(flowerX, flowerY, flowerZ);
                             if (maybeFlower.isIn(FoodiesMod.FLOWERS)) {
@@ -334,7 +334,7 @@ public class BeeHive extends TemplateBlock {
                 }
                 if (BEEHIVE_CLIENT_CONFIG.beesOnFlowers && rand == 5) {
                     for(int flowerX = x - 4; flowerX <= x + 4; ++flowerX) {
-                        for(int flowerY = y - 2; flowerY <= y + 1; ++flowerY) {
+                        for(int flowerY = y - 3; flowerY <= y + 2; ++flowerY) {
                             for(int flowerZ = z - 4; flowerZ <= z + 4; ++flowerZ) {
                                 BlockState state = world.getBlockState(flowerX, flowerY, flowerZ);
                                 if (state.isIn(FoodiesMod.FLOWERS)) {

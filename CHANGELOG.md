@@ -3,6 +3,7 @@
 - Wild crops now use foliage tint like grass instead of static colour.
 ### Fixed
 - Beehive crafting recipe uses proper planks tag again.
+- Jar and Juices after consumption spawn ItemStack at proper position now and don't cause ghost entity on server anymore.
 
 ## [1.1.2] - 2026-06-03
 ### Changed
