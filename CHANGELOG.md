@@ -1,6 +1,6 @@
 ## [1.1.4] - 2026-06-07
 ### Added
-- UniTweaks compat. If noFoodWastage in UniTweaks is enabled, stews and juices reacts properly when player health is full.
+- UniTweaks compat. If noFoodWastage in UniTweaks is enabled, stews and juices react properly when player health is full.
 ### Fixed
 - Beehive and Bee Nest wrong direction check.
 
