@@ -29,7 +29,6 @@ public class Chili extends TemplateStackableFoodItem{
     public Chili(Identifier identifier) {
         super(identifier, FOOD_CONFIG.rawHeal, false, FOOD_CONFIG.rawStackSize);
     }
-
     public ItemStack use(ItemStack stack, World world, PlayerEntity user) {
         super.use(stack, world, user);
         user.fireTicks = 100;

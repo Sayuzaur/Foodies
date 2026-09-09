@@ -34,6 +34,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.block.BlockState;
+import net.modificationstation.stationapi.api.block.context.BlockTagContext;
 import net.modificationstation.stationapi.api.item.ItemPlacementContext;
 import net.modificationstation.stationapi.api.state.StateManager;
 import net.modificationstation.stationapi.api.state.property.DirectionProperty;
@@ -129,7 +130,7 @@ public class BeeHive extends TemplateBlock {
                     for (int flowerY = y - 3; flowerY <= y + 2; ++flowerY) {
                         for (int flowerZ = z - 4; flowerZ <= z + 4; ++flowerZ) {
                             BlockState maybeFlower = world.getBlockState(flowerX, flowerY, flowerZ);
-                            if (maybeFlower.isIn(FoodiesMod.FLOWERS)) {
+                            if (maybeFlower.isIn(FoodiesMod.FLOWERS, BlockTagContext.DEFAULT)) {
                                 flowersNearby++;
                             }
                         }
@@ -337,7 +338,7 @@ public class BeeHive extends TemplateBlock {
                         for(int flowerY = y - 3; flowerY <= y + 2; ++flowerY) {
                             for(int flowerZ = z - 4; flowerZ <= z + 4; ++flowerZ) {
                                 BlockState state = world.getBlockState(flowerX, flowerY, flowerZ);
-                                if (state.isIn(FoodiesMod.FLOWERS)) {
+                                if (state.isIn(FoodiesMod.FLOWERS, BlockTagContext.DEFAULT)) {
                                     if (random.nextInt(16) == 0 && canSpawnBee) {
                                         ParticleAPI.addParticle(new BeeOnFlower(world, flowerX, flowerY, flowerZ, 0, 0, 0));
                                         canSpawnBee = false;

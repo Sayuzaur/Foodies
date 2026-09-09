@@ -31,7 +31,7 @@ import net.modificationstation.stationapi.api.util.Identifier;
 
 import java.util.Random;
 
-public abstract class BaseWildCrop extends TemplateBlock implements BlockTemplate {
+public abstract class BaseWildCrop extends TemplateBlock {
 
     public BaseWildCrop(Identifier identifier) {
         super(identifier, Material.PLANT);

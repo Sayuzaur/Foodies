@@ -20,7 +20,7 @@ import io.github.sayuzaur.foodies.events.init.ItemListener;
 import net.minecraft.item.Item;
 import net.modificationstation.stationapi.api.util.Identifier;
 
-public class PotatoCrops extends BaseCrops{
+public class PotatoCrops extends BaseCrops {
 
     public PotatoCrops(Identifier identifier){
         super(identifier);
@@ -32,8 +32,13 @@ public class PotatoCrops extends BaseCrops{
     }
 
     @Override
-    protected int getSeedCount() {
-        return 1;
+    protected int getBonusSeedCount() {
+        return 0;
+    }
+
+    @Override
+    protected int getBonusSeedChance() {
+        return 0;
     }
 
     @Override
@@ -43,11 +48,16 @@ public class PotatoCrops extends BaseCrops{
 
     @Override
     protected int getCropCount() {
+        return 1;
+    }
+
+    @Override
+    protected int getBonusCropCount() {
         return 3;
     }
 
     @Override
-    protected int getCropChance() {
-        return 5;
+    protected int getBonusCropChance() {
+        return 3;
     }
 }

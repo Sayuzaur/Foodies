@@ -31,8 +31,13 @@ public class TomatoCrops extends RegrowingCrops {
     }
 
     @Override
-    protected int getSeedCount() {
-        return 1;
+    protected int getBonusSeedCount() {
+        return 0;
+    }
+
+    @Override
+    protected int getBonusSeedChance() {
+        return 0;
     }
 
     @Override
@@ -42,11 +47,16 @@ public class TomatoCrops extends RegrowingCrops {
 
     @Override
     protected int getCropCount() {
+        return 1;
+    }
+
+    @Override
+    protected int getBonusCropCount() {
         return 2;
     }
 
     @Override
-    protected int getCropChance() {
-        return 9;
+    protected int getBonusCropChance() {
+        return 5;
     }
 }

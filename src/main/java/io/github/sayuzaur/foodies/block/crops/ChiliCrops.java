@@ -31,7 +31,6 @@ import net.modificationstation.stationapi.api.block.BlockState;
 import net.modificationstation.stationapi.api.item.ItemPlacementContext;
 import net.modificationstation.stationapi.api.state.StateManager;
 import net.modificationstation.stationapi.api.state.property.IntProperty;
-import net.modificationstation.stationapi.api.template.block.BlockTemplate;
 import net.modificationstation.stationapi.api.template.block.TemplateBlock;
 import net.modificationstation.stationapi.api.util.Identifier;
 
@@ -39,8 +38,7 @@ import java.util.Random;
 
 //FIXME Get rid of all this shit, extend RegrowingCrops
 
-public class ChiliCrops extends TemplateBlock implements BlockTemplate {
-
+public class ChiliCrops extends TemplateBlock {
     public static final IntProperty AGE10;
     static {
         AGE10 = IntProperty.of("age", 0,10);

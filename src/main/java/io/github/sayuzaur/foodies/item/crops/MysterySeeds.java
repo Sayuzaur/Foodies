@@ -33,7 +33,6 @@ public class MysterySeeds extends TemplateItem implements CustomTooltipProvider 
 
     @Override
     public boolean useOnBlock(ItemStack stack, PlayerEntity player, World world, int x, int y, int z, int side) {
-
         if (world.getBlockId(x, y, z) == Block.FARMLAND.id && side == 1) {
             int randCrop = random.nextInt(5);
 

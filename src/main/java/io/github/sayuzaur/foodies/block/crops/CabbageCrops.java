@@ -20,7 +20,7 @@ import io.github.sayuzaur.foodies.events.init.ItemListener;
 import net.minecraft.item.Item;
 import net.modificationstation.stationapi.api.util.Identifier;
 
-public class CabbageCrops extends BaseCrops{
+public class CabbageCrops extends BaseCrops {
 
     public CabbageCrops(Identifier identifier){
         super(identifier);
@@ -32,8 +32,13 @@ public class CabbageCrops extends BaseCrops{
     }
 
     @Override
-    protected int getSeedCount() {
-        return 1;
+    protected int getBonusSeedCount() {
+        return 2;
+    }
+
+    @Override
+    protected int getBonusSeedChance() {
+        return 5;
     }
 
     @Override
@@ -47,7 +52,12 @@ public class CabbageCrops extends BaseCrops{
     }
 
     @Override
-    protected int getCropChance() {
-        return 9;
+    protected int getBonusCropCount() {
+        return 0;
+    }
+
+    @Override
+    protected int getBonusCropChance() {
+        return 0;
     }
 }

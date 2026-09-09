@@ -31,7 +31,6 @@ public class CabbageSeeds extends TemplateItem {
 
     @Override
     public boolean useOnBlock(ItemStack stack, PlayerEntity player, World world, int x, int y, int z, int side) {
-
         if (world.getBlockId(x, y, z) == Block.FARMLAND.id && side == 1) {
             world.setBlock(x, y + 1, z, BlockListener.CABBAGE_CROPS.id);
             stack.count--;
