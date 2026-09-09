@@ -174,7 +174,7 @@ public class ItemListener {
         PIE_CARROT = new TemplateFoodItem(NAMESPACE.id("pie_carrot"), 10, false);
         PIE_APPLE = new TemplateFoodItem(NAMESPACE.id("pie_apple"), 10, false);
 
-        BOTTLE = new Bottle(NAMESPACE.id("bottle"));
+        //BOTTLE = new Bottle(NAMESPACE.id("bottle"));
         JAR = new Jar(NAMESPACE.id("jar"));
         JUICE_CACTUS = new BaseJuice(NAMESPACE.id("juice_cactus"), 3);
         JUICE_APPLE = new BaseJuice(NAMESPACE.id("juice_apple"), 3);
