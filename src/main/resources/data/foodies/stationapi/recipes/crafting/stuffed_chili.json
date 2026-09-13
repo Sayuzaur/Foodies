@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "foodies:chili"
+      "tag": "c:foods/vegetable/chili"
     },
     {
       "item": "foodies:white_cheese"

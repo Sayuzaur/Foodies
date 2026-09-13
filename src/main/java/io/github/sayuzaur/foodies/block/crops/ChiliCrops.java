@@ -122,7 +122,7 @@ public class ChiliCrops extends RegrowingCrops {
         if (!isLavaNearby(world, x, y - 1, z)) {
             moisture = 0.0F;
         }
-        System.out.println(moisture);
+
         return moisture;
     }
 }

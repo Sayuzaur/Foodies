@@ -17,7 +17,6 @@
 package io.github.sayuzaur.foodies.item.crops;
 
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.template.item.TemplateStackableFoodItem;

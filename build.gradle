@@ -100,8 +100,7 @@ dependencies {
     modImplementation("maven.modrinth:farnutil:3.6.9-babric")
     modImplementation("maven.modrinth:campfire-stationapi:2.0.1-babric")
     modImplementation("maven.modrinth:3d-dropped-item-stationapi:1.4")
-    modImplementation("maven.modrinth:bloomingwaters:0.2.0")
-    //modImplementation("maven.modrinth:fishinfoodtweaks-stationapi:3.2.1")
+    //modImplementation("maven.modrinth:bloomingwaters:0.2.0")
 
     if (project.hasProperty("modmenu_version")) {
         modImplementation("net.danygames2014:modmenu:${project.modmenu_version}") {

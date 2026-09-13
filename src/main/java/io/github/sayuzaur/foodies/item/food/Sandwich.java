@@ -38,7 +38,7 @@ public class Sandwich extends TemplateStackableFoodItem implements CustomTooltip
     };
 
     public Sandwich(Identifier identifier){
-        super (identifier, 7, false, 2);
+        super (identifier, 8, false, 2);
         //this.setHasSubtypes(true);
     }
 

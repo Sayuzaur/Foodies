@@ -16,7 +16,6 @@
 
 package io.github.sayuzaur.foodies.events.init;
 
-import io.github.sayuzaur.foodies.item.Bottle;
 import io.github.sayuzaur.foodies.item.Jar;
 import io.github.sayuzaur.foodies.item.crops.*;
 import io.github.sayuzaur.foodies.item.food.*;
@@ -95,7 +94,6 @@ public class ItemListener {
 
     public static Item SANDWICH;
 
-    public static Item BOTTLE;
     public static Item JUICE_CACTUS;
     public static Item JUICE_APPLE;
     public static Item JUICE_TOMATO;

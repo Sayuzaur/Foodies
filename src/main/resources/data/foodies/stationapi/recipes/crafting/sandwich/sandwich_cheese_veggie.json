@@ -2,13 +2,13 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "minecraft:bread"
+      "tag": "c:foods/bread"
     },
     {
       "item": "foodies:white_cheese"
     },
     {
-      "tag": "minecraft:any_veggie"
+      "tag": "c:foods/vegetable"
     }
   ],
   "result": {

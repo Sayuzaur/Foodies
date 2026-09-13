@@ -1,0 +1,9 @@
+{
+  "values": [
+    {
+      "id": "#c:eggs",
+      "required": false
+    },
+    "foodies:egg_cooked"
+  ]
+}

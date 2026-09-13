@@ -1,0 +1,11 @@
+{
+  "values": [
+    {
+      "id": "#c:foods/cooked_meat",
+      "required": false
+    },
+    "minecraft:porkchop",
+    "foodies:beef_raw",
+    "foodies:mutton_raw"
+  ]
+}
