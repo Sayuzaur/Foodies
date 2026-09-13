@@ -16,10 +16,7 @@
 
 package io.github.sayuzaur.foodies.block.plant;
 
-import io.github.sayuzaur.foodies.events.init.BlockListener;
 import io.github.sayuzaur.foodies.events.init.ItemListener;
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
 import net.modificationstation.stationapi.api.util.Identifier;
 
 import java.util.Random;

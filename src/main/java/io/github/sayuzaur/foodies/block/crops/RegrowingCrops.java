@@ -138,7 +138,7 @@ public abstract class RegrowingCrops extends TemplateBlock {
         return true;
     }
 
-    private float getAvailableMoisture(World world, int x, int y, int z) {
+    protected float getAvailableMoisture(World world, int x, int y, int z) {
         float moisture = 1.0F;
         int sideZ1 = world.getBlockId(x, y, z - 1);
         int sideZ2 = world.getBlockId(x, y, z + 1);
