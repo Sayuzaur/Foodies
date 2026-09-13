@@ -1,0 +1,13 @@
+{
+  "values": [
+    "foodies:pork_glazed",
+    "foodies:beef_cooked",
+    "foodies:beef_glazed",
+    "foodies:chicken_cooked",
+    "foodies:chicken_glazed",
+    "foodies:chicken_drumstick_cooked",
+    "foodies:chicken_drumstick_glazed",
+    "foodies:mutton_cooked",
+    "foodies:mutton_glazed"
+  ]
+}

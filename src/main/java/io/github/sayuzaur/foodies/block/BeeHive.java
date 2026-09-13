@@ -17,7 +17,6 @@
 package io.github.sayuzaur.foodies.block;
 
 import farn.farn_util.api.particle.ParticleAPI;
-import io.github.sayuzaur.foodies.FoodiesMod;
 import io.github.sayuzaur.foodies.events.init.ItemListener;
 import io.github.sayuzaur.foodies.particle.BeeFlyingAround;
 import io.github.sayuzaur.foodies.particle.BeeFlyingIn;
@@ -36,6 +35,7 @@ import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.block.BlockState;
 import net.modificationstation.stationapi.api.block.context.BlockTagContext;
 import net.modificationstation.stationapi.api.item.ItemPlacementContext;
+import net.modificationstation.stationapi.api.registry.tag.BlockTags;
 import net.modificationstation.stationapi.api.state.StateManager;
 import net.modificationstation.stationapi.api.state.property.DirectionProperty;
 import net.modificationstation.stationapi.api.state.property.IntProperty;
@@ -130,7 +130,7 @@ public class BeeHive extends TemplateBlock {
                     for (int flowerY = y - 3; flowerY <= y + 2; ++flowerY) {
                         for (int flowerZ = z - 4; flowerZ <= z + 4; ++flowerZ) {
                             BlockState maybeFlower = world.getBlockState(flowerX, flowerY, flowerZ);
-                            if (maybeFlower.isIn(FoodiesMod.FLOWERS, BlockTagContext.DEFAULT)) {
+                            if (maybeFlower.isIn(BlockTags.FLOWERS, BlockTagContext.of(world, flowerX, flowerY, flowerZ))) {
                                 flowersNearby++;
                             }
                         }
@@ -338,7 +338,7 @@ public class BeeHive extends TemplateBlock {
                         for(int flowerY = y - 3; flowerY <= y + 2; ++flowerY) {
                             for(int flowerZ = z - 4; flowerZ <= z + 4; ++flowerZ) {
                                 BlockState state = world.getBlockState(flowerX, flowerY, flowerZ);
-                                if (state.isIn(FoodiesMod.FLOWERS, BlockTagContext.DEFAULT)) {
+                                if (state.isIn(BlockTags.FLOWERS, BlockTagContext.of(world, flowerX, flowerY, flowerZ))) {
                                     if (random.nextInt(16) == 0 && canSpawnBee) {
                                         ParticleAPI.addParticle(new BeeOnFlower(world, flowerX, flowerY, flowerZ, 0, 0, 0));
                                         canSpawnBee = false;

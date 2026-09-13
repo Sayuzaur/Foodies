@@ -1,7 +1,7 @@
 plugins {
     id 'maven-publish'
     id 'fabric-loom' version '1.17.12'
-    id 'babric-loom-extension' version '1.16.1'
+    id 'babric-loom-extension' version '1.16.2'
     id "com.modrinth.minotaur" version "2.+"
 }
 
@@ -100,6 +100,7 @@ dependencies {
     modImplementation("maven.modrinth:farnutil:3.6.9-babric")
     modImplementation("maven.modrinth:campfire-stationapi:2.0.1-babric")
     modImplementation("maven.modrinth:3d-dropped-item-stationapi:1.4")
+    modImplementation("maven.modrinth:bloomingwaters:0.2.0")
     //modImplementation("maven.modrinth:fishinfoodtweaks-stationapi:3.2.1")
 
     if (project.hasProperty("modmenu_version")) {
