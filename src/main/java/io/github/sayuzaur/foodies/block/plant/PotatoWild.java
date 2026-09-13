@@ -22,18 +22,15 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.modificationstation.stationapi.api.util.Identifier;
 
+import java.util.Random;
+
 public class PotatoWild extends BaseWildCrop {
     public PotatoWild(Identifier identifier) {
         super(identifier);
     }
 
     @Override
-    protected Item getDrop() {
-        return ItemListener.POTATO;
-    }
-
-    @Override
-    protected Block getShearsDrop() {
-        return BlockListener.POTATO_WILD;
+    public int getDroppedItemId(int blockMeta, Random random) {
+        return ItemListener.POTATO.id;
     }
 }

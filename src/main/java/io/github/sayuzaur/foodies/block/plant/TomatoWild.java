@@ -22,18 +22,15 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.modificationstation.stationapi.api.util.Identifier;
 
+import java.util.Random;
+
 public class TomatoWild extends BaseWildCrop {
     public TomatoWild(Identifier identifier) {
         super(identifier);
     }
 
     @Override
-    protected Item getDrop() {
-        return ItemListener.TOMATO_SEEDS;
-    }
-
-    @Override
-    protected Block getShearsDrop() {
-        return BlockListener.TOMATO_WILD;
+    public int getDroppedItemId(int blockMeta, Random random) {
+        return ItemListener.TOMATO_SEEDS.id;
     }
 }
