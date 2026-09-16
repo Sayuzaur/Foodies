@@ -1,0 +1,28 @@
+{
+  "values": [
+    {
+      "id": "#c:foods/vegetable/cabbage",
+      "required": false
+    },
+    {
+      "id": "#c:foods/vegetable/carrot",
+      "required": false
+    },
+    {
+      "id": "#c:foods/vegetable/chili",
+      "required": false
+    },
+    {
+      "id": "#c:foods/vegetable/onion",
+      "required": false
+    },
+    {
+      "id": "#c:foods/vegetable/potato",
+      "required": false
+    },
+    {
+      "id": "#c:foods/vegetable/tomato",
+      "required": false
+    }
+  ]
+}

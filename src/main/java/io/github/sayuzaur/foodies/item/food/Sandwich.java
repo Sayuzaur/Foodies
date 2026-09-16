@@ -24,7 +24,7 @@ import net.modificationstation.stationapi.api.util.Identifier;
 
 public class Sandwich extends TemplateStackableFoodItem implements CustomTooltipProvider {
     public static final String[] tooltipContent = new String[]{
-            "air",
+            "dreams and hope",
             "meat and veggies",
             "meat and cheese",
             "meat and egg",
@@ -38,7 +38,7 @@ public class Sandwich extends TemplateStackableFoodItem implements CustomTooltip
     };
 
     public Sandwich(Identifier identifier){
-        super (identifier, 7, false, 2);
+        super (identifier, 8, false, 2);
         //this.setHasSubtypes(true);
     }
 

@@ -5,7 +5,7 @@
       "item": "foodies:jar"
     },
     {
-      "item": "minecraft:cactus"
+      "tag": "c:crops/cactus"
     }
   ],
   "result": {

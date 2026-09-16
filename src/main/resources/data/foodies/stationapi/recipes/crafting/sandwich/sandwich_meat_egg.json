@@ -2,13 +2,13 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "minecraft:bread"
+      "tag": "c:foods/bread"
     },
     {
-      "tag": "minecraft:any_meat"
+      "tag": "foodies:foods/meat/safe"
     },
     {
-      "tag": "minecraft:any_egg"
+      "tag": "foodies:foods/eggs"
     }
   ],
   "result": {

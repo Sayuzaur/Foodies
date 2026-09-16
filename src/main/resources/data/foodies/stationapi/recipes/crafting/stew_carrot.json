@@ -2,13 +2,13 @@
  "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "foodies:carrot"
+      "tag": "c:foods/vegetable/carrot"
     },
     {
-      "item": "foodies:carrot"
+      "tag": "c:foods/vegetable/carrot"
     },
     {
-      "item": "foodies:carrot"
+      "tag": "c:foods/vegetable/carrot"
     },
     {
       "item": "minecraft:bowl"

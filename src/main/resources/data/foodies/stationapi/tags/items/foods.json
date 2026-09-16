@@ -1,0 +1,16 @@
+{
+  "values": [
+    {
+      "id": "#foodies:foods/eggs",
+      "required": false
+    },
+    {
+      "id": "#foodies:foods/fish",
+      "required": false
+    },
+    {
+      "id": "#foodies:foods/meat",
+      "required": false
+    }
+  ]
+}

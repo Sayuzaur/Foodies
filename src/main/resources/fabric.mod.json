@@ -46,7 +46,7 @@
   "depends": {
     "minecraft": "1.0.0-beta.7.3",
     "farn_util": ">=3.3.2-babric",
-    "stationapi": ">=2.0.0-alpha.6.2"
+    "stationapi": ">=2.0.0-alpha.6.4"
   },
   "breaks": {
     "honeybees": "*"

@@ -31,8 +31,9 @@ public class ChiliSeeds extends TemplateItem {
 
     @Override
     public boolean useOnBlock(ItemStack stack, PlayerEntity player, World world, int x, int y, int z, int side) {
-
-        //TODO Check for air above
+        if (!world.isAir(x, y + 1, z)) {
+            return false;
+        }
         if (world.getBlockId(x, y, z) == Block.GRAVEL.id && side == 1) {
             world.setBlock(x, y + 1, z, BlockListener.CHILI_CROPS.id);
             stack.count--;

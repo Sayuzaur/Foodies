@@ -16,33 +16,26 @@
 
 package io.github.sayuzaur.foodies.block.plant;
 
-import io.github.sayuzaur.foodies.events.init.BlockListener;
-import io.github.sayuzaur.foodies.events.init.ItemListener;
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
-import net.modificationstation.stationapi.api.template.block.BlockTemplate;
+import net.modificationstation.stationapi.api.block.context.BlockTagContext;
+import net.modificationstation.stationapi.api.registry.tag.BlockTags;
 import net.modificationstation.stationapi.api.template.block.TemplateBlock;
 import net.modificationstation.stationapi.api.util.Identifier;
 
 import java.util.Random;
 
-public abstract class BaseWildCrop extends TemplateBlock implements BlockTemplate {
-
+public class BaseWildCrop extends TemplateBlock {
     public BaseWildCrop(Identifier identifier) {
         super(identifier, Material.PLANT);
-        float var3 = 0.4F;
-        this.setBoundingBox(0.5F - var3, 0.0F, 0.5F - var3, 0.5F + var3, 0.8F, 0.5F + var3);
+        this.setTickRandomly(true);
+        this.setBoundingBox(0.125F, 0.0F, 0.125F, 0.875F, 0.875F, 0.875F);
         this.setSoundGroup(DIRT_SOUND_GROUP);
     }
-
-    protected abstract Item getDrop();
-
-    protected abstract Block getShearsDrop();
 
     @Override
     public Box getCollisionShape(World world, int x, int y, int z) {
@@ -59,26 +52,45 @@ public abstract class BaseWildCrop extends TemplateBlock implements BlockTemplat
         return false;
     }
 
-    protected boolean canPlantOnTop(int id) {
-        return id == Block.GRASS_BLOCK.id || id == Block.DIRT.id;
+    public boolean canPlantOnTop(World world, int x, int y, int z) {
+        return     world.getBlockState(x, y, z).isIn(BlockTags.GRASS_BLOCKS, BlockTagContext.of(world, x, y, z))
+                || world.getBlockState(x, y, z).isIn(BlockTags.DIRTS, BlockTagContext.of(world, x, y, z));
     }
 
     @Override
-    public boolean canPlaceAt(World world, int x, int y, int z) {
-        return super.canPlaceAt(world, x, y, z)
-                && this.canPlantOnTop(world.getBlockId(x, y - 1, z));
+    public boolean canPlaceAt(World world, int x, int y, int z, int side) {
+        if (!world.isAir(x, y, z)) {
+            return false;
+        }
+        return canPlantOnTop(world, x, y - 1, z);
+    }
+
+    @Override
+    public boolean canGrow(World world, int x, int y, int z) {
+        return canPlantOnTop(world, x, y - 1, z);
+    }
+
+    protected final void breakIfCannotGrow(World world, int x, int y, int z) {
+        if (!this.canGrow(world, x, y, z)) {
+            this.dropStacks(world, x, y, z, world.getBlockMeta(x, y, z));
+            world.setBlock(x, y, z, 0);
+        }
+    }
+
+    public void neighborUpdate(World world, int x, int y, int z, int id) {
+        super.neighborUpdate(world, x, y, z, id);
+        this.breakIfCannotGrow(world, x, y, z);
+    }
+
+    public void onTick(World world, int x, int y, int z, Random random) {
+        this.breakIfCannotGrow(world, x, y, z);
     }
 
     public void afterBreak(World world, PlayerEntity playerEntity, int x, int y, int z, int meta) {
         if (!world.isRemote && playerEntity.getHand() != null && playerEntity.getHand().itemId == Item.SHEARS.id) {
-            this.dropStack(world, x, y, z, new ItemStack(getShearsDrop()));
+            this.dropStack(world, x, y, z, new ItemStack(this.asItem()));
         } else {
             super.afterBreak(world, playerEntity, x, y, z, meta);
         }
-    }
-
-    @Override
-    public int getDroppedItemId(int blockMeta, Random random) {
-        return getDrop().id;
     }
 }

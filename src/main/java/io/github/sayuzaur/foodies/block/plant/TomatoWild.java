@@ -16,11 +16,10 @@
 
 package io.github.sayuzaur.foodies.block.plant;
 
-import io.github.sayuzaur.foodies.events.init.BlockListener;
 import io.github.sayuzaur.foodies.events.init.ItemListener;
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
 import net.modificationstation.stationapi.api.util.Identifier;
+
+import java.util.Random;
 
 public class TomatoWild extends BaseWildCrop {
     public TomatoWild(Identifier identifier) {
@@ -28,12 +27,7 @@ public class TomatoWild extends BaseWildCrop {
     }
 
     @Override
-    protected Item getDrop() {
-        return ItemListener.TOMATO_SEEDS;
-    }
-
-    @Override
-    protected Block getShearsDrop() {
-        return BlockListener.TOMATO_WILD;
+    public int getDroppedItemId(int blockMeta, Random random) {
+        return ItemListener.TOMATO_SEEDS.id;
     }
 }

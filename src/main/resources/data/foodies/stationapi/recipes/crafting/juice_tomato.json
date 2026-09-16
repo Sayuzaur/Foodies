@@ -5,7 +5,7 @@
       "item": "foodies:jar"
     },
     {
-      "item": "foodies:tomato"
+      "tag": "c:foods/vegetable/tomato"
     }
   ],
   "result": {

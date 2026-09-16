@@ -51,6 +51,6 @@ Mod introduces real size bees producing honey. Find wild bee nest, catch bees, b
 
 ## Notes
 
-There are salt blocks and cooking station left in the mod. They have no real function, but I left them to be used as decoration. I'm planning to utilise them in future versions. 
+There are salt blocks and cooking station left in the mod. They have no real function, but I left them to be used as decoration. I'm planning to utilize them in future versions. 
  
 It's my first big java mod and also first time creating pixel-art assets. I'm open for any suggestions and help. 

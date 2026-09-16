@@ -1,0 +1,17 @@
+{
+  "values": [
+    {
+      "id": "#c:seeds/cabbage",
+      "required": false
+    },
+    {
+      "id": "#c:seeds/chili",
+      "required": false
+    },
+    {
+      "id": "#c:seeds/tomato",
+      "required": false
+    },
+    "foodies:mystery_seeds"
+  ]
+}

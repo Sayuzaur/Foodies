@@ -19,7 +19,6 @@ package io.github.sayuzaur.foodies.mixin;
 import io.github.sayuzaur.foodies.events.init.ItemListener;
 import net.minecraft.block.Block;
 import net.minecraft.entity.passive.SheepEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;

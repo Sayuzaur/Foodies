@@ -17,9 +17,6 @@
 package io.github.sayuzaur.foodies;
 
 import net.glasslauncher.mods.gcapi3.api.ConfigRoot;
-import net.minecraft.block.Block;
-import net.modificationstation.stationapi.api.registry.BlockRegistry;
-import net.modificationstation.stationapi.api.tag.TagKey;
 import net.modificationstation.stationapi.api.util.Namespace;
 
 public class FoodiesMod {
@@ -38,7 +35,4 @@ public class FoodiesMod {
 
     @ConfigRoot(value = "mobdropsconfig", visibleName = "Mob Drops", index = 4)
     public static final FoodiesConfig.MobDropsConfig MOB_DROPS_CONFIG = new FoodiesConfig.MobDropsConfig();
-
-    //BLOCKS TAG
-    public static final TagKey<Block> FLOWERS = TagKey.of(BlockRegistry.KEY, NAMESPACE.id("flowers"));
 }

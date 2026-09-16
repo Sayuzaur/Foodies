@@ -1,0 +1,28 @@
+{
+  "values": [
+    {
+      "id": "#c:crops/cabbage",
+      "required": false
+    },
+    {
+      "id": "#c:crops/carrot",
+      "required": false
+    },
+    {
+      "id": "#c:crops/chili",
+      "required": false
+    },
+    {
+      "id": "#c:crops/onion",
+      "required": false
+    },
+    {
+      "id": "#c:crops/potato",
+      "required": false
+    },
+    {
+      "id": "#c:crops/tomato",
+      "required": false
+    }
+  ]
+}

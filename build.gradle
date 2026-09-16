@@ -1,7 +1,7 @@
 plugins {
     id 'maven-publish'
-    id 'fabric-loom' version '1.15.5'
-    id 'babric-loom-extension' version '1.15.3'
+    id("fabric-loom") version "1.17.20"
+    id("babric-loom-extension") version "1.17.4"
     id "com.modrinth.minotaur" version "2.+"
 }
 
@@ -97,10 +97,10 @@ dependencies {
 
     modImplementation ("maven.modrinth:freecam-stationapi:${project.properties["freecam-stapi_version"]}")
 
-    modImplementation("maven.modrinth:farnutil:3.5.2-babric-b1.7.3")
+    modImplementation("maven.modrinth:farnutil:3.6.9-babric")
     modImplementation("maven.modrinth:campfire-stationapi:2.0.1-babric")
     modImplementation("maven.modrinth:3d-dropped-item-stationapi:1.4")
-    //modImplementation("maven.modrinth:fishinfoodtweaks-stationapi:3.2.1")
+    //modImplementation("maven.modrinth:bloomingwaters:0.2.0")
 
     if (project.hasProperty("modmenu_version")) {
         modImplementation("net.danygames2014:modmenu:${project.modmenu_version}") {

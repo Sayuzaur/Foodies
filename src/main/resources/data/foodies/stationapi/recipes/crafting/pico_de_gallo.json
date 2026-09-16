@@ -2,13 +2,13 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "foodies:tomato"
+      "tag": "c:foods/vegetable/tomato"
     },
     {
-      "item": "foodies:onion"
+      "tag": "c:foods/vegetable/onion"
     },
     {
-      "item": "foodies:chili"
+      "tag": "c:foods/vegetable/chili"
     },
     {
       "item": "minecraft:bowl"
