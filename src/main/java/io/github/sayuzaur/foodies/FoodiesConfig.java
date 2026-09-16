@@ -45,10 +45,10 @@ public class FoodiesConfig {
     }
 
     public static class FeaturesGenConfig {
-        @ConfigEntry(name = "Oak Tree with Bee Nest rarity", minValue = 1, maxValue = 16, description = "1 -> Common, 16 -> Very hard to find", requiresRestart = true)
+        @ConfigEntry(name = "Oak Tree with Bee Nest rarity", minValue = 1, maxValue = 128, description = "1 tree in every X chunks", requiresRestart = true)
         public Integer oakTreeBeeChance = 8;
 
-        @ConfigEntry(name = "Birch Tree with Bee Nest rarity", minValue = 1, maxValue = 16, description = "1 -> Common, 16 -> Very hard to find", requiresRestart = true)
+        @ConfigEntry(name = "Birch Tree with Bee Nest rarity", minValue = 1, maxValue = 128, description = "1 tree in every X chunks", requiresRestart = true)
         public Integer birchTreeBeeChance = 6;
     }
 

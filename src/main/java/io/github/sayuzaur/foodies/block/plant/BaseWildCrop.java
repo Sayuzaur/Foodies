@@ -53,13 +53,13 @@ public class BaseWildCrop extends TemplateBlock {
     }
 
     public boolean canPlantOnTop(World world, int x, int y, int z) {
-        return world.getBlockState(x, y, z).isIn(BlockTags.GRASS_BLOCKS, BlockTagContext.of(world, x, y, z))
+        return     world.getBlockState(x, y, z).isIn(BlockTags.GRASS_BLOCKS, BlockTagContext.of(world, x, y, z))
                 || world.getBlockState(x, y, z).isIn(BlockTags.DIRTS, BlockTagContext.of(world, x, y, z));
     }
 
     @Override
     public boolean canPlaceAt(World world, int x, int y, int z, int side) {
-        if (!world.isAir(x, y + 1, z)) {
+        if (!world.isAir(x, y, z)) {
             return false;
         }
         return canPlantOnTop(world, x, y - 1, z);
