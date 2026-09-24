@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "foodies:block/fruit_tree_trunk",
+      "y": 90,
+      "x": 90
+    },
+    "axis=z": {
+      "model": "foodies:block/fruit_tree_trunk",
+      "y": 0,
+      "x": 90
+    },
+    "axis=y": {
+      "model": "foodies:block/fruit_tree_trunk",
+      "y": 0,
+      "x": 0
+    }
+  }
+}

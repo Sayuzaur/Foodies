@@ -84,7 +84,7 @@ tile.@.tomato_crops.name=Tomato Crops
 tile.@.tomato_wild.name=Wild Tomatoes
 tile.@.cabbage_crops.name=Cabbage Crops
 tile.@.cabbage_wild.name=Wild Cabbage
-tile.@.chili_crops.name=Hellish Chili Crops
+tile.@.chili_crops.name=Hellish Chilli Crops
 
 tile.@.cooking_station.name=Cooking Station
 
@@ -92,6 +92,18 @@ tile.@.beehive_oak.name=Wooden Beehive
 tile.@.beenest_oak.name=Oak Log Bee Nest
 tile.@.beenest_birch.name=Birch Log Bee Nest
 tile.@.honeycomb.name=Honeycomb Block
+
+tile.@.leaves_apple.name=Apple Tree Leaves
+tile.@.leaves_orange.name=Orange Tree Leaves
+tile.@.leaves_peach.name=Peach Tree Leaves
+
+tile.@.fruit_tree_trunk.name=Fruit Tree Trunk
+
+tile.@.cloudberry_bush.name=Cloudberry Plant
+
+tile.@.crate_apple.name=Apple Crate
+tile.@.crate_orange.name=Orange Crate
+tile.@.crate_peach.name=Peach Crate
 
 
 

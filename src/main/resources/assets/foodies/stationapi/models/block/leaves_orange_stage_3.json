@@ -1,0 +1,8 @@
+{
+  "parent": "foodies:block/base/cube_tinted_colour",
+  "textures": {
+    "all": "foodies:block/leaves_fruit",
+    "all_precoloured": "foodies:block/leaves_orange_fruits",
+    "particle": "foodies:block/leaves_fruit_particle"
+  }
+}

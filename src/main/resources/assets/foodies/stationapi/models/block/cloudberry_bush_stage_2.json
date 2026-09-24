@@ -1,0 +1,26 @@
+{
+	"parent": "block/block",
+	"textures": {
+		"leaves":"foodies:block/cloudberry_leaves",
+		"fruits":"foodies:block/cloudberry_fruits",
+		"particle":"#leaves"
+	},
+	"elements": [
+		{
+			"from": [0, 1, 0],
+			"to": [16, 1, 16],
+			"faces": {
+				"up": {"uv": [0, 0, 16, 16], "texture": "#leaves", "tintindex": 0},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#leaves", "tintindex": 0}
+			}
+		},
+		{
+			"from": [0, 1.5, 0],
+			"to": [16, 1.5, 16],
+			"faces": {
+				"up": {"uv": [0, 0, 16, 16], "texture": "#fruits"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#fruits"}
+			}
+		}
+	]
+}

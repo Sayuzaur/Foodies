@@ -1,0 +1,56 @@
+{
+  "multipart": [
+    {
+      "apply": [
+        { "model": "foodies:block/cloudberry_bush_stage_0" },
+        { "model": "foodies:block/cloudberry_bush_stage_0", "y": 90 },
+        { "model": "foodies:block/cloudberry_bush_stage_0", "y": 180 },
+        { "model": "foodies:block/cloudberry_bush_stage_0", "y": 270 }
+      ],
+      "when": {
+        "snowlogged": "false",
+        "age": "0|1|2|3|4"
+      }
+    },
+    {
+      "apply": [
+        { "model": "foodies:block/cloudberry_bush_stage_2" },
+        { "model": "foodies:block/cloudberry_bush_stage_2", "y": 90 },
+        { "model": "foodies:block/cloudberry_bush_stage_2", "y": 180 },
+        { "model": "foodies:block/cloudberry_bush_stage_2", "y": 270 }
+      ],
+      "when": {
+        "snowlogged": "false",
+        "age": "5"
+      }
+    },
+    {
+      "apply": { "model": "foodies:block/snowlayer_2" },
+      "when": { "snowlogged": "true" }
+    },
+    {
+      "apply": [
+        { "model": "foodies:block/cloudberry_bush_stage_0_snowlogged" },
+        { "model": "foodies:block/cloudberry_bush_stage_0_snowlogged", "y": 90 },
+        { "model": "foodies:block/cloudberry_bush_stage_0_snowlogged", "y": 180 },
+        { "model": "foodies:block/cloudberry_bush_stage_0_snowlogged", "y": 270 }
+      ],
+      "when": {
+        "snowlogged": "true",
+        "age": "0|1|2|3|4"
+      }
+    },
+    {
+      "apply": [
+        { "model": "foodies:block/cloudberry_bush_stage_2_snowlogged" },
+        { "model": "foodies:block/cloudberry_bush_stage_2_snowlogged", "y": 90 },
+        { "model": "foodies:block/cloudberry_bush_stage_2_snowlogged", "y": 180 },
+        { "model": "foodies:block/cloudberry_bush_stage_2_snowlogged", "y": 270 }
+      ],
+      "when": {
+        "snowlogged": "true",
+        "age": "5"
+      }
+    }
+  ]
+}

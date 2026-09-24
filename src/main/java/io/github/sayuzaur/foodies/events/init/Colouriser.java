@@ -17,12 +17,13 @@
 package io.github.sayuzaur.foodies.events.init;
 
 import net.mine_diver.unsafeevents.listener.EventListener;
-import net.minecraft.client.color.world.GrassColors;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
-import net.modificationstation.stationapi.api.block.BlockState;
+import net.modificationstation.stationapi.api.client.color.world.BiomeColors;
 import net.modificationstation.stationapi.api.client.event.color.block.BlockColorsRegisterEvent;
 import net.modificationstation.stationapi.api.mod.entrypoint.EntrypointManager;
+import net.modificationstation.stationapi.api.util.math.ColorHelper;
+import net.modificationstation.stationapi.api.util.math.MathHelper;
 
 import java.lang.invoke.MethodHandles;
 
@@ -31,11 +32,22 @@ public class Colouriser {
         EntrypointManager.registerLookup(MethodHandles.lookup());
     }
 
-    protected int getTint(BlockState ignoredState, BlockView world, BlockPos pos, int ignoredTintIndex) {
-        world.method_1781().getBiomesInArea(pos.x, pos.z, 1, 1);
-        double temp = world.method_1781().temperatureMap[0];
-        double rain = world.method_1781().downfallMap[0];
-        return GrassColors.getColor(temp, rain);
+    protected int getOrangeLeavesColour(BlockView world, BlockPos pos) {
+        int ogColour = BiomeColors.getFoliageColor(world, pos);
+        int blue =  MathHelper.clamp(ColorHelper.Argb.getBlue(ogColour)  - 25, 15, 255);
+        int green = MathHelper.clamp(ColorHelper.Argb.getGreen(ogColour) - 15, 15, 255);
+        int red =   MathHelper.clamp(ColorHelper.Argb.getRed(ogColour)   + 60, 15, 130);
+
+        return ColorHelper.Argb.getArgb(255, red, green, blue);
+    }
+
+    protected int getBerryLeavesColour(BlockView world, BlockPos pos) {
+        int ogColour = BiomeColors.getFoliageColor(world, pos);
+        int blue =  MathHelper.clamp(ColorHelper.Argb.getBlue(ogColour)  + 35, 15, 255);
+        int green = MathHelper.clamp(ColorHelper.Argb.getGreen(ogColour) + 35, 15, 255);
+        int red =   MathHelper.clamp(ColorHelper.Argb.getRed(ogColour)   + 65, 15, 190);
+
+        return ColorHelper.Argb.getArgb(255, red, green, blue);
     }
 
     @EventListener
@@ -44,27 +56,26 @@ public class Colouriser {
             //I have no idea if 'assert' here is required, but IntelliJ shows warnings and it annoys me
             assert world != null;
             assert pos != null;
-            return getTint(state, world, pos, tintIndex);
-        }, BlockListener.CARROT_WILD);
+            return BiomeColors.getFoliageColor(world, pos);
+            },  BlockListener.CARROT_WILD,
+                BlockListener.CABBAGE_WILD,
+                BlockListener.ONION_WILD,
+                BlockListener.POTATO_WILD,
+                BlockListener.TOMATO_WILD,
+                BlockListener.LEAVES_APPLE,
+                BlockListener.LEAVES_ORANGE,
+                BlockListener.LEAVES_PEACH);
+
         event.blockColors.registerColorProvider((state, world, pos, tintIndex) -> {
             assert world != null;
             assert pos != null;
-            return getTint(state, world, pos, tintIndex);
-        }, BlockListener.CABBAGE_WILD);
+            return getOrangeLeavesColour(world, pos);
+            },  BlockListener.LEAVES_ORANGE);
+
         event.blockColors.registerColorProvider((state, world, pos, tintIndex) -> {
             assert world != null;
             assert pos != null;
-            return getTint(state, world, pos, tintIndex);
-        }, BlockListener.ONION_WILD);
-        event.blockColors.registerColorProvider((state, world, pos, tintIndex) -> {
-            assert world != null;
-            assert pos != null;
-            return getTint(state, world, pos, tintIndex);
-        }, BlockListener.POTATO_WILD);
-        event.blockColors.registerColorProvider((state, world, pos, tintIndex) -> {
-            assert world != null;
-            assert pos != null;
-            return getTint(state, world, pos, tintIndex);
-        }, BlockListener.TOMATO_WILD);
+            return getBerryLeavesColour(world, pos);
+        },  BlockListener.CLOUDBERRY_BUSH);
     }
 }

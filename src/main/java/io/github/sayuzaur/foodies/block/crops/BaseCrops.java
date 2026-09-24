@@ -36,6 +36,7 @@ import java.util.Random;
 
 public abstract class BaseCrops extends TemplateBlock {
     public static final IntProperty AGE;
+
     static {
         AGE = Properties.AGE_7;
     }
@@ -181,8 +182,6 @@ public abstract class BaseCrops extends TemplateBlock {
 
     @Override
     public void onTick(World world, int x, int y, int z, Random random) {
-        this.breakIfCannotGrow(world, x, y, z);
-
         if (world.getLightLevel(x, y + 1, z) >= 9) {
             BlockState state = world.getBlockState(x, y, z);
             int age = state.get(AGE);
@@ -195,6 +194,7 @@ public abstract class BaseCrops extends TemplateBlock {
                 }
             }
         }
+        this.breakIfCannotGrow(world, x, y, z);
     }
 
     @Override

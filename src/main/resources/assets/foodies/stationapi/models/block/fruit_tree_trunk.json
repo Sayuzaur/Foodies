@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "foodies:block/fruit_trunk_end",
+    "side": "foodies:block/fruit_trunk_side"
+  }
+}

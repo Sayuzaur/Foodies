@@ -14,23 +14,17 @@
  * If not, see <https://www.gnu.org/licenses/>.
  */
 
-package io.github.sayuzaur.foodies.item;
+package io.github.sayuzaur.foodies.block;
 
-import net.modificationstation.stationapi.api.client.item.CustomTooltipProvider;
-import net.minecraft.item.ItemStack;
-import net.modificationstation.stationapi.api.template.item.TemplateItem;
-import net.modificationstation.stationapi.api.util.Formatting;
+import net.minecraft.block.material.Material;
+import net.modificationstation.stationapi.api.template.block.TemplateBlock;
 import net.modificationstation.stationapi.api.util.Identifier;
 
-public class Bottle extends TemplateItem implements CustomTooltipProvider {
-    public Bottle(Identifier identifier) {
-        super(identifier);
-    }
-
-    @Override
-    public String[] getTooltip(ItemStack stack, String originalTooltip) {
-        return new String[]{originalTooltip,
-                Formatting.GRAY + "Unused, left for compatibility.",
-                Formatting.GRAY + "Can be converted into jars."};
+public class Crate extends TemplateBlock {
+    public Crate(Identifier identifier) {
+        super(identifier, Material.WOOD);
+        this.setHardness(2.0F);
+        this.setResistance(5.0F);
+        this.setSoundGroup(WOOD_SOUND_GROUP);
     }
 }

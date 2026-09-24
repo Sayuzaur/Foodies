@@ -16,10 +16,7 @@
 
 package io.github.sayuzaur.foodies.events.init;
 
-import io.github.sayuzaur.foodies.block.BeeHive;
-import io.github.sayuzaur.foodies.block.CookingStation;
-import io.github.sayuzaur.foodies.block.SaltBlock;
-import io.github.sayuzaur.foodies.block.SaltOre;
+import io.github.sayuzaur.foodies.block.*;
 import io.github.sayuzaur.foodies.block.crops.*;
 import io.github.sayuzaur.foodies.block.plant.*;
 import net.mine_diver.unsafeevents.listener.EventListener;
@@ -60,6 +57,16 @@ public class BlockListener {
     public static Block BEENEST_BIRCH;
     public static Block HONEYCOMB;
 
+    public static Block LEAVES_APPLE;
+    public static Block LEAVES_ORANGE;
+    public static Block LEAVES_PEACH;
+
+    public static Block FRUIT_TREE_TRUNK;
+
+    public static Block CLOUDBERRY_BUSH;
+
+    public static Block CRATE_APPLE;
+
     @EventListener
     private static void registerBlocks(BlockRegistryEvent event) {
         SALT_ORE = new SaltOre(NAMESPACE.id("salt_ore"));
@@ -83,5 +90,15 @@ public class BlockListener {
         BEENEST_OAK = new BeeHive(NAMESPACE.id("beenest_oak"));
         BEENEST_BIRCH = new BeeHive(NAMESPACE.id("beenest_birch"));
         HONEYCOMB = new TemplateBlock(NAMESPACE.id("honeycomb"), Material.SOIL).setHardness(0.8F);
+
+        LEAVES_APPLE = new FruitTreeLeaves(NAMESPACE.id("leaves_apple"));
+        LEAVES_ORANGE = new FruitTreeLeaves(NAMESPACE.id("leaves_orange"));
+        LEAVES_PEACH = new FruitTreeLeaves(NAMESPACE.id("leaves_peach"));
+
+        FRUIT_TREE_TRUNK = new FruitTreeTrunk(NAMESPACE.id("fruit_tree_trunk"));
+
+        CLOUDBERRY_BUSH = new Cloudberry(NAMESPACE.id("cloudberry_bush"));
+
+        CRATE_APPLE = new Crate(NAMESPACE.id("crate_apple"));
     }
 }
