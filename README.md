@@ -49,8 +49,16 @@ Mod introduces real size bees producing honey. Find wild bee nest, catch bees, b
 - **[Always More Items](https://modrinth.com/mod/always-more-items)** - Recomended to use to see all the recipes added by Foodies. 
 - Foodies overwrites drops for sheep, cow, chicken, squid, zombiepig, deadbush and changes itemdye (bonemeal) behaviour. Mods that do the same thing will create conflicts.
 
-## Notes
+## License
+#### Copyright (c) 2026 Sayuzaur
 
-There are salt blocks and cooking station left in the mod. They have no real function, but I left them to be used as decoration. I'm planning to utilize them in future versions. 
- 
-It's my first big java mod and also first time creating pixel-art assets. I'm open for any suggestions and help. 
+The following files are licensed under the **EUPL-1.2-or-later**, unless stated otherwise:
+
+- Java source files under `src/main/java/`
+- JSON files under `src/main/resources/`
+
+See [LICENSE](LICENSE) for the full licence text.
+
+Assets, such as textures, sounds, and other non-JSON files under `src/main/resources/assets`, are **not licensed under the EUPL**.
+
+These assets may not be redistributed, modified, or reused without prior permission.

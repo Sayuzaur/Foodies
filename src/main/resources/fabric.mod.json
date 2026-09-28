@@ -13,7 +13,7 @@
     "sources": "https://github.com/Sayuzaur/Foodies"
   },
 
-  "license": "LGPL-3.0-or-later",
+  "license": "EUPL-1.2",
   "icon": "assets/foodies/icon.png",
 
   "environment": "*",
