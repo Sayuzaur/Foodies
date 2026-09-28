@@ -2,7 +2,7 @@
   "parent": "minecraft:block/cube_bottom_top",
   "textures": {
     "bottom":"minecraft:block/oak_planks",
-    "top":"foodies:block/crate_oak_top_apple",
+    "top":"foodies:block/crate_oak_top_peach",
     "side":"foodies:block/crate_oak_side",
     "particle":"#top"
   }

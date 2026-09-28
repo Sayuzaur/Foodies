@@ -3,7 +3,7 @@
 	"textures": {
 		"leaves":"foodies:block/cloudberry_leaves",
 		"flowers":"foodies:block/cloudberry_flowers",
-		"particle":"#leaves"
+		"particle":"foodies:block/cloudberry_particle"
 	},
 	"elements": [
 		{

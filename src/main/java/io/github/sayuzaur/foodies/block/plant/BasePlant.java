@@ -16,15 +16,21 @@
 
 package io.github.sayuzaur.foodies.block.plant;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.Item;
 import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.block.context.BlockTagContext;
+import net.modificationstation.stationapi.api.registry.ItemRegistry;
 import net.modificationstation.stationapi.api.registry.tag.BlockTags;
 import net.modificationstation.stationapi.api.template.block.TemplateBlock;
 import net.modificationstation.stationapi.api.util.Identifier;
 
+import java.util.Optional;
 import java.util.Random;
+
+import static io.github.sayuzaur.foodies.FoodiesMod.CROPS_CONFIG;
 
 public class BasePlant extends TemplateBlock {
     public BasePlant(Identifier identifier) {
@@ -85,7 +91,30 @@ public class BasePlant extends TemplateBlock {
         this.breakIfCannotGrow(world, x, y, z);
     }
 
+    //TODO Move it to some Util class in future.
+    // Now it's used only there so it doesn't matter, but would be better in the future.
+    public static int identifierToItemId(String n) {
+        Optional<Item> item = ItemRegistry.INSTANCE.getOrEmpty(Identifier.of(n));
+        return item.map(itemBase -> itemBase.id).orElse(-1);
+    }
+
+    public int getGrowthBlockItemId() {
+        return identifierToItemId(CROPS_CONFIG.blockGrowthItem);
+    }
+
     public void bonemealClientsideEffect(World world, int x, int y, int z) {
         world.playSound(x, y, z, "step.grass", 1.0F, 1.6F);
+    }
+
+    public void harvestClientsideEffect(World world, int x, int y, int z) {
+        world.playSound(x, y, z, "mob.chickenplop", 0.5F, 0.4F);
+    }
+
+    public void blockGrowthClientsideEffect(World world, int x, int y, int z) {
+        world.playSound(x, y, z, "mob.cow", 0.5F, 0.4F);
+    }
+
+    public void snowloggingClientsideEffect(World world, int x, int y, int z) {
+        world.playSound(x, y, z, Block.SNOW.soundGroup.getSound(), 0.5F, 0.4F);
     }
 }

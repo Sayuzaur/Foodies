@@ -108,6 +108,10 @@ public class ItemListener {
     public static Item COOKIE_HONEY;
     public static Item CANDY_HONEY;
 
+    public static Item ORANGE;
+    public static Item PEACH;
+    public static Item CLOUDBERRY;
+
     static int honeyGlazedBonus = 1;
 
     @EventListener
@@ -172,7 +176,6 @@ public class ItemListener {
         PIE_CARROT = new TemplateFoodItem(NAMESPACE.id("pie_carrot"), 10, false);
         PIE_APPLE = new TemplateFoodItem(NAMESPACE.id("pie_apple"), 10, false);
 
-        //BOTTLE = new Bottle(NAMESPACE.id("bottle"));
         JAR = new Jar(NAMESPACE.id("jar"));
         JUICE_CACTUS = new BaseJuice(NAMESPACE.id("juice_cactus"), 3);
         JUICE_APPLE = new BaseJuice(NAMESPACE.id("juice_apple"), 3);
@@ -183,5 +186,9 @@ public class ItemListener {
         APPLE_GLAZED = new TemplateFoodItem(NAMESPACE.id("apple_glazed"), 4 + honeyGlazedBonus, false);
         COOKIE_HONEY = new TemplateStackableFoodItem(NAMESPACE.id("cookie_honey"), 1, false, 8);
         CANDY_HONEY = new TemplateStackableFoodItem(NAMESPACE.id("candy_honey"), 1, false, 8);
+
+        ORANGE = new BaseFruit(NAMESPACE.id("orange"));
+        PEACH = new BaseFruit(NAMESPACE.id("peach"));
+        CLOUDBERRY = new TemplateStackableFoodItem(NAMESPACE.id("cloudberry"), 1, false, 16);
     }
 }

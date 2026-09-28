@@ -3,8 +3,7 @@
 	"ambientocclusion": true,
 	"textures": {
 		"leaves":"foodies:block/cloudberry_leaves_snowlogged",
-		"snow": "minecraft:block/snow",
-		"particle":"#leaves"
+		"particle":"foodies:block/cloudberry_particle"
 	},
 	"elements": [
 		{

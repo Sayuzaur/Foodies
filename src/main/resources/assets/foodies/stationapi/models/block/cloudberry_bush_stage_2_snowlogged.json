@@ -3,8 +3,7 @@
 	"textures": {
 		"leaves":"foodies:block/cloudberry_leaves_snowlogged",
 		"fruits":"foodies:block/cloudberry_fruits_snowlogged",
-		"snow": "minecraft:block/snow",
-		"particle":"#leaves"
+		"particle":"foodies:block/cloudberry_particle"
 	},
 	"elements": [
 		{

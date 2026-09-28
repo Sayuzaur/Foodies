@@ -24,6 +24,9 @@ public class FoodiesConfig {
     @ConfigCategory(name = "Food Behaviour")
     public FoodConfig basefood = new FoodConfig();
 
+    @ConfigCategory(name = "Crops Growth")
+    public CropsConfig crops = new CropsConfig();
+
     @ConfigCategory(name = "Features Generation")
     public FeaturesGenConfig featuregen = new FeaturesGenConfig();
 
@@ -42,6 +45,16 @@ public class FoodiesConfig {
 
         @ConfigEntry(name = "Juicing cactus breaks block", description = "If right-clicking with bottle on cactus breaks this block.")
         public Boolean breakCactus = true;
+    }
+
+    public static class CropsConfig {
+        @ConfigEntry(name = "Light level for crops (0-15)", minValue = 0, maxValue = 15, description = "Light level required for most crops/plants/fruits to grow. Vanilla Minecraft uses 9.")
+        public Integer lightLevelRequired = 9;
+
+        @ConfigEntry(name = "Block growth item", description = "Item identifier used to block growth. You can see item identifiers using AMI.", multiplayerSynced = true)
+        public String blockGrowthItem = "minecraft:gold_ingot";
+
+        //public Boolean breakCactus = true;
     }
 
     public static class FeaturesGenConfig {

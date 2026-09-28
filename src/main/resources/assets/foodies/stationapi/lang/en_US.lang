@@ -69,6 +69,10 @@ item.@.apple_glazed.name=Honeyed Apple
 item.@.cookie_honey.name=Honey Cookie
 item.@.candy_honey.name=Honey Candy
 
+item.@.orange.name=Orange
+item.@.peach.name=Peach
+item.@.cloudberry.name=Cloudberry
+
 
 
 tile.@.salt_ore.name=Salt Ore

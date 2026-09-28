@@ -64,6 +64,7 @@ public class Petal extends Particle implements ParticleDisableQuadDraw {
         float scalePar = 0.1F * scale;
         float brightness = this.getBrightnessAtEyes(1.0F);
 
+        //Spin. Maybe there's a better way than 8 new floats, but I don't overthink it.
         float angle = rotation + rotationSpeed * partialTicks;
         float sin = MathHelper.sin(angle);
         float cos = MathHelper.cos(angle);
@@ -93,6 +94,14 @@ public class Petal extends Particle implements ParticleDisableQuadDraw {
 
         GL11.glDepthMask(true);
         GL11.glDisable(GL11.GL_BLEND);
+    }
+
+    //It works without Overriding getGroup to return 3, but smarter than me people say it might be important.
+    //It doesn't break vanilla particles without it.
+    @Override
+    public int getGroup()
+    {
+        return 3;
     }
 
     @Override

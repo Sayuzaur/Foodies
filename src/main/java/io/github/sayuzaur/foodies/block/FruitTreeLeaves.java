@@ -37,6 +37,7 @@ import net.modificationstation.stationapi.api.block.context.BlockTagContext;
 import net.modificationstation.stationapi.api.item.ItemPlacementContext;
 import net.modificationstation.stationapi.api.registry.tag.BlockTags;
 import net.modificationstation.stationapi.api.state.StateManager;
+import net.modificationstation.stationapi.api.state.property.BooleanProperty;
 import net.modificationstation.stationapi.api.state.property.IntProperty;
 import net.modificationstation.stationapi.api.state.property.Properties;
 import net.modificationstation.stationapi.api.template.block.TemplateBlock;
@@ -47,11 +48,14 @@ import java.util.Random;
 public class FruitTreeLeaves extends TemplateBlock {
     public static final IntProperty AGE;
     public static final IntProperty SUBTYPE;
-    //TODO Add 'placed by player' and 'growth blocked'
+    public static final BooleanProperty GROWTH_BLOCKED;
+    public static final BooleanProperty PERSISTENT;
 
     static {
         AGE = Properties.AGE_7;
         SUBTYPE = IntProperty.of("fruit_subtype", 0, 7);
+        GROWTH_BLOCKED = BooleanProperty.of("growth_blocked");
+        PERSISTENT = BooleanProperty.of("persistent");
     }
 
     int[] decayRegion;
@@ -62,17 +66,17 @@ public class FruitTreeLeaves extends TemplateBlock {
         this.setHardness(0.2F);
         this.setOpacity(1);
         this.setTickRandomly(true);
-        setDefaultState(getStateManager().getDefaultState().with(AGE, 0).with(SUBTYPE, 0));
+        setDefaultState(getStateManager().getDefaultState().with(AGE, 0).with(SUBTYPE, 0).with(GROWTH_BLOCKED, false). with(PERSISTENT, false));
     }
 
     @Override
     public void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(AGE, SUBTYPE);
+        builder.add(AGE, SUBTYPE, GROWTH_BLOCKED, PERSISTENT);
     }
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext context) {
-        return getStateManager().getDefaultState().with(AGE, 0).with(SUBTYPE, 0);
+        return getStateManager().getDefaultState().with(AGE, 0).with(SUBTYPE, 0).with(GROWTH_BLOCKED, false).with(PERSISTENT, true);
     }
 
     @Override
@@ -128,6 +132,7 @@ public class FruitTreeLeaves extends TemplateBlock {
 
     public void onTick(World world, int x, int y, int z, Random random) {
         if (!world.isRemote) {
+            //TODO Ignore if is persistent
             int meta = world.getBlockMeta(x, y, z);
             if ((meta & 8) != 0) {
                 byte range = 4;
@@ -217,7 +222,8 @@ public class FruitTreeLeaves extends TemplateBlock {
             }
             return true;
         }
-        return false;
+
+        return true;
     }
 
     String getPetalName() {

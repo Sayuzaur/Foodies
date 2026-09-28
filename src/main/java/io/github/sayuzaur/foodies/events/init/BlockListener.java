@@ -66,6 +66,8 @@ public class BlockListener {
     public static Block CLOUDBERRY_BUSH;
 
     public static Block CRATE_APPLE;
+    public static Block CRATE_ORANGE;
+    public static Block CRATE_PEACH;
 
     @EventListener
     private static void registerBlocks(BlockRegistryEvent event) {
@@ -100,5 +102,7 @@ public class BlockListener {
         CLOUDBERRY_BUSH = new Cloudberry(NAMESPACE.id("cloudberry_bush"));
 
         CRATE_APPLE = new Crate(NAMESPACE.id("crate_apple"));
+        CRATE_ORANGE = new Crate(NAMESPACE.id("crate_orange"));
+        CRATE_PEACH = new Crate(NAMESPACE.id("crate_peach"));
     }
 }
