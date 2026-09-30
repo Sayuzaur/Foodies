@@ -5,16 +5,19 @@
 
 package io.github.sayuzaur.foodies.mixin;
 
+import io.github.sayuzaur.foodies.events.init.BlockListener;
 import io.github.sayuzaur.foodies.events.init.ItemListener;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.mob.PigZombieEntity;
 import net.minecraft.entity.passive.ChickenEntity;
 import net.minecraft.entity.passive.CowEntity;
 import net.minecraft.item.Item;
+import net.minecraft.util.math.MathHelper;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Random;
@@ -84,6 +87,19 @@ public class LivingEntityMixin {
                 self.dropItem(Item.COOKED_PORKCHOP.id, 1);
             }
             cir.cancel();
+        }
+    }
+
+    @ModifyVariable(method = "onLanding", at = @At("HEAD"), argsOnly = true)
+    private float reduceFallDistance(float fallDistance) {
+        LivingEntity self = (LivingEntity) (Object) this;
+
+        int landedBlockId = self.world.getBlockId(MathHelper.floor(self.x), MathHelper.floor(self.y - (double)0.2F - (double)self.standingEyeHeight), MathHelper.floor(self.z));
+
+        if (landedBlockId == BlockListener.HAY_BALE.id) {
+            return fallDistance * 0.5F;
+        } else {
+            return fallDistance;
         }
     }
 }

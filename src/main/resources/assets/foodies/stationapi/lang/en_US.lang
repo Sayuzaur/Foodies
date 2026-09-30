@@ -103,11 +103,13 @@ tile.@.leaves_peach.name=Peach Tree Leaves
 
 tile.@.fruit_tree_trunk.name=Fruit Tree Trunk
 
-tile.@.cloudberry_bush.name=Cloudberry Plant
+tile.@.cloudberry_bush.name=Cloudberry Bush
 
 tile.@.crate_apple.name=Apple Crate
 tile.@.crate_orange.name=Orange Crate
 tile.@.crate_peach.name=Peach Crate
+
+tile.@.hay_bale.name=Hay Bale
 
 
 

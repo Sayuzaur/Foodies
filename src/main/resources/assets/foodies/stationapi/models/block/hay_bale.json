@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "foodies:block/hay_bale_end",
+    "side": "foodies:block/hay_bale_side"
+  }
+}
