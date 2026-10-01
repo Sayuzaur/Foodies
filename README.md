@@ -26,28 +26,14 @@ Mod introduces real size bees producing honey. Find wild bee nest, catch bees, b
 
 - **[StationAPI](https://modrinth.com/mod/stationapi)**
 - **[FarnUtil](https://modrinth.com/mod/farnutil)** - Required for versions 1.1+
-- **[Glass Config API](https://modrinth.com/mod/glass-config-api)** - Required only to change default mod config.
-
-<details>
-<summary>Mod config with GCAPI</summary>
-
-- Raw crops (carrots, potatoes, onions etc) stack size
-- Raw crops heal value
-- If juicing cactus breaks the block
-- Wild bee nests generation rarity
-- Amount of bee particle generation
-- If bees are rendered on flowers
-- Bee buzzing sound volume 
-- Drop chance of new meat from every mob
-</details>
-
+- **[Glass Config API](https://modrinth.com/mod/glass-config-api)**
 
 ## Compatibility
 
 - **[Campfire-StationAPI](https://modrinth.com/mod/campfire-stationapi)** - Every oven recipe also works with Campfire mod, allowing you to cook meat on it.
 - **[BH Creative](https://modrinth.com/mod/bh-creative)** - Foodies has own creative tab with every new item.
 - **[Always More Items](https://modrinth.com/mod/always-more-items)** - Recomended to use to see all the recipes added by Foodies. 
-- Foodies overwrites drops for sheep, cow, chicken, squid, zombiepig, deadbush and changes itemdye (bonemeal) behaviour. Mods that do the same thing will create conflicts.
+- Foodies **overwrites drops** for **sheep, cow, chicken, squid, zombiepig and deadbush**. Mods that do the same thing will create conflicts.
 
 ## License
 #### Copyright (c) 2026 Sayuzaur

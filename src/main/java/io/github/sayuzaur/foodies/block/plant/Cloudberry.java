@@ -16,6 +16,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.block.BlockState;
 import net.modificationstation.stationapi.api.item.ItemPlacementContext;
+import net.modificationstation.stationapi.api.item.context.ItemTagContext;
+import net.modificationstation.stationapi.api.registry.tag.ItemTags;
 import net.modificationstation.stationapi.api.state.StateManager;
 import net.modificationstation.stationapi.api.state.property.BooleanProperty;
 import net.modificationstation.stationapi.api.state.property.IntProperty;
@@ -99,24 +101,33 @@ public class Cloudberry extends BasePlant {
 
     @Override
     public void onTick(World world, int x, int y, int z, Random random) {
-        if (world.getLightLevel(x, y, z) >= CROPS_CONFIG.lightLevelRequired && world.getBlockId(x, y, z) == this.id) {
-            BlockState state = world.getBlockState(x, y, z);
-            if(!state.get(GROWTH_BLOCKED)) {
-                int age = state.get(AGE);
+        BlockState state = world.getBlockState(x, y, z);
 
-                if (age < MAX_AGE) {
-                    int finalGrowChance = BASE_GROW_CHANCE;
+        //COVER IN SNOW IF SNOWING (duh)
+        if (world.isRaining() && world.method_1781().getBiome(x, z).canSnow() && world.getTopSolidBlockY(x, z) == y) {
+            if (!state.get(SNOWLOGGED) && random.nextInt(16) == 0) {
+                world.setBlockState(x, y, z, state.with(SNOWLOGGED, true));
 
-                    if (state.get(SNOWLOGGED)) {
-                        finalGrowChance = finalGrowChance * 2;
-                    }
-                    if (random.nextInt(finalGrowChance) == 0) {
-                        ++age;
-                        world.setBlockState(x, y, z, state.with(AGE, age));
-                    }
+                state = world.getBlockState(x, y, z);
+            }
+        }
+
+        //NORMAL GROWTH
+        if(!state.get(GROWTH_BLOCKED) && world.getLightLevel(x, y, z) >= CROPS_CONFIG.lightLevelRequired) {
+            int age = state.get(AGE);
+            if (age < MAX_AGE) {
+                int finalGrowChance = BASE_GROW_CHANCE;
+
+                if (state.get(SNOWLOGGED)) {
+                    finalGrowChance = finalGrowChance * 2;
+                }
+                if (random.nextInt(finalGrowChance) == 0) {
+                    ++age;
+                    world.setBlockState(x, y, z, state.with(AGE, age));
                 }
             }
         }
+
         this.breakIfCannotGrow(world, x, y, z);
     }
 
@@ -125,28 +136,9 @@ public class Cloudberry extends BasePlant {
         ItemStack userHand = player.getHand();
         BlockState state = world.getBlockState(x, y, z);
         if (!world.isRemote) {
-            if (userHand != null && (userHand.itemId == Item.SNOWBALL.id || userHand.itemId == Block.SNOW.id)) {
-                boolean isSnowLogged = state.get(SNOWLOGGED);
-                if (!isSnowLogged) {
-                    world.setBlockState(x, y, z, state.with(SNOWLOGGED, true));
-                    userHand.count--;
 
-                    snowloggingClientsideEffect(world, x, y, z);
-                    return true;
-                } else {
-                    return false;
-                }
-            } else if (userHand != null && userHand.itemId == getGrowthBlockItemId()) {
-                if (!state.get(GROWTH_BLOCKED)) {
-                    world.setBlockState(x, y, z, state.with(GROWTH_BLOCKED, true));
-                    userHand.count--;
-
-                    blockGrowthClientsideEffect(world, x, y, z);
-                    return true;
-                } else {
-                    return false;
-                }
-            } else if (userHand == null) {
+                //HARVEST FRUIT
+            if (userHand == null) {
                 int age = state.get(AGE);
                 if (age == MAX_AGE) {
                     age = 0;
@@ -156,15 +148,71 @@ public class Cloudberry extends BasePlant {
 
                     for (int i = 0; i < getCropCount(world.random); ++i) {
 
-                        float varBase = 0.7F;
-                        float varX = world.random.nextFloat() * varBase + (1.0F - varBase) * 0.5F;
-                        float varY = world.random.nextFloat() * varBase + (1.0F - varBase) * 0.5F;
-                        float varZ = world.random.nextFloat() * varBase + (1.0F - varBase) * 0.5F;
+                        float varOffset = 0.7F;
+                        float varX = x + (world.random.nextFloat() * varOffset + (1.0F - varOffset) * 0.5F);
+                        float varY = y + (world.random.nextFloat() * varOffset + (1.0F - varOffset) * 0.5F);
+                        float varZ = z + (world.random.nextFloat() * varOffset + (1.0F - varOffset) * 0.5F);
 
-                        ItemEntity cropsItemEntity = new ItemEntity(world, ((float) x + varX), ((float) y + varY), ((float) z + varZ), new ItemStack(getCropItem()));
+                        ItemEntity cropsItemEntity = new ItemEntity(world, varX, varY, varZ, new ItemStack(getCropItem()));
                         cropsItemEntity.pickupDelay = 10;
                         world.spawnEntity(cropsItemEntity);
                     }
+                    return true;
+                } else {
+                    return false;
+                }
+
+                //PUTTING SNOW IN
+            } else if (userHand.itemId == Item.SNOWBALL.id || userHand.itemId == Block.SNOW.id) {
+                if (!state.get(SNOWLOGGED)) {
+                    world.setBlockState(x, y, z, state.with(SNOWLOGGED, true));
+                    userHand.count--;
+
+                    snowloggingClientsideEffect(world, x, y, z);
+                    return true;
+                } else {
+                    return false;
+                }
+
+                //REMOVING SNOW
+            } else if (userHand.isIn(ItemTags.SHOVELS, ItemTagContext.of(userHand))) {
+                if (state.get(SNOWLOGGED)) {
+                    //Check if shovel item is damageable. Just in case if some mod adds unbreakable item or just bugged one.
+                    // If damageable then damage it.
+                    if (userHand.isDamageable()) {
+                        int newDamage = userHand.getDamage() + 1;
+                        if (newDamage >= userHand.getMaxDamage()) {
+                            int slot = player.inventory.selectedSlot;
+                            player.inventory.removeStack(slot, 1);
+                        } else {
+                            userHand.setDamage(newDamage);
+                        }
+                    }
+
+                    float varOffset = 0.7F;
+                    float varX = x + (world.random.nextFloat() * varOffset + (1.0F - varOffset) * 0.5F);
+                    float varY = y + (world.random.nextFloat() * varOffset + (1.0F - varOffset) * 0.5F);
+                    float varZ = z + (world.random.nextFloat() * varOffset + (1.0F - varOffset) * 0.5F);
+
+                    ItemEntity snowballItemEntity = new ItemEntity(world, varX, varY, varZ, new ItemStack(Item.SNOWBALL));
+                    snowballItemEntity.pickupDelay = 10;
+                    world.spawnEntity(snowballItemEntity);
+
+                    world.setBlockState(x, y, z, state.with(SNOWLOGGED, false));
+
+                    snowloggingClientsideEffect(world, x, y, z);
+                    return true;
+                } else {
+                    return false;
+                }
+
+                //BLOCK GROWTH
+            } else if (userHand.itemId == getGrowthBlockItemId()) {
+                if (!state.get(GROWTH_BLOCKED)) {
+                    world.setBlockState(x, y, z, state.with(GROWTH_BLOCKED, true));
+                    userHand.count--;
+
+                    blockGrowthClientsideEffect(world, x, y, z);
                     return true;
                 } else {
                     return false;
@@ -186,6 +234,10 @@ public class Cloudberry extends BasePlant {
                 }
             } else if (userHand.itemId == Item.SNOWBALL.id || userHand.itemId == Block.SNOW.id) {
                 if (!state.get(SNOWLOGGED)) {
+                    snowloggingClientsideEffect(world, x, y, z);
+                }
+            } else if (userHand.isIn(ItemTags.SHOVELS, ItemTagContext.of(userHand))) {
+                if (state.get(SNOWLOGGED)) {
                     snowloggingClientsideEffect(world, x, y, z);
                 }
             } else if (userHand.itemId == getGrowthBlockItemId()) {
