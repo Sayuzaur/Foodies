@@ -57,6 +57,8 @@ public class BlockListener {
     public static Block CRATE_APPLE;
     public static Block CRATE_ORANGE;
     public static Block CRATE_PEACH;
+    public static Block CRATE_CARROT;
+    public static Block CRATE_POTATO;
     public static Block HAY_BALE;
 
     @EventListener
@@ -94,6 +96,8 @@ public class BlockListener {
         CRATE_APPLE = new Crate(NAMESPACE.id("crate_apple"));
         CRATE_ORANGE = new Crate(NAMESPACE.id("crate_orange"));
         CRATE_PEACH = new Crate(NAMESPACE.id("crate_peach"));
+        CRATE_CARROT = new Crate(NAMESPACE.id("crate_carrot"));
+        CRATE_POTATO = new Crate(NAMESPACE.id("crate_potato"));
 
         HAY_BALE = new HayBale(NAMESPACE.id("hay_bale"));
     }

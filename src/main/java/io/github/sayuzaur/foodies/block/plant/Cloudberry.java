@@ -29,8 +29,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import static io.github.sayuzaur.foodies.FoodiesMod.CROPS_CONFIG;
-
 public class Cloudberry extends BasePlant {
     public static final IntProperty AGE;
     public static final IntProperty SUBTYPE;

@@ -12,10 +12,7 @@ import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.template.block.TemplateBlock;
 import net.modificationstation.stationapi.api.util.Identifier;
 
-import java.util.Optional;
 import java.util.Random;
-
-import static io.github.sayuzaur.foodies.FoodiesMod.CROPS_CONFIG;
 
 public class BasePlant extends TemplateBlock {
     public BasePlant(Identifier identifier) {

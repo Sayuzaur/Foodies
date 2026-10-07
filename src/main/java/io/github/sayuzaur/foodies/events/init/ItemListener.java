@@ -18,8 +18,8 @@ import net.modificationstation.stationapi.api.template.item.TemplateStackableFoo
 
 import java.lang.invoke.MethodHandles;
 
+import static io.github.sayuzaur.foodies.FoodiesConfig.FOOD_CONFIG;
 import static io.github.sayuzaur.foodies.FoodiesMod.NAMESPACE;
-import static io.github.sayuzaur.foodies.FoodiesMod.FOOD_CONFIG;
 
 public class ItemListener {
     static {

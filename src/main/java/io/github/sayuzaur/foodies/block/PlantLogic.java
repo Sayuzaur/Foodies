@@ -18,7 +18,7 @@ import net.modificationstation.stationapi.api.util.Identifier;
 import java.util.Optional;
 import java.util.Random;
 
-import static io.github.sayuzaur.foodies.FoodiesMod.CROPS_CONFIG;
+import static io.github.sayuzaur.foodies.FoodiesConfig.CROPS_CONFIG;
 
 public class PlantLogic {
     public static final int BASE_GROW_CHANCE = 100;
@@ -204,6 +204,10 @@ public class PlantLogic {
 
     public static void harvestClientEffect(World world, int x, int y, int z) {
         world.playSound(x, y, z, "mob.chickenplop", 0.5F, 0.4F);
+    }
+
+    public static void plantingClientEffect(World world, int x, int y, int z) {
+        world.playSound(x, y, z, "step.grass", 1.0F, 1.0F);
     }
 
     public static void blockGrowthClientEffect(World world, int x, int y, int z) {

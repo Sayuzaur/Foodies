@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "": [
+      { "model": "foodies:block/crate_cabbage" },
+      { "model": "foodies:block/crate_cabbage", "y": 90 },
+      { "model": "foodies:block/crate_cabbage", "y": 180 },
+      { "model": "foodies:block/crate_cabbage", "y": 270 }
+    ]
+  }
+}

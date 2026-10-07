@@ -32,7 +32,7 @@
       "io.github.sayuzaur.foodies.events.init.CreativeListener"
     ],
     "gcapi3": [
-      "io.github.sayuzaur.foodies.FoodiesMod"
+      "io.github.sayuzaur.foodies.FoodiesConfig"
     ]
   },
   "mixins": [

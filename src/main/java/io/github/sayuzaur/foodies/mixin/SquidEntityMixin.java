@@ -16,7 +16,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Random;
-import static io.github.sayuzaur.foodies.FoodiesMod.MOB_DROPS_CONFIG;
+
+import static io.github.sayuzaur.foodies.FoodiesConfig.MOB_DROPS_CONFIG;
 
 @Mixin(SquidEntity.class)
 public class SquidEntityMixin {

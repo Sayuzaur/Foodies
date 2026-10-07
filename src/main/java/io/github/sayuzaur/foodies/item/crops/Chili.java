@@ -11,7 +11,7 @@ import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.template.item.TemplateStackableFoodItem;
 import net.modificationstation.stationapi.api.util.Identifier;
 
-import static io.github.sayuzaur.foodies.FoodiesMod.FOOD_CONFIG;
+import static io.github.sayuzaur.foodies.FoodiesConfig.FOOD_CONFIG;
 
 public class Chili extends TemplateStackableFoodItem{
     public Chili(Identifier identifier) {

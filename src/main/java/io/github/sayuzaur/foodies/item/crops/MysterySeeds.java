@@ -5,6 +5,7 @@
 
 package io.github.sayuzaur.foodies.item.crops;
 
+import io.github.sayuzaur.foodies.block.PlantLogic;
 import io.github.sayuzaur.foodies.events.init.BlockListener;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.PlayerEntity;
@@ -16,16 +17,15 @@ import net.modificationstation.stationapi.api.util.Formatting;
 import net.modificationstation.stationapi.api.util.Identifier;
 
 public class MysterySeeds extends TemplateItem implements CustomTooltipProvider {
+    private static final Block DUMMY_CROP_BLOCK = BlockListener.CARROT_CROPS;
+
     public MysterySeeds(Identifier identifier){
         super(identifier);
     }
 
     @Override
     public boolean useOnBlock(ItemStack stack, PlayerEntity player, World world, int x, int y, int z, int side) {
-        if (!world.isAir(x, y + 1, z)) {
-            return false;
-        }
-        if (world.getBlockId(x, y, z) == Block.FARMLAND.id && side == 1) {
+        if (DUMMY_CROP_BLOCK.canPlaceAt(world, x, y + 1, z) && side == 1) {
             int randCrop = random.nextInt(5);
 
             switch (randCrop) {
@@ -35,8 +35,9 @@ public class MysterySeeds extends TemplateItem implements CustomTooltipProvider 
                 case 3 -> world.setBlock(x, y + 1, z, BlockListener.TOMATO_CROPS.id);
                 case 4 -> world.setBlock(x, y + 1, z, BlockListener.CABBAGE_CROPS.id);
             }
-
             stack.count--;
+
+            PlantLogic.plantingClientEffect(world, x, y, z);
             return true;
         }
         return false;
@@ -45,6 +46,6 @@ public class MysterySeeds extends TemplateItem implements CustomTooltipProvider 
     @Override
     public String[] getTooltip(ItemStack stack, String originalTooltip) {
         return new String[]{originalTooltip,
-                Formatting.GRAY + "Can grow into any overworld vegetable"};
+                Formatting.GRAY + "Can grow into any overworld crop"};
     }
 }

@@ -35,7 +35,7 @@ import net.modificationstation.stationapi.api.util.math.Direction;
 
 import java.util.Random;
 
-import static io.github.sayuzaur.foodies.FoodiesMod.BEEHIVE_CLIENT_CONFIG;
+import static io.github.sayuzaur.foodies.FoodiesConfig.BEEHIVE_CLIENT_CONFIG;
 
 public class BeeHive extends TemplateBlock {
     public static final DirectionProperty HORIZONTAL_FACING;

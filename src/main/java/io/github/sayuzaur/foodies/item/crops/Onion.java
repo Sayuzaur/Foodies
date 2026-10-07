@@ -5,6 +5,7 @@
 
 package io.github.sayuzaur.foodies.item.crops;
 
+import io.github.sayuzaur.foodies.block.PlantLogic;
 import io.github.sayuzaur.foodies.events.init.BlockListener;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.PlayerEntity;
@@ -13,21 +14,22 @@ import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.template.item.TemplateStackableFoodItem;
 import net.modificationstation.stationapi.api.util.Identifier;
 
-import static io.github.sayuzaur.foodies.FoodiesMod.FOOD_CONFIG;
+import static io.github.sayuzaur.foodies.FoodiesConfig.FOOD_CONFIG;
 
 public class Onion extends TemplateStackableFoodItem {
-    public Onion(Identifier identifier){
+    private static final Block CROP_BLOCK = BlockListener.ONION_CROPS;
+
+    public Onion(Identifier identifier) {
         super(identifier, FOOD_CONFIG.rawHeal, false, FOOD_CONFIG.rawStackSize);
     }
 
     @Override
     public boolean useOnBlock(ItemStack stack, PlayerEntity player, World world, int x, int y, int z, int side) {
-        if (!world.isAir(x, y + 1, z)) {
-            return false;
-        }
-        if (world.getBlockId(x, y, z) == Block.FARMLAND.id && side == 1) {
-            world.setBlock(x, y + 1, z, BlockListener.ONION_CROPS.id);
+        if (CROP_BLOCK.canPlaceAt(world, x, y + 1, z) && side == 1) {
+            world.setBlock(x, y + 1, z, CROP_BLOCK.id);
             stack.count--;
+
+            PlantLogic.plantingClientEffect(world, x, y, z);
             return true;
         }
         return false;

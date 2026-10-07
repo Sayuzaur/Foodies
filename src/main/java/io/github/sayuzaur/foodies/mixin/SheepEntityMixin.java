@@ -19,7 +19,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Random;
 
-import static io.github.sayuzaur.foodies.FoodiesMod.MOB_DROPS_CONFIG;
+import static io.github.sayuzaur.foodies.FoodiesConfig.MOB_DROPS_CONFIG;
 
 @Mixin(SheepEntity.class)
 public class SheepEntityMixin {

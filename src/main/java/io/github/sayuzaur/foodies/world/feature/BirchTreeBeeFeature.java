@@ -15,7 +15,7 @@ import net.modificationstation.stationapi.api.util.math.Direction;
 import java.util.List;
 import java.util.Random;
 
-import static io.github.sayuzaur.foodies.FoodiesMod.GEN_CONFIG;
+import static io.github.sayuzaur.foodies.FoodiesConfig.GEN_CONFIG;
 import static io.github.sayuzaur.foodies.block.BeeHive.HORIZONTAL_FACING;
 import static io.github.sayuzaur.foodies.block.BeeHive.POPULATION_LEVEL;
 

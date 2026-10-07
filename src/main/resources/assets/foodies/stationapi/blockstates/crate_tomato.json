@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "": [
+      { "model": "foodies:block/crate_tomato" },
+      { "model": "foodies:block/crate_tomato", "y": 90 },
+      { "model": "foodies:block/crate_tomato", "y": 180 },
+      { "model": "foodies:block/crate_tomato", "y": 270 }
+    ]
+  }
+}

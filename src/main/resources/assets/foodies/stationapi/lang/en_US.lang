@@ -108,6 +108,12 @@ tile.@.cloudberry_bush.name=Cloudberry Bush
 tile.@.crate_apple.name=Apple Crate
 tile.@.crate_orange.name=Orange Crate
 tile.@.crate_peach.name=Peach Crate
+tile.@.crate_carrot.name=Carrot Crate
+tile.@.crate_potato.name=Potato Crate
+tile.@.crate_onion.name=Onion Crate
+tile.@.crate_tomato.name=Tomato Crate
+tile.@.crate_cabbage.name=Cabbage Crate
+tile.@.crate_chili.name=Chilli Crate
 
 tile.@.hay_bale.name=Hay Bale
 
