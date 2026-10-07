@@ -5,12 +5,14 @@
 
 package io.github.sayuzaur.foodies.block.crops;
 
+import io.github.sayuzaur.foodies.block.PlantLogic;
 import io.github.sayuzaur.foodies.events.init.ItemListener;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
+import net.modificationstation.stationapi.api.block.BlockState;
 import net.modificationstation.stationapi.api.util.Identifier;
+
+import java.util.Random;
 
 public class ChiliCrops extends RegrowingCrops {
     public ChiliCrops(Identifier identifier) {
@@ -53,65 +55,23 @@ public class ChiliCrops extends RegrowingCrops {
     }
 
     @Override
-    public boolean canPlantOnTop(int id) {
-        return id == Block.GRAVEL.id;
-    }
-
-    private boolean isLavaNearby(World world, int x, int y, int z) {
-        for(int var1 = x - 4; var1 <= x + 4; ++var1) {
-            for(int var2 = y; var2 <= y + 1; ++var2) {
-                for(int var3 = z - 4; var3 <= z + 4; ++var3) {
-                    if (world.getMaterial(var1, var2, var3) == Material.LAVA) {
-                        return true;
-                    }
-                }
-            }
-        }
-
-        return false;
+    protected boolean canPlantOnTop(World world, int x, int y, int z) {
+        return PlantLogic.plantOnGravel(world, x, y, z);
     }
 
     @Override
-    public float getAvailableMoisture(World world, int x, int y, int z) {
-        float moisture = 1.0F;
-        int sideZ1 = world.getBlockId(x, y, z - 1);
-        int sideZ2 = world.getBlockId(x, y, z + 1);
-        int sideX1 = world.getBlockId(x - 1, y, z);
-        int sideX2 = world.getBlockId(x + 1, y, z);
-        int sideXZ1 = world.getBlockId(x - 1, y, z - 1);
-        int sideXZ2 = world.getBlockId(x + 1, y, z - 1);
-        int sideXZ3 = world.getBlockId(x + 1, y, z + 1);
-        int sideXZ4 = world.getBlockId(x - 1, y, z + 1);
-        boolean checkSidesX = sideX1 == this.id || sideX2 == this.id;
-        boolean checkSidesZ = sideZ1 == this.id || sideZ2 == this.id;
-        boolean checkSidesXZ = sideXZ1 == this.id || sideXZ2 == this.id || sideXZ3 == this.id || sideXZ4 == this.id;
+    public void onTick(World world, int x, int y, int z, Random random) {
+        if (world.getLightLevel(x, y + 1, z) >= PlantLogic.defaultLightLevel()) {
+            BlockState state = world.getBlockState(x, y, z);
+            int age = state.get(AGE);
 
-        for(int checkX = x - 1; checkX <= x + 1; ++checkX) {
-            for(int checkZ = z - 1; checkZ <= z + 1; ++checkZ) {
-                int checkY = world.getBlockId(checkX, y - 1, checkZ);
-                float addMoisture = 0.0F;
-                if (checkY == Block.GRAVEL.id) {
-                    addMoisture = 1.0F;
-                    if (isLavaNearby(world, checkX, y - 1, checkZ)) {
-                        addMoisture = 3.0F;
-                    }
+            if (age < MAX_AGE) {
+                if (PlantLogic.growAttemptHellish(world, x, y, z, random)) {
+                    ++age;
+                    world.setBlockState(x, y, z, state.with(AGE, age));
                 }
-
-                if (checkX != x || checkZ != z) {
-                    addMoisture /= 4.0F;
-                }
-
-                moisture += addMoisture;
             }
         }
-
-        if (checkSidesXZ || checkSidesX && checkSidesZ) {
-            moisture /= 2.0F;
-        }
-        if (!isLavaNearby(world, x, y - 1, z)) {
-            moisture = 0.0F;
-        }
-
-        return moisture;
+        this.breakIfCannotGrow(world, x, y, z);
     }
 }

@@ -40,4 +40,8 @@ public class HayBale extends TemplateBlock {
     public BlockState getPlacementState(ItemPlacementContext context) {
         return getStateManager().getDefaultState().with(AXIS, context.getSide().getAxis());
     }
+
+    //TODO Add hay particles
+//    public void onSteppedOn(World world, int x, int y, int z, Entity entity) {
+//    }
 }

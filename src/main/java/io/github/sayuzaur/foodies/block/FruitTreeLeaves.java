@@ -32,6 +32,8 @@ import net.modificationstation.stationapi.api.state.property.Properties;
 import net.modificationstation.stationapi.api.template.block.TemplateBlock;
 import net.modificationstation.stationapi.api.util.Identifier;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class FruitTreeLeaves extends TemplateBlock {
@@ -39,6 +41,8 @@ public class FruitTreeLeaves extends TemplateBlock {
     public static final IntProperty SUBTYPE;
     public static final BooleanProperty GROWTH_BLOCKED;
     public static final BooleanProperty PERSISTENT;
+    public static final int BASE_GROW_CHANCE = 100;
+    public static final int MAX_AGE = 7;
 
     static {
         AGE = Properties.AGE_7;
@@ -80,12 +84,31 @@ public class FruitTreeLeaves extends TemplateBlock {
         return false;
     }
 
-    public int getDroppedItemId(int blockMeta, Random random) {
-        return ItemListener.CABBAGE_SEEDS.id;
+    private Item getFruitDrop() {
+        if (this == BlockListener.LEAVES_APPLE) {
+            return Item.APPLE;
+        }
+        if (this == BlockListener.LEAVES_ORANGE) {
+            return ItemListener.ORANGE;
+        }
+        if (this == BlockListener.LEAVES_PEACH) {
+            return ItemListener.PEACH;
+        } else {
+            return Item.STICK;
+        }
     }
 
-    public int getDroppedItemCount(Random random) {
-        return 1;
+    @Override
+    public List<ItemStack> getDropList(World world, int x, int y, int z, BlockState state, int meta) {
+        ArrayList<ItemStack> drops = new ArrayList<>();
+        if (state.get(AGE) == MAX_AGE) {
+            drops.add(new ItemStack(getFruitDrop(), 1));
+        }
+        if (world.random.nextInt(15) == 0) {
+            //TODO Other sapling lol
+            drops.add(new ItemStack(Block.SAPLING.asItem(), 1));
+        }
+        return drops;
     }
 
     public void afterBreak(World world, PlayerEntity playerEntity, int x, int y, int z, int meta) {
@@ -203,7 +226,7 @@ public class FruitTreeLeaves extends TemplateBlock {
         if (!world.isRemote) {
             BlockState current = world.getBlockState(x, y, z);
             int age = current.get(AGE);
-            if (age == 7) {
+            if (age == MAX_AGE) {
                 world.setBlockState(x, y, z, current.with(AGE, 0));
             } else {
                 age++;

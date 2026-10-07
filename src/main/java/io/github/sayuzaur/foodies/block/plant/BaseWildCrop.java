@@ -20,19 +20,6 @@ public class BaseWildCrop extends BasePlant {
         this.setBoundingBox(0.125F, 0.0F, 0.125F, 0.875F, 0.875F, 0.875F);
     }
 
-    @Override
-    public boolean canPlantOnTop(World world, int x, int y, int z) {
-        return plantOnDirts(world, x, y, z);
-    }
-
-    @Override
-    public boolean canPlaceAt(World world, int x, int y, int z, int side) {
-        if (!world.isAir(x, y, z)) {
-            return false;
-        }
-        return canPlantOnTop(world, x, y - 1, z);
-    }
-
     public void afterBreak(World world, PlayerEntity playerEntity, int x, int y, int z, int meta) {
         if (!world.isRemote && playerEntity.getHand() != null && playerEntity.getHand().itemId == Item.SHEARS.id) {
             this.dropStack(world, x, y, z, new ItemStack(this.asItem()));

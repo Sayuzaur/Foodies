@@ -5,6 +5,9 @@
 
 package io.github.sayuzaur.foodies.block.crops;
 
+import io.github.sayuzaur.foodies.block.PlantLogic;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.ItemEntity;
@@ -25,10 +28,11 @@ import java.util.List;
 import java.util.Random;
 
 public abstract class RegrowingCrops extends TemplateBlock {
-    public static final IntProperty AGE10;
+    public static final IntProperty AGE;
+    public static final int MAX_AGE = 10;
 
     static {
-        AGE10 = IntProperty.of("age", 0,10);
+        AGE = IntProperty.of("age", 0,MAX_AGE);
     }
 
     public RegrowingCrops(Identifier identifier){
@@ -36,7 +40,7 @@ public abstract class RegrowingCrops extends TemplateBlock {
         this.setTickRandomly(true);
         this.setBoundingBox(0.0F, 0.0F, 0.0F, 1.0F, 0.25F, 1.0F);
         this.setSoundGroup(DIRT_SOUND_GROUP);
-        setDefaultState(getStateManager().getDefaultState().with(AGE10, 0));
+        setDefaultState(getStateManager().getDefaultState().with(AGE, 0));
     }
 
     protected abstract Item getSeedItem();
@@ -55,12 +59,12 @@ public abstract class RegrowingCrops extends TemplateBlock {
 
     @Override
     public void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(AGE10);
+        builder.add(AGE);
     }
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext context) {
-        return getStateManager().getDefaultState().with(AGE10, 0);
+        return getStateManager().getDefaultState().with(AGE, 0);
     }
 
     @Override
@@ -78,19 +82,21 @@ public abstract class RegrowingCrops extends TemplateBlock {
         return false;
     }
 
-    protected boolean canPlantOnTop(int id) {
-        return id == Block.FARMLAND.id;
+    protected boolean canPlantOnTop(World world, int x, int y, int z) {
+        return PlantLogic.plantOnFarmland(world, x, y, z);
     }
 
     @Override
     public boolean canPlaceAt(World world, int x, int y, int z) {
         return super.canPlaceAt(world, x, y, z)
-                && this.canPlantOnTop(world.getBlockId(x, y - 1, z));
+                && this.canPlantOnTop(world, x, y - 1, z);
     }
 
     @Override
     public boolean canGrow(World world, int x, int y, int z) {
-        return (world.getBrightness(x, y, z) >= 8 || world.hasSkyLight(x, y, z)) && this.canPlantOnTop(world.getBlockId(x, y - 1, z));
+        return    (world.getBrightness(x, y, z) >= PlantLogic.defaultLightLevel()
+                || world.hasSkyLight(x, y, z))
+                && this.canPlantOnTop(world, x, y - 1, z);
     }
 
     protected final void breakIfCannotGrow(World world, int x, int y, int z) {
@@ -108,77 +114,19 @@ public abstract class RegrowingCrops extends TemplateBlock {
 
     public void applyFullGrowth(World world, int x, int y, int z) {
         BlockState state = world.getBlockState(x, y, z);
-        world.setBlockState(x, y, z, state.with(AGE10, 10));
-    }
-
-    public void bonemealClientsideEffect(World world, int x, int y, int z) {
-        world.playSound(x, y, z, "step.grass", 1.0F, 1.6F);
-    }
-
-    @Override
-    public boolean onBonemealUse(World world, int x, int y, int z, BlockState state) {
-        if (!world.isRemote) {
-            if (state.get(AGE10) == 10) {
-                return false;
-            } else {
-                applyFullGrowth(world, x, y, z);
-            }
-        }
-        bonemealClientsideEffect(world, x, y, z);
-        return true;
-    }
-
-    protected float getAvailableMoisture(World world, int x, int y, int z) {
-        float moisture = 1.0F;
-        int sideZ1 = world.getBlockId(x, y, z - 1);
-        int sideZ2 = world.getBlockId(x, y, z + 1);
-        int sideX1 = world.getBlockId(x - 1, y, z);
-        int sideX2 = world.getBlockId(x + 1, y, z);
-        int sideXZ1 = world.getBlockId(x - 1, y, z - 1);
-        int sideXZ2 = world.getBlockId(x + 1, y, z - 1);
-        int sideXZ3 = world.getBlockId(x + 1, y, z + 1);
-        int sideXZ4 = world.getBlockId(x - 1, y, z + 1);
-        boolean checkSidesX = sideX1 == this.id || sideX2 == this.id;
-        boolean checkSidesZ = sideZ1 == this.id || sideZ2 == this.id;
-        boolean checkSidesXZ = sideXZ1 == this.id || sideXZ2 == this.id || sideXZ3 == this.id || sideXZ4 == this.id;
-
-        for(int checkX = x - 1; checkX <= x + 1; ++checkX) {
-            for(int checkZ = z - 1; checkZ <= z + 1; ++checkZ) {
-                int checkY = world.getBlockId(checkX, y - 1, checkZ);
-                float addMoisture = 0.0F;
-                if (checkY == Block.FARMLAND.id) {
-                    addMoisture = 1.0F;
-                    if (world.getBlockMeta(checkX, y - 1, checkZ) > 0) {
-                        addMoisture = 3.0F;
-                    }
-                }
-
-                if (checkX != x || checkZ != z) {
-                    addMoisture /= 4.0F;
-                }
-
-                moisture += addMoisture;
-            }
-        }
-
-        if (checkSidesXZ || checkSidesX && checkSidesZ) {
-            moisture /= 2.0F;
-        }
-
-        return moisture;
+        world.setBlockState(x, y, z, state.with(AGE, MAX_AGE));
     }
 
     @Override
     public void onTick(World world, int x, int y, int z, Random random) {
-        if (world.getLightLevel(x, y + 1, z) >= 9) {
+        if (world.getLightLevel(x, y + 1, z) >= PlantLogic.defaultLightLevel()) {
             BlockState state = world.getBlockState(x, y, z);
-            int age = state.get(AGE10);
+            int age = state.get(AGE);
 
-            if (age < 10) {
-                float moisture = this.getAvailableMoisture(world, x, y, z);
-                if (random.nextInt((int)(100.0F / moisture)) == 0) {
+            if (age < MAX_AGE) {
+                if (PlantLogic.growAttemptVanilla(world, x, y, z, random)) {
                     ++age;
-                    world.setBlockState(x, y, z, state.with(AGE10, age));
+                    world.setBlockState(x, y, z, state.with(AGE, age));
                 }
             }
         }
@@ -192,7 +140,7 @@ public abstract class RegrowingCrops extends TemplateBlock {
         //Always drop 1 seedItem, no matter the AGE
         drops.add(new ItemStack(getSeedItem()));
 
-        if (state.get(AGE10) == 10) {
+        if (state.get(AGE) == MAX_AGE) {
             //Base crop drop if fully grown
             drops.add(new ItemStack(getCropItem(), getCropCount()));
 
@@ -215,43 +163,72 @@ public abstract class RegrowingCrops extends TemplateBlock {
 
     @Override
     public boolean onUse(World world, int x, int y, int z, PlayerEntity player) {
+        ItemStack userHand = player.getHand();
+        BlockState state = world.getBlockState(x, y, z);
         if (!world.isRemote) {
-            BlockState state = world.getBlockState(x, y, z);
-            int age = state.get(AGE10);
+            if (userHand == null) {
+                int age = state.get(AGE);
 
-            if (age == 10) {
-                age = 7;
-                world.setBlockState(x, y, z, state.with(AGE10, age));
+                if (age == MAX_AGE) {
+                    age = 7;
+                    world.setBlockState(x, y, z, state.with(AGE, age));
 
-                world.playSound(x, y, z, "mob.chickenplop", 0.5F, 0.4F);
+                    //Base crop drop
+                    ItemStack baseStack = new ItemStack(getCropItem(), getCropCount());
+                    ItemEntity baseCropsItemEntity = new ItemEntity(world, ((float) x + 0.5F), ((float) y + 0.5F), ((float) z + 0.5F), baseStack);
+                    baseCropsItemEntity.pickupDelay = 10;
+                    world.spawnEntity(baseCropsItemEntity);
 
-                //Base crop drop
-                ItemStack baseStack = new ItemStack(getCropItem(), getCropCount());
-                ItemEntity baseCropsItemEntity = new ItemEntity(world,((float)x + 0.5F),((float)y + 0.5F),((float)z + 0.5F), baseStack);
-                baseCropsItemEntity.pickupDelay = 10;
-                world.spawnEntity(baseCropsItemEntity);
+                    //Bonus crop drop
+                    for (int i = 0; i < getBonusCropCount(); ++i) {
+                        if (world.random.nextInt(10) + 1 <= getBonusCropChance()) {
 
-                //Bonus crop drop
-                for (int i = 0; i < getBonusCropCount(); ++i) {
-                    if (world.random.nextInt(10) + 1 <= getBonusCropChance()) {
+                            float varBase = 0.7F;
+                            float varX = world.random.nextFloat() * varBase + (1.0F - varBase) * 0.5F;
+                            float varY = world.random.nextFloat() * varBase + (1.0F - varBase) * 0.5F;
+                            float varZ = world.random.nextFloat() * varBase + (1.0F - varBase) * 0.5F;
 
-                        float varBase = 0.7F;
-                        float varX = world.random.nextFloat() * varBase + (1.0F - varBase) * 0.5F;
-                        float varY = world.random.nextFloat() * varBase + (1.0F - varBase) * 0.5F;
-                        float varZ = world.random.nextFloat() * varBase + (1.0F - varBase) * 0.5F;
-
-                        ItemStack stack = new ItemStack(getCropItem());
-                        ItemEntity cropsItemEntity = new ItemEntity(world, ((float) x + varX), ((float) y + varY), ((float) z + varZ), stack);
-                        cropsItemEntity.pickupDelay = 10;
-                        world.spawnEntity(cropsItemEntity);
+                            ItemStack stack = new ItemStack(getCropItem());
+                            ItemEntity cropsItemEntity = new ItemEntity(world, ((float) x + varX), ((float) y + varY), ((float) z + varZ), stack);
+                            cropsItemEntity.pickupDelay = 10;
+                            world.spawnEntity(cropsItemEntity);
+                        }
                     }
+                    PlantLogic.harvestClientEffect(world, x, y, z);
+                    return true;
+                } else {
+                    return false;
                 }
-                return true;
             } else {
                 return false;
             }
         }
+        //Handles clientSideEffect when on server. I hate how it's done, couldn't think of better idea.
+        if (FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT) {
+            int age = state.get(AGE);
+            if (userHand == null) {
+                if (age == MAX_AGE) {
+                    PlantLogic.harvestClientEffect(world, x, y, z);
+                }
+            } else if (userHand.itemId == Item.DYE.id && userHand.getDamage() == 15) {
+                if (age != MAX_AGE) {
+                    PlantLogic.bonemealClientEffect(world, x, y, z);
+                }
+            }
+        }
+        return true;
+    }
 
+    @Override
+    public boolean onBonemealUse(World world, int x, int y, int z, BlockState state) {
+        if (!world.isRemote) {
+            if (state.get(AGE) == MAX_AGE) {
+                return false;
+            } else {
+                applyFullGrowth(world, x, y, z);
+            }
+        }
+        PlantLogic.bonemealClientEffect(world, x, y, z);
         return true;
     }
 }

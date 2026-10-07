@@ -27,4 +27,6 @@ public class FoodiesMod {
 
     @ConfigRoot(value = "mobdropsconfig", visibleName = "Mob Drops", index = 4)
     public static final FoodiesConfig.MobDropsConfig MOB_DROPS_CONFIG = new FoodiesConfig.MobDropsConfig();
+
+    //TODO Add beenest block tag
 }

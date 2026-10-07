@@ -5,6 +5,7 @@
 
 package io.github.sayuzaur.foodies.block.plant;
 
+import io.github.sayuzaur.foodies.block.PlantLogic;
 import io.github.sayuzaur.foodies.events.init.ItemListener;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.loader.api.FabricLoader;
@@ -62,11 +63,6 @@ public class Cloudberry extends BasePlant {
         return getStateManager().getDefaultState().with(AGE, 0).with(SUBTYPE, 0).with(GROWTH_BLOCKED, false).with(SNOWLOGGED, false);
     }
 
-    @Override
-    public boolean canPlantOnTop(World world, int x, int y, int z) {
-        return plantOnDirts(world, x, y, z);
-    }
-
     public void afterBreak(World world, PlayerEntity playerEntity, int x, int y, int z, int meta) {
         if (!world.isRemote && playerEntity.getHand() != null && playerEntity.getHand().itemId == Item.SHEARS.id) {
             this.dropStack(world, x, y, z, new ItemStack(this.asItem()));
@@ -94,7 +90,7 @@ public class Cloudberry extends BasePlant {
 //            drops.add(new ItemStack(Item.SNOWBALL, 1));
 //        }
         if(state.get(GROWTH_BLOCKED)) {
-            drops.add(new ItemStack(getGrowthBlockItemId(), 1, 0));
+            drops.add(new ItemStack(PlantLogic.getGrowthBlockItemId(), 1, 0));
         }
         return drops;
     }
@@ -113,7 +109,7 @@ public class Cloudberry extends BasePlant {
         }
 
         //NORMAL GROWTH
-        if(!state.get(GROWTH_BLOCKED) && world.getLightLevel(x, y, z) >= CROPS_CONFIG.lightLevelRequired) {
+        if(!state.get(GROWTH_BLOCKED) && world.getLightLevel(x, y, z) >= PlantLogic.defaultLightLevel()) {
             int age = state.get(AGE);
             if (age < MAX_AGE) {
                 int finalGrowChance = BASE_GROW_CHANCE;
@@ -144,8 +140,6 @@ public class Cloudberry extends BasePlant {
                     age = 0;
                     world.setBlockState(x, y, z, state.with(AGE, age));
 
-                    harvestClientsideEffect(world, x, y, z);
-
                     for (int i = 0; i < getCropCount(world.random); ++i) {
 
                         float varOffset = 0.7F;
@@ -157,6 +151,7 @@ public class Cloudberry extends BasePlant {
                         cropsItemEntity.pickupDelay = 10;
                         world.spawnEntity(cropsItemEntity);
                     }
+                    PlantLogic.harvestClientEffect(world, x, y, z);
                     return true;
                 } else {
                     return false;
@@ -168,7 +163,7 @@ public class Cloudberry extends BasePlant {
                     world.setBlockState(x, y, z, state.with(SNOWLOGGED, true));
                     userHand.count--;
 
-                    snowloggingClientsideEffect(world, x, y, z);
+                    PlantLogic.snowloggingClientEffect(world, x, y, z);
                     return true;
                 } else {
                     return false;
@@ -200,19 +195,19 @@ public class Cloudberry extends BasePlant {
 
                     world.setBlockState(x, y, z, state.with(SNOWLOGGED, false));
 
-                    snowloggingClientsideEffect(world, x, y, z);
+                    PlantLogic.snowloggingClientEffect(world, x, y, z);
                     return true;
                 } else {
                     return false;
                 }
 
                 //BLOCK GROWTH
-            } else if (userHand.itemId == getGrowthBlockItemId()) {
+            } else if (userHand.itemId == PlantLogic.getGrowthBlockItemId()) {
                 if (!state.get(GROWTH_BLOCKED)) {
                     world.setBlockState(x, y, z, state.with(GROWTH_BLOCKED, true));
                     userHand.count--;
 
-                    blockGrowthClientsideEffect(world, x, y, z);
+                    PlantLogic.blockGrowthClientEffect(world, x, y, z);
                     return true;
                 } else {
                     return false;
@@ -226,23 +221,23 @@ public class Cloudberry extends BasePlant {
             int age = state.get(AGE);
             if (userHand == null) {
                 if (age == MAX_AGE) {
-                    harvestClientsideEffect(world, x, y, z);
+                    PlantLogic.harvestClientEffect(world, x, y, z);
                 }
             } else if (userHand.itemId == Item.DYE.id && userHand.getDamage() == 15) {
                 if (age != MAX_AGE) {
-                    bonemealClientsideEffect(world, x, y, z);
+                    PlantLogic.bonemealClientEffect(world, x, y, z);
                 }
             } else if (userHand.itemId == Item.SNOWBALL.id || userHand.itemId == Block.SNOW.id) {
                 if (!state.get(SNOWLOGGED)) {
-                    snowloggingClientsideEffect(world, x, y, z);
+                    PlantLogic.snowloggingClientEffect(world, x, y, z);
                 }
             } else if (userHand.isIn(ItemTags.SHOVELS, ItemTagContext.of(userHand))) {
                 if (state.get(SNOWLOGGED)) {
-                    snowloggingClientsideEffect(world, x, y, z);
+                    PlantLogic.snowloggingClientEffect(world, x, y, z);
                 }
-            } else if (userHand.itemId == getGrowthBlockItemId()) {
+            } else if (userHand.itemId == PlantLogic.getGrowthBlockItemId()) {
                 if (!state.get(GROWTH_BLOCKED)) {
-                    blockGrowthClientsideEffect(world, x, y, z);
+                    PlantLogic.blockGrowthClientEffect(world, x, y, z);
                 }
             }
         }
@@ -263,10 +258,8 @@ public class Cloudberry extends BasePlant {
                 applyFullGrowth(world, x, y, z);
             }
         }
-        //Somehow when onUse() is used & Overwritten, calling here clientsideEffect on server doesn't work.
-        //onUse() probably Overrides onBonemealUse behaviour in some way, because in plants without onUse() it works here.
-        //Have to move bonemealClientsideEffect to onUse().
-        bonemealClientsideEffect(world, x, y, z);
+
+        PlantLogic.bonemealClientEffect(world, x, y, z);
         return true;
     }
 }
