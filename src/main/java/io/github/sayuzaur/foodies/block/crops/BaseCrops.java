@@ -26,10 +26,12 @@ import java.util.Random;
 
 public abstract class BaseCrops extends TemplateBlock {
     public static final IntProperty AGE;
+    public static final IntProperty SUBTYPE;
     public static final int MAX_AGE = 7;
 
     static {
         AGE = Properties.AGE_7;
+        SUBTYPE = IntProperty.of("crop_subtype", 0, 7);
     }
 
     public BaseCrops(Identifier identifier){
@@ -37,31 +39,25 @@ public abstract class BaseCrops extends TemplateBlock {
         this.setTickRandomly(true);
         this.setBoundingBox(0.0F, 0.0F, 0.0F, 1.0F, 0.25F, 1.0F);
         this.setSoundGroup(DIRT_SOUND_GROUP);
-        setDefaultState(getStateManager().getDefaultState().with(AGE, 0));
+        setDefaultState(getStateManager().getDefaultState().with(AGE, 0).with(SUBTYPE, 0));
     }
 
     protected abstract Item getSeedItem();
-
     protected abstract int getBonusSeedCount();
-
     protected abstract int getBonusSeedChance();
-
     protected abstract Item getCropItem();
-
     protected abstract int getCropCount();
-
     protected abstract int getBonusCropCount();
-
     protected abstract int getBonusCropChance();
 
     @Override
     public void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(AGE);
+        builder.add(AGE, SUBTYPE);
     }
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext context) {
-        return getStateManager().getDefaultState().with(AGE, 0);
+        return getStateManager().getDefaultState().with(AGE, 0).with(SUBTYPE, 0);
     }
 
     @Override

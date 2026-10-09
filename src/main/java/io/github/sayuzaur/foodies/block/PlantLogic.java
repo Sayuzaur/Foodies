@@ -5,7 +5,11 @@
 
 package io.github.sayuzaur.foodies.block;
 
+import farn.farn_util.api.particle.ParticleAPI;
 import io.github.sayuzaur.foodies.events.init.BlockListener;
+import io.github.sayuzaur.foodies.particle.Bonemeal;
+import io.github.sayuzaur.foodies.particle.GrowthBlock;
+import io.github.sayuzaur.foodies.particle.PlantGlint;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
@@ -24,6 +28,8 @@ public class PlantLogic {
     public static final int BASE_GROW_CHANCE = 100;
     public static final float BASE_GROW_CHANCE_MODIFIER = 0.1F;
     public static final float BEENEST_GROW_CHANCE_MODIFIER = 1.8F;
+    public static final int BONEMEAL_PARTICLE_COUNT = 10;
+    public static final int GROWTHBLOCK_PARTICLE_COUNT = 8;
 
     //VERY BASIC PRESETS
 
@@ -174,6 +180,7 @@ public class PlantLogic {
     }
 
     public static boolean growAttemptHellish(World world, int x, int y, int z, Random random) {
+        //For now it's the same as vanilla grow beside lava moisture, but I'm keepingit as seperate method for future.
         float growChanceModifier = BASE_GROW_CHANCE_MODIFIER;
         //Add moisture
         growChanceModifier += getHellishMoisture(world, x, y, z);
@@ -200,6 +207,9 @@ public class PlantLogic {
 
     public static void bonemealClientEffect(World world, int x, int y, int z) {
         world.playSound(x, y, z, "step.grass", 1.0F, 1.6F);
+        for (int i = 0; i < BONEMEAL_PARTICLE_COUNT; i++) {
+            ParticleAPI.addParticle(new Bonemeal(world, x, y, z));
+        }
     }
 
     public static void harvestClientEffect(World world, int x, int y, int z) {
@@ -212,6 +222,9 @@ public class PlantLogic {
 
     public static void blockGrowthClientEffect(World world, int x, int y, int z) {
         world.playSound(x, y, z, "mob.cow", 0.5F, 0.4F);
+        for (int i = 0; i < GROWTHBLOCK_PARTICLE_COUNT; i++) {
+            ParticleAPI.addParticle(new GrowthBlock(world, x, y, z));
+        }
     }
 
     public static void snowloggingClientEffect(World world, int x, int y, int z) {
